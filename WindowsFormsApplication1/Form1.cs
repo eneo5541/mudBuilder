@@ -17,14 +17,15 @@ namespace WindowsFormsApplication1
     {
         ASGenerator asGenerator;
         ObjectType layoutState;
+        string fileName;
 
         public Form1()
         {
             asGenerator = new ASGenerator();
-            setLayout(ObjectType.ITEM);
+            fileName = "";
+            setLayout(ObjectType.ROOM);
             InitializeComponent();
         }
-
 
 
         private void generateButton_Click(object sender, EventArgs e)
@@ -112,6 +113,59 @@ namespace WindowsFormsApplication1
         {
             string parseNewLinesForAS = aliasTextBox.Text.Replace(Environment.NewLine, "','");
             asGenerator.setAliases(parseNewLinesForAS);
+        }
+
+        private void directionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+        }
+        
+        private void findExitLocationButton_Click(object sender, EventArgs e)
+        {
+            int size = -1;
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                this.fileName = "";
+                string fileName = "" + openFileDialog1.FileName;
+
+                int objectPath = fileName.IndexOf("\\src\\objects\\rooms\\");
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. Exit files must be inside the \src\objects\rooms folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = fileName.Substring(fileName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Exit files must be .as files.");
+                    return;
+                }
+
+                string[] path = fileName.Split('\\');
+                exitLocationLabel.Text = "... "+path[path.Length - 1];
+                this.fileName = fileName.Substring(objectPath, (fileName.Length - objectPath));
+            }
+        }
+
+        private void addExitButton_Click(object sender, EventArgs e)
+        {
+            string directionText = directionTextBox.Text;
+            
+            if (fileName.Length == 0 || directionText.Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("You must enter a valid direction and a valid location to add an exit.");
+                return;
+            }
+
+            string[] path = fileName.Split('\\');
+            exitsCheckedList.Items.Add(directionText + " - " + path[path.Length - 1], true);
+            directionTextBox.Text = exitLocationLabel.Text = "";
+            fileName = "";
         }
 
     }

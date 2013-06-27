@@ -16,7 +16,6 @@ enum ObjectType
 
 namespace WindowsFormsApplication1
 {
-
     class ASGenerator
     {
         public ObjectType objectType;
@@ -29,16 +28,18 @@ namespace WindowsFormsApplication1
         string shortDesc;
         string aliases;
         string longDesc;
+        Dictionary<string, string> exits; 
 
         public ASGenerator()
         {
             setPackage("house");
+            exits = new Dictionary<string,string>;
             aliases = "";
         }
 
         public void generateAS()
         {
-            string pathString = @"C:\inetpub\wwwroot\asTest\" + package[0] + @"\" + package[1] + @"\";
+            string pathString = @"C:\inetpub\wwwroot\asTest\src\objects\" + package[0] + @"\" + package[1] + @"\";
             string fileName = pathString + objectName + ".as";
             
             try
@@ -170,7 +171,10 @@ namespace WindowsFormsApplication1
             this.longDesc = longDesc;
         }
 
-
+        public void addExit(string direction, string location)
+        {
+            exits.Add(direction, location);
+        }
 
     }
 
