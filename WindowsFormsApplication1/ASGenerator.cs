@@ -30,11 +30,17 @@ namespace WindowsFormsApplication1
         Boolean isGettable;
         Dictionary<string, string> npcs;
         Dictionary<string, string> gettables;
+        Dictionary<string, string> descriptions;
 
         public ASGenerator()
         {
             setPackage("house");
             resetAllFields();
+        }
+
+        public string getObjectName()
+        {
+            return "objects." + package[0] + "\\" + package[1] + "\\" + objectName + ".as";
         }
 
         private void resetAllFields()
@@ -50,6 +56,7 @@ namespace WindowsFormsApplication1
             isGettable = true;
             npcs = new Dictionary<string, string>();
             gettables = new Dictionary<string, string>();
+            descriptions = new Dictionary<string, string>();
         }
 
         public void generateAS()

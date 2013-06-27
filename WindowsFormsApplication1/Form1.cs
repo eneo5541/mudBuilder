@@ -59,6 +59,7 @@ namespace WindowsFormsApplication1
             {
                 asGenerator.generateAS();
                 resetAllFields();
+                generatedLabel.Text = @"Create the file: ...\" + asGenerator.getObjectName();
             }
         }
 
@@ -112,6 +113,7 @@ namespace WindowsFormsApplication1
                     addItemPanel.Visible = false;
                     aliasPanel.Visible = true;
                     exitsPanel.Visible = false;
+                    descriptionPanel.Visible = false;
                     break;
                 case ObjectType.NPC:
                     itemPickupCheckBox.Visible = false;
@@ -119,6 +121,7 @@ namespace WindowsFormsApplication1
                     addItemPanel.Visible = false;
                     aliasPanel.Visible = true;
                     exitsPanel.Visible = false;
+                    descriptionPanel.Visible = false;
                     break;
                 case ObjectType.ROOM:
                     itemPickupCheckBox.Visible = false;
@@ -126,6 +129,7 @@ namespace WindowsFormsApplication1
                     addItemPanel.Visible = true;
                     aliasPanel.Visible = false;
                     exitsPanel.Visible = true;
+                    descriptionPanel.Visible = true;
                     break;
                 default:
                     return;
