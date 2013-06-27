@@ -56,12 +56,25 @@
             this.directionTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.removeExitsButton = new System.Windows.Forms.Button();
+            this.itemPickupCheckBox = new System.Windows.Forms.CheckBox();
+            this.addNPCsPanel = new System.Windows.Forms.Panel();
+            this.removeCheckedNPCsButton = new System.Windows.Forms.Button();
+            this.addNPCsButton = new System.Windows.Forms.Button();
+            this.addedNPCsCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.addNpcsLabel = new System.Windows.Forms.Label();
+            this.addItemPanel = new System.Windows.Forms.Panel();
+            this.removeCheckedItemsButton = new System.Windows.Forms.Button();
+            this.addItemButton = new System.Windows.Forms.Button();
+            this.addedItemsCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.addItemLabel = new System.Windows.Forms.Label();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
             this.longDescPanel.SuspendLayout();
             this.aliasPanel.SuspendLayout();
             this.exitsPanel.SuspendLayout();
+            this.addNPCsPanel.SuspendLayout();
+            this.addItemPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generateButton
@@ -88,7 +101,7 @@
             this.objectTypePanel.Controls.Add(this.roomRadioButton);
             this.objectTypePanel.Controls.Add(this.npcRadioButton);
             this.objectTypePanel.Controls.Add(this.itemRadioButton);
-            this.objectTypePanel.Location = new System.Drawing.Point(388, 30);
+            this.objectTypePanel.Location = new System.Drawing.Point(388, 27);
             this.objectTypePanel.Name = "objectTypePanel";
             this.objectTypePanel.Size = new System.Drawing.Size(74, 97);
             this.objectTypePanel.TabIndex = 3;
@@ -325,15 +338,128 @@
             this.removeExitsButton.Name = "removeExitsButton";
             this.removeExitsButton.Size = new System.Drawing.Size(162, 23);
             this.removeExitsButton.TabIndex = 15;
-            this.removeExitsButton.Text = "Remove checked items";
+            this.removeExitsButton.Text = "Remove checked exits";
             this.removeExitsButton.UseVisualStyleBackColor = true;
             this.removeExitsButton.Click += new System.EventHandler(this.removeExitsButton_Click);
+            // 
+            // itemPickupCheckBox
+            // 
+            this.itemPickupCheckBox.Checked = true;
+            this.itemPickupCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.itemPickupCheckBox.Location = new System.Drawing.Point(388, 135);
+            this.itemPickupCheckBox.Name = "itemPickupCheckBox";
+            this.itemPickupCheckBox.Size = new System.Drawing.Size(101, 48);
+            this.itemPickupCheckBox.TabIndex = 12;
+            this.itemPickupCheckBox.Text = "Player can carry this item";
+            this.itemPickupCheckBox.UseVisualStyleBackColor = true;
+            this.itemPickupCheckBox.CheckedChanged += new System.EventHandler(this.itemPickupCheckBox_CheckedChanged);
+            // 
+            // addNPCsPanel
+            // 
+            this.addNPCsPanel.Controls.Add(this.removeCheckedNPCsButton);
+            this.addNPCsPanel.Controls.Add(this.addNPCsButton);
+            this.addNPCsPanel.Controls.Add(this.addedNPCsCheckedList);
+            this.addNPCsPanel.Controls.Add(this.addNpcsLabel);
+            this.addNPCsPanel.Location = new System.Drawing.Point(485, 27);
+            this.addNPCsPanel.Name = "addNPCsPanel";
+            this.addNPCsPanel.Size = new System.Drawing.Size(188, 297);
+            this.addNPCsPanel.TabIndex = 13;
+            // 
+            // removeCheckedNPCsButton
+            // 
+            this.removeCheckedNPCsButton.Location = new System.Drawing.Point(6, 266);
+            this.removeCheckedNPCsButton.Name = "removeCheckedNPCsButton";
+            this.removeCheckedNPCsButton.Size = new System.Drawing.Size(162, 23);
+            this.removeCheckedNPCsButton.TabIndex = 15;
+            this.removeCheckedNPCsButton.Text = "Remove checked NPCs";
+            this.removeCheckedNPCsButton.UseVisualStyleBackColor = true;
+            this.removeCheckedNPCsButton.Click += new System.EventHandler(this.removeCheckedNPCsButton_Click);
+            // 
+            // addNPCsButton
+            // 
+            this.addNPCsButton.Location = new System.Drawing.Point(6, 22);
+            this.addNPCsButton.Name = "addNPCsButton";
+            this.addNPCsButton.Size = new System.Drawing.Size(75, 23);
+            this.addNPCsButton.TabIndex = 12;
+            this.addNPCsButton.Text = "Add NPC";
+            this.addNPCsButton.UseVisualStyleBackColor = true;
+            this.addNPCsButton.Click += new System.EventHandler(this.addNPCsButton_Click);
+            // 
+            // addedNPCsCheckedList
+            // 
+            this.addedNPCsCheckedList.CheckOnClick = true;
+            this.addedNPCsCheckedList.FormattingEnabled = true;
+            this.addedNPCsCheckedList.Location = new System.Drawing.Point(6, 49);
+            this.addedNPCsCheckedList.Name = "addedNPCsCheckedList";
+            this.addedNPCsCheckedList.Size = new System.Drawing.Size(179, 214);
+            this.addedNPCsCheckedList.TabIndex = 8;
+            // 
+            // addNpcsLabel
+            // 
+            this.addNpcsLabel.AutoSize = true;
+            this.addNpcsLabel.Location = new System.Drawing.Point(3, 3);
+            this.addNpcsLabel.Name = "addNpcsLabel";
+            this.addNpcsLabel.Size = new System.Drawing.Size(66, 13);
+            this.addNpcsLabel.TabIndex = 9;
+            this.addNpcsLabel.Text = "Add an NPC";
+            // 
+            // addItemPanel
+            // 
+            this.addItemPanel.Controls.Add(this.removeCheckedItemsButton);
+            this.addItemPanel.Controls.Add(this.addItemButton);
+            this.addItemPanel.Controls.Add(this.addedItemsCheckedList);
+            this.addItemPanel.Controls.Add(this.addItemLabel);
+            this.addItemPanel.Location = new System.Drawing.Point(485, 390);
+            this.addItemPanel.Name = "addItemPanel";
+            this.addItemPanel.Size = new System.Drawing.Size(188, 297);
+            this.addItemPanel.TabIndex = 14;
+            // 
+            // removeCheckedItemsButton
+            // 
+            this.removeCheckedItemsButton.Location = new System.Drawing.Point(6, 266);
+            this.removeCheckedItemsButton.Name = "removeCheckedItemsButton";
+            this.removeCheckedItemsButton.Size = new System.Drawing.Size(162, 23);
+            this.removeCheckedItemsButton.TabIndex = 15;
+            this.removeCheckedItemsButton.Text = "Remove checked Items";
+            this.removeCheckedItemsButton.UseVisualStyleBackColor = true;
+            this.removeCheckedItemsButton.Click += new System.EventHandler(this.removeCheckedItemsButton_Click);
+            // 
+            // addItemButton
+            // 
+            this.addItemButton.Location = new System.Drawing.Point(6, 22);
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(75, 23);
+            this.addItemButton.TabIndex = 12;
+            this.addItemButton.Text = "Add Item";
+            this.addItemButton.UseVisualStyleBackColor = true;
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
+            // 
+            // addedItemsCheckedList
+            // 
+            this.addedItemsCheckedList.CheckOnClick = true;
+            this.addedItemsCheckedList.FormattingEnabled = true;
+            this.addedItemsCheckedList.Location = new System.Drawing.Point(6, 49);
+            this.addedItemsCheckedList.Name = "addedItemsCheckedList";
+            this.addedItemsCheckedList.Size = new System.Drawing.Size(179, 214);
+            this.addedItemsCheckedList.TabIndex = 8;
+            // 
+            // addItemLabel
+            // 
+            this.addItemLabel.AutoSize = true;
+            this.addItemLabel.Location = new System.Drawing.Point(3, 3);
+            this.addItemLabel.Name = "addItemLabel";
+            this.addItemLabel.Size = new System.Drawing.Size(64, 13);
+            this.addItemLabel.TabIndex = 9;
+            this.addItemLabel.Text = "Add an Item";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.addItemPanel);
+            this.Controls.Add(this.addNPCsPanel);
+            this.Controls.Add(this.itemPickupCheckBox);
             this.Controls.Add(this.exitsPanel);
             this.Controls.Add(this.aliasPanel);
             this.Controls.Add(this.longDescPanel);
@@ -356,6 +482,10 @@
             this.aliasPanel.PerformLayout();
             this.exitsPanel.ResumeLayout(false);
             this.exitsPanel.PerformLayout();
+            this.addNPCsPanel.ResumeLayout(false);
+            this.addNPCsPanel.PerformLayout();
+            this.addItemPanel.ResumeLayout(false);
+            this.addItemPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -390,6 +520,17 @@
         private System.Windows.Forms.TextBox directionTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button removeExitsButton;
+        private System.Windows.Forms.CheckBox itemPickupCheckBox;
+        private System.Windows.Forms.Panel addNPCsPanel;
+        private System.Windows.Forms.Button removeCheckedNPCsButton;
+        private System.Windows.Forms.Button addNPCsButton;
+        private System.Windows.Forms.CheckedListBox addedNPCsCheckedList;
+        private System.Windows.Forms.Label addNpcsLabel;
+        private System.Windows.Forms.Panel addItemPanel;
+        private System.Windows.Forms.Button removeCheckedItemsButton;
+        private System.Windows.Forms.Button addItemButton;
+        private System.Windows.Forms.CheckedListBox addedItemsCheckedList;
+        private System.Windows.Forms.Label addItemLabel;
     }
 }
 

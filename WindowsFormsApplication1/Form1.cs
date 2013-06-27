@@ -29,11 +29,29 @@ namespace WindowsFormsApplication1
             
         }
 
+        private void resetAllFields()
+        {
+            fileName = "";
+            objectNameTextBox.Text = "";
+            shortDescTextBox.Text = "";
+            longDescTextBox.Text = "";
+            aliasTextBox.Text = "";
+            itemPickupCheckBox.Checked = true;
+            directionTextBox.Text = "";
+            exitLocationLabel.Text = "";
+            while (exitsCheckedList.Items.Count > 0)
+            {
+                exitsCheckedList.Items.Remove(exitsCheckedList.Items[0]);
+            }
+        }
 
         private void generateButton_Click(object sender, EventArgs e)
         {
             if (checkTextIsValid(objectNameTextBox.Text, "Object Name") && checkDescriptionTextIsValid())
+            {
                 asGenerator.generateAS();
+                resetAllFields();
+            }
         }
 
         private Boolean checkTextIsValid(string targetText, string objectName)
@@ -81,14 +99,23 @@ namespace WindowsFormsApplication1
             switch (layoutState)
             {
                 case ObjectType.ITEM:
+                    itemPickupCheckBox.Visible = true;
+                    addNPCsPanel.Visible = false;
+                    addItemPanel.Visible = false;
                     aliasPanel.Visible = true;
                     exitsPanel.Visible = false;
                     break;
                 case ObjectType.NPC:
+                    itemPickupCheckBox.Visible = false;
+                    addNPCsPanel.Visible = false;
+                    addItemPanel.Visible = false;
                     aliasPanel.Visible = true;
                     exitsPanel.Visible = false;
                     break;
                 case ObjectType.ROOM:
+                    itemPickupCheckBox.Visible = false;
+                    addNPCsPanel.Visible = true;
+                    addItemPanel.Visible = true;
                     aliasPanel.Visible = false;
                     exitsPanel.Visible = true;
                     break;
@@ -131,7 +158,7 @@ namespace WindowsFormsApplication1
         private void aliasTextBox_TextChanged(object sender, EventArgs e)
         {
             string parseNewLinesForAS = aliasTextBox.Text.Replace(Environment.NewLine, "','");
-            asGenerator.setAliases(parseNewLinesForAS);
+            asGenerator.setAliases("'" + parseNewLinesForAS + "'");
         }
 
         private void directionTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -145,7 +172,7 @@ namespace WindowsFormsApplication1
         private void findExitLocationButton_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
+            if (result == DialogResult.OK)
             {
                 this.fileName = "";
                 string fileName = "" + openFileDialog1.FileName;
@@ -202,8 +229,102 @@ namespace WindowsFormsApplication1
                 string checkedItem = ""+exitsCheckedList.CheckedItems[0].ToString();
                 string[] path = checkedItem.Split('-');
                 asGenerator.removeExit(path[0].Trim());
-
+                
                 exitsCheckedList.Items.Remove(exitsCheckedList.CheckedItems[0]);
+            }
+        }
+
+        private void itemPickupCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            asGenerator.setItemGettable(itemPickupCheckBox.Checked);
+        }
+
+        private void addNPCsButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string npcName = "" + openFileDialog1.FileName;
+
+                int objectPath = npcName.IndexOf("\\src\\objects\\npcs\\");
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. NPC files must be inside the \src\objects\npcs folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = npcName.Substring(npcName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. NPC files must be .as files.");
+                    return;
+                }
+
+                if (asGenerator.doesNPCExist(npcName))
+                {
+                    System.Windows.Forms.MessageBox.Show("This NPC has already been added to the room.");
+                    return;
+                }
+
+                string[] path = npcName.Split('\\');
+                addedNPCsCheckedList.Items.Add(path[path.Length - 1], false);
+                
+                asGenerator.addNPC(path[path.Length - 1], npcName);
+            }
+        }
+
+        private void removeCheckedNPCsButton_Click(object sender, EventArgs e)
+        {
+            while (addedNPCsCheckedList.CheckedItems.Count > 0)
+            {
+                asGenerator.removeNPC(addedNPCsCheckedList.CheckedItems[0].ToString());
+
+                addedNPCsCheckedList.Items.Remove(addedNPCsCheckedList.CheckedItems[0]);
+            }
+        }
+
+
+        private void addItemButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string itemName = "" + openFileDialog1.FileName;
+
+                int objectPath = itemName.IndexOf("\\src\\objects\\gettables\\");
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. Item files must be inside the \src\objects\gettables folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = itemName.Substring(itemName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Item files must be .as files.");
+                    return;
+                }
+
+                if (asGenerator.doesGettableExist(itemName))
+                {
+                    System.Windows.Forms.MessageBox.Show("This item has already been added to the room.");
+                    return;
+                }
+
+                string[] path = itemName.Split('\\');
+                addedItemsCheckedList.Items.Add(path[path.Length - 1], false);
+
+                asGenerator.addGettable(path[path.Length - 1], itemName);
+            }
+        }
+
+        private void removeCheckedItemsButton_Click(object sender, EventArgs e)
+        {
+            while (addedItemsCheckedList.CheckedItems.Count > 0)
+            {
+                asGenerator.removeGettable(addedNPCsCheckedList.CheckedItems[0].ToString());
+
+                addedItemsCheckedList.Items.Remove(addedItemsCheckedList.CheckedItems[0]);
             }
         }
 

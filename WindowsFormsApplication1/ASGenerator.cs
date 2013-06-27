@@ -26,15 +26,30 @@ namespace WindowsFormsApplication1
         string shortDesc;
         string aliases;
         string longDesc;
-        Dictionary<string, string> exits; 
+        Dictionary<string, string> exits;
+        Boolean isGettable;
+        Dictionary<string, string> npcs;
+        Dictionary<string, string> gettables;
 
         public ASGenerator()
         {
             setPackage("house");
-            exits = new Dictionary<string,string>();
-            aliases = "";
+            resetAllFields();
+        }
 
+        private void resetAllFields()
+        {
+            string[] package = new String[2];
             imports = new List<String>();
+            extension = "";
+            objectName = "";
+            shortDesc = "";
+            aliases = "";
+            longDesc = "";
+            exits = new Dictionary<string, string>();
+            isGettable = true;
+            npcs = new Dictionary<string, string>();
+            gettables = new Dictionary<string, string>();
         }
 
         public void generateAS()
@@ -72,6 +87,11 @@ namespace WindowsFormsApplication1
                     sw.WriteLine("        public function " + objectName + "() ");
                     sw.WriteLine("        {");
                     sw.WriteLine("            super();");
+                    if (objectType == ObjectType.ITEM && !isGettable)
+                    {
+                        sw.WriteLine("            ");
+                        sw.WriteLine("            isGettable = false;");
+                    }
                     sw.WriteLine("        }");
                     sw.WriteLine("        ");
                     sw.WriteLine("        override public function setShortDesc():void");
@@ -113,6 +133,8 @@ namespace WindowsFormsApplication1
                         Console.WriteLine(s);
                     }
                 }
+
+                resetAllFields();
             }
             catch (Exception Ex)
             {
@@ -224,6 +246,40 @@ namespace WindowsFormsApplication1
             return exitsString;
         }
 
+        public void setItemGettable(Boolean isGettable)
+        {
+            this.isGettable = isGettable;
+        }
+
+        public void addNPC(string npcName, string npcLocation)
+        {
+            npcs.Add(npcName, npcLocation);
+        }
+
+        public void removeNPC(string npcName)
+        {
+            npcs.Remove(npcName);
+        }
+
+        public Boolean doesNPCExist(string npcLocation)
+        {
+            return npcs.ContainsValue(npcLocation);
+        }
+
+        public void addGettable(string itemName, string itemLocation)
+        {
+            gettables.Add(itemName, itemLocation);
+        }
+
+        public void removeGettable(string itemName)
+        {
+            gettables.Remove(itemName);
+        }
+
+        public Boolean doesGettableExist(string gettableLocation)
+        {
+            return gettables.ContainsValue(gettableLocation);
+        }
 
     }
 
