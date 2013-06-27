@@ -124,7 +124,7 @@ namespace WindowsFormsApplication1
 
         private void longDescTextBox_TextChanged(object sender, EventArgs e)
         {
-            string parseNewLinesForAS = longDescTextBox.Text.Replace(Environment.NewLine, @"\n\n'+" + "\n					'");
+            string parseNewLinesForAS = longDescTextBox.Text.Replace(Environment.NewLine, @"\n'+" + "\n					'");
             asGenerator.setLong(parseNewLinesForAS);
         }
 
@@ -144,7 +144,6 @@ namespace WindowsFormsApplication1
         
         private void findExitLocationButton_Click(object sender, EventArgs e)
         {
-            int size = -1;
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK) // Test result.
             {
@@ -200,6 +199,10 @@ namespace WindowsFormsApplication1
         {
             while (exitsCheckedList.CheckedItems.Count > 0)
             {
+                string checkedItem = ""+exitsCheckedList.CheckedItems[0].ToString();
+                string[] path = checkedItem.Split('-');
+                asGenerator.removeExit(path[0].Trim());
+
                 exitsCheckedList.Items.Remove(exitsCheckedList.CheckedItems[0]);
             }
         }

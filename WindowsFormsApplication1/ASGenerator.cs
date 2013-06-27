@@ -33,6 +33,8 @@ namespace WindowsFormsApplication1
             setPackage("house");
             exits = new Dictionary<string,string>();
             aliases = "";
+
+            imports = new List<String>();
         }
 
         public void generateAS()
@@ -40,8 +42,10 @@ namespace WindowsFormsApplication1
             string pathString = @"C:\inetpub\wwwroot\asTest\src\objects\" + package[0] + @"\" + package[1] + @"\";
             string fileName = pathString + objectName + ".as";
 
-            parseExits();
-            return;
+            string exitsString = "";
+            if(objectType == ObjectType.ROOM && exits.Count > 0)
+                exitsString = parseExits();
+            
             try
             {
                 if (!Directory.Exists(pathString))
@@ -88,6 +92,14 @@ namespace WindowsFormsApplication1
                     sw.WriteLine("            longDesc = '" + longDesc + "';");
                     sw.WriteLine("        }");
                     sw.WriteLine("        ");
+                    if (objectType == ObjectType.ROOM && exitsString.Length > 0)
+                    {
+                        sw.WriteLine("        override public function setExits():void");
+                        sw.WriteLine("        {");
+                        sw.WriteLine("            exits = { " + exitsString + " };");
+                        sw.WriteLine("        }");
+                        sw.WriteLine("        ");
+                    }
                     sw.WriteLine("    }");
                     sw.WriteLine("    ");
                     sw.WriteLine("}");
@@ -146,7 +158,7 @@ namespace WindowsFormsApplication1
             if (objectName.Length == 0)
                 this.objectName = "";
             else
-                this.objectName = objectName.Substring(0, 1).ToUpper() + objectName.Substring(1, objectName.Length-1).ToLower();
+                this.objectName = objectName.Substring(0, 1).ToUpper() + objectName.Substring(1, objectName.Length-1);
         }
 
         public void setShort(string shortDesc)
@@ -176,6 +188,11 @@ namespace WindowsFormsApplication1
             exits.Add(direction, location);
         }
 
+        public void removeExit(string direction)
+        {
+            exits.Remove(direction);
+        }
+
         public Boolean doesExitExist(string direction, string location)
         {
             foreach (KeyValuePair<string, string> pair in exits)
@@ -187,7 +204,7 @@ namespace WindowsFormsApplication1
             return false;
         }
 
-        private void parseExits()
+        private string parseExits()
         {
             string exitsString = "";
             foreach (KeyValuePair<string, string> pair in exits)
@@ -195,15 +212,16 @@ namespace WindowsFormsApplication1
                 string[] path = pair.Value.Split('\\');
                 string fileName = path[path.Length - 1];
 
-                exitsString += pair.Key.ToLower() + ":" + fileName.Substring(0, fileName.Length - 3) + ",\n";
+                exitsString += pair.Key.ToLower() + ":" + fileName.Substring(0, fileName.Length - 3) + ",\n					";
+                imports.Add("import objects.rooms." + package[1] + "." + fileName.Substring(0, fileName.Length - 3) + ";");
             }
 
             if (exitsString.Length > 0)
             {
-                exitsString = exitsString.Substring(0, exitsString.Length - 2);
+                exitsString = exitsString.Substring(0, exitsString.Length - 7);
             }
 
-            System.Windows.Forms.MessageBox.Show(exitsString);
+            return exitsString;
         }
 
 
