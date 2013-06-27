@@ -18,9 +18,7 @@ namespace WindowsFormsApplication1
 {
     class ASGenerator
     {
-        public ObjectType objectType;
-
-
+        ObjectType objectType;
         string[] package = new String[2];
         List<String> imports;
         string extension;
@@ -33,7 +31,7 @@ namespace WindowsFormsApplication1
         public ASGenerator()
         {
             setPackage("house");
-            exits = new Dictionary<string,string>;
+            exits = new Dictionary<string,string>();
             aliases = "";
         }
 
@@ -41,7 +39,9 @@ namespace WindowsFormsApplication1
         {
             string pathString = @"C:\inetpub\wwwroot\asTest\src\objects\" + package[0] + @"\" + package[1] + @"\";
             string fileName = pathString + objectName + ".as";
-            
+
+            parseExits();
+            return;
             try
             {
                 if (!Directory.Exists(pathString))
@@ -175,6 +175,37 @@ namespace WindowsFormsApplication1
         {
             exits.Add(direction, location);
         }
+
+        public Boolean doesExitExist(string direction, string location)
+        {
+            foreach (KeyValuePair<string, string> pair in exits)
+            {
+                if(pair.Key == direction || pair.Value == location)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private void parseExits()
+        {
+            string exitsString = "";
+            foreach (KeyValuePair<string, string> pair in exits)
+            {
+                string[] path = pair.Value.Split('\\');
+                string fileName = path[path.Length - 1];
+
+                exitsString += pair.Key.ToLower() + ":" + fileName.Substring(0, fileName.Length - 3) + ",\n";
+            }
+
+            if (exitsString.Length > 0)
+            {
+                exitsString = exitsString.Substring(0, exitsString.Length - 2);
+            }
+
+            System.Windows.Forms.MessageBox.Show(exitsString);
+        }
+
 
     }
 

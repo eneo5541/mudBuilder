@@ -49,18 +49,19 @@
             this.exitsCheckedList = new System.Windows.Forms.CheckedListBox();
             this.exitsLabel = new System.Windows.Forms.Label();
             this.directionLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.exitsPanel = new System.Windows.Forms.Panel();
             this.exitLocationLabel = new System.Windows.Forms.Label();
             this.addExitButton = new System.Windows.Forms.Button();
             this.findExitLocationButton = new System.Windows.Forms.Button();
             this.directionTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.removeExitsButton = new System.Windows.Forms.Button();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
             this.longDescPanel.SuspendLayout();
             this.aliasPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.exitsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generateButton
@@ -95,7 +96,7 @@
             // objectTypeLabel
             // 
             this.objectTypeLabel.AutoSize = true;
-            this.objectTypeLabel.Location = new System.Drawing.Point(3, 0);
+            this.objectTypeLabel.Location = new System.Drawing.Point(3, 3);
             this.objectTypeLabel.Name = "objectTypeLabel";
             this.objectTypeLabel.Size = new System.Drawing.Size(65, 13);
             this.objectTypeLabel.TabIndex = 3;
@@ -213,7 +214,7 @@
             this.aliasPanel.Controls.Add(this.aliasTextBox);
             this.aliasPanel.Location = new System.Drawing.Point(24, 390);
             this.aliasPanel.Name = "aliasPanel";
-            this.aliasPanel.Size = new System.Drawing.Size(336, 225);
+            this.aliasPanel.Size = new System.Drawing.Size(336, 260);
             this.aliasPanel.TabIndex = 7;
             // 
             // aliasLabel
@@ -237,6 +238,7 @@
             // 
             // exitsCheckedList
             // 
+            this.exitsCheckedList.CheckOnClick = true;
             this.exitsCheckedList.FormattingEnabled = true;
             this.exitsCheckedList.Location = new System.Drawing.Point(6, 106);
             this.exitsCheckedList.Name = "exitsCheckedList";
@@ -261,19 +263,20 @@
             this.directionLabel.TabIndex = 10;
             this.directionLabel.Text = "Direction";
             // 
-            // panel1
+            // exitsPanel
             // 
-            this.panel1.Controls.Add(this.exitLocationLabel);
-            this.panel1.Controls.Add(this.addExitButton);
-            this.panel1.Controls.Add(this.findExitLocationButton);
-            this.panel1.Controls.Add(this.directionTextBox);
-            this.panel1.Controls.Add(this.exitsCheckedList);
-            this.panel1.Controls.Add(this.directionLabel);
-            this.panel1.Controls.Add(this.exitsLabel);
-            this.panel1.Location = new System.Drawing.Point(612, 211);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(258, 298);
-            this.panel1.TabIndex = 11;
+            this.exitsPanel.Controls.Add(this.removeExitsButton);
+            this.exitsPanel.Controls.Add(this.exitLocationLabel);
+            this.exitsPanel.Controls.Add(this.addExitButton);
+            this.exitsPanel.Controls.Add(this.findExitLocationButton);
+            this.exitsPanel.Controls.Add(this.directionTextBox);
+            this.exitsPanel.Controls.Add(this.exitsCheckedList);
+            this.exitsPanel.Controls.Add(this.directionLabel);
+            this.exitsPanel.Controls.Add(this.exitsLabel);
+            this.exitsPanel.Location = new System.Drawing.Point(24, 390);
+            this.exitsPanel.Name = "exitsPanel";
+            this.exitsPanel.Size = new System.Drawing.Size(258, 297);
+            this.exitsPanel.TabIndex = 11;
             // 
             // exitLocationLabel
             // 
@@ -316,12 +319,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // removeExitsButton
+            // 
+            this.removeExitsButton.Location = new System.Drawing.Point(6, 266);
+            this.removeExitsButton.Name = "removeExitsButton";
+            this.removeExitsButton.Size = new System.Drawing.Size(162, 23);
+            this.removeExitsButton.TabIndex = 15;
+            this.removeExitsButton.Text = "Remove checked items";
+            this.removeExitsButton.UseVisualStyleBackColor = true;
+            this.removeExitsButton.Click += new System.EventHandler(this.removeExitsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.exitsPanel);
             this.Controls.Add(this.aliasPanel);
             this.Controls.Add(this.longDescPanel);
             this.Controls.Add(this.shortDescPanel);
@@ -341,8 +354,8 @@
             this.longDescPanel.PerformLayout();
             this.aliasPanel.ResumeLayout(false);
             this.aliasPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.exitsPanel.ResumeLayout(false);
+            this.exitsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -370,12 +383,13 @@
         private System.Windows.Forms.CheckedListBox exitsCheckedList;
         private System.Windows.Forms.Label exitsLabel;
         private System.Windows.Forms.Label directionLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel exitsPanel;
         private System.Windows.Forms.Label exitLocationLabel;
         private System.Windows.Forms.Button addExitButton;
         private System.Windows.Forms.Button findExitLocationButton;
         private System.Windows.Forms.TextBox directionTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button removeExitsButton;
     }
 }
 

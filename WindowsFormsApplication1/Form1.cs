@@ -21,33 +21,35 @@ namespace WindowsFormsApplication1
 
         public Form1()
         {
+            InitializeComponent();
+
             asGenerator = new ASGenerator();
             fileName = "";
             setLayout(ObjectType.ROOM);
-            InitializeComponent();
+            
         }
 
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            if (checkObjectTextIsValid() && checkDescriptionTextIsValid())
+            if (checkTextIsValid(objectNameTextBox.Text, "Object Name") && checkDescriptionTextIsValid())
                 asGenerator.generateAS();
         }
 
-        private Boolean checkObjectTextIsValid()
+        private Boolean checkTextIsValid(string targetText, string objectName)
         {
-            if (objectNameTextBox.Text.Length == 0)
+            if (targetText.Length == 0)
             {
-                System.Windows.Forms.MessageBox.Show("Object name cannot be left blank");
+                System.Windows.Forms.MessageBox.Show(objectName + " cannot be left blank");
                 return false;
             }
             else
             {
                 double Num;
-                bool isNum = double.TryParse(objectNameTextBox.Text.Substring(0, 1), out Num);
+                bool isNum = double.TryParse(targetText.Substring(0, 1), out Num);
                 if (isNum)
                 {
-                    System.Windows.Forms.MessageBox.Show("Object name must start with a letter");
+                    System.Windows.Forms.MessageBox.Show(objectName + " must start with a letter");
                     return false;
                 }
             }
@@ -71,11 +73,28 @@ namespace WindowsFormsApplication1
             return true;
         }
 
-       
         private void setLayout(ObjectType type)
         {
             layoutState = type;
             asGenerator.setType(type);
+
+            switch (layoutState)
+            {
+                case ObjectType.ITEM:
+                    aliasPanel.Visible = true;
+                    exitsPanel.Visible = false;
+                    break;
+                case ObjectType.NPC:
+                    aliasPanel.Visible = true;
+                    exitsPanel.Visible = false;
+                    break;
+                case ObjectType.ROOM:
+                    aliasPanel.Visible = false;
+                    exitsPanel.Visible = true;
+                    break;
+                default:
+                    return;
+            }
         }
 
         private void objectName_TextChanged(object sender, EventArgs e)
@@ -155,17 +174,34 @@ namespace WindowsFormsApplication1
         private void addExitButton_Click(object sender, EventArgs e)
         {
             string directionText = directionTextBox.Text;
-            
-            if (fileName.Length == 0 || directionText.Length == 0)
+
+            if (!checkTextIsValid(directionTextBox.Text, "Exit direction"))
+                return;
+
+            if (!checkTextIsValid(fileName, "Exit location"))
+                return;
+
+            if (asGenerator.doesExitExist(directionText, fileName))
             {
-                System.Windows.Forms.MessageBox.Show("You must enter a valid direction and a valid location to add an exit.");
+                System.Windows.Forms.MessageBox.Show("This direction or location for this exit already exists. You must remove it from the list to add this current exit.");
                 return;
             }
 
             string[] path = fileName.Split('\\');
-            exitsCheckedList.Items.Add(directionText + " - " + path[path.Length - 1], true);
+            exitsCheckedList.Items.Add(directionText + " - " + path[path.Length - 1], false);
+
+            asGenerator.addExit(directionText, fileName);
+
             directionTextBox.Text = exitLocationLabel.Text = "";
             fileName = "";
+        }
+
+        private void removeExitsButton_Click(object sender, EventArgs e)
+        {
+            while (exitsCheckedList.CheckedItems.Count > 0)
+            {
+                exitsCheckedList.Items.Remove(exitsCheckedList.CheckedItems[0]);
+            }
         }
 
     }
