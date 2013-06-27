@@ -43,6 +43,14 @@ namespace WindowsFormsApplication1
             {
                 exitsCheckedList.Items.Remove(exitsCheckedList.Items[0]);
             }
+            while (addedNPCsCheckedList.Items.Count > 0)
+            {
+                addedNPCsCheckedList.Items.Remove(addedNPCsCheckedList.Items[0]);
+            }
+            while (addedItemsCheckedList.Items.Count > 0)
+            {
+                addedItemsCheckedList.Items.Remove(addedItemsCheckedList.Items[0]);
+            }
         }
 
         private void generateButton_Click(object sender, EventArgs e)

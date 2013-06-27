@@ -58,8 +58,17 @@ namespace WindowsFormsApplication1
             string fileName = pathString + objectName + ".as";
 
             string exitsString = "";
-            if(objectType == ObjectType.ROOM && exits.Count > 0)
-                exitsString = parseExits();
+            string gettablesString = "";
+            string npcString = "";
+            if(objectType == ObjectType.ROOM)
+            {
+                if (exits.Count > 0)
+                    exitsString = parseExits();
+                if (gettables.Count > 0)
+                    gettablesString = parseGettables();
+                if (npcs.Count > 0)
+                    npcString = parseNPCs();
+            }
             
             try
             {
@@ -112,13 +121,32 @@ namespace WindowsFormsApplication1
                     sw.WriteLine("            longDesc = '" + longDesc + "';");
                     sw.WriteLine("        }");
                     sw.WriteLine("        ");
-                    if (objectType == ObjectType.ROOM && exitsString.Length > 0)
+                    if (objectType == ObjectType.ROOM)
                     {
-                        sw.WriteLine("        override public function setExits():void");
-                        sw.WriteLine("        {");
-                        sw.WriteLine("            exits = { " + exitsString + " };");
-                        sw.WriteLine("        }");
-                        sw.WriteLine("        ");
+                        if (exitsString.Length > 0)
+                        {
+                            sw.WriteLine("        override public function setExits():void");
+                            sw.WriteLine("        {");
+                            sw.WriteLine("            exits = { " + exitsString + " };");
+                            sw.WriteLine("        }");
+                            sw.WriteLine("        ");
+                        }
+                        if (npcString.Length > 0)
+                        {
+                            sw.WriteLine("        override public function setNpcs():void");
+                            sw.WriteLine("        {");
+                            sw.WriteLine("            npcs = [ " + npcString + " ];");
+                            sw.WriteLine("        }");
+                            sw.WriteLine("        ");
+                        }
+                        if (gettablesString.Length > 0)
+                        {
+                            sw.WriteLine("        override public function setGettables():void");
+                            sw.WriteLine("        {");
+                            sw.WriteLine("            gettables = [ " + gettablesString + " ];");
+                            sw.WriteLine("        }");
+                            sw.WriteLine("        ");
+                        }
                     }
                     sw.WriteLine("    }");
                     sw.WriteLine("    ");
@@ -266,6 +294,28 @@ namespace WindowsFormsApplication1
             return npcs.ContainsValue(npcLocation);
         }
 
+        private string parseNPCs()
+        {
+            string npcsString = "";
+            foreach (KeyValuePair<string, string> pair in npcs)
+            {
+                string[] path = pair.Value.Split('\\');
+                string fileName = path[path.Length - 1];
+
+                npcsString += fileName.Substring(0, fileName.Length - 3) + ", ";
+                imports.Add("import objects.npcs." + package[1] + "." + fileName.Substring(0, fileName.Length - 3) + ";");
+            }
+
+            if (npcsString.Length > 0)
+            {
+                npcsString = npcsString.Substring(0, npcsString.Length - 2);
+            }
+
+            return npcsString;
+        }
+
+
+
         public void addGettable(string itemName, string itemLocation)
         {
             gettables.Add(itemName, itemLocation);
@@ -280,6 +330,30 @@ namespace WindowsFormsApplication1
         {
             return gettables.ContainsValue(gettableLocation);
         }
+
+        private string parseGettables()
+        {
+            string gettableString = "";
+            foreach (KeyValuePair<string, string> pair in gettables)
+            {
+                string[] path = pair.Value.Split('\\');
+                string fileName = path[path.Length - 1];
+
+                gettableString += fileName.Substring(0, fileName.Length - 3) + ", ";
+                imports.Add("import objects.gettables." + package[1] + "." + fileName.Substring(0, fileName.Length - 3) + ";");
+            }
+
+            if (gettableString.Length > 0)
+            {
+                gettableString = gettableString.Substring(0, gettableString.Length - 2);
+            }
+                    
+            return gettableString;
+        }
+
+
+
+
 
     }
 
