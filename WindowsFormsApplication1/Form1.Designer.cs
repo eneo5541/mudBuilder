@@ -196,6 +196,8 @@
             this.objectManipAddLocationButton = new System.Windows.Forms.Button();
             this.objectManipAddObjectButton = new System.Windows.Forms.Button();
             this.objectManipAddObjectLabel = new System.Windows.Forms.Label();
+            this.nameActionLabel = new System.Windows.Forms.Label();
+            this.nameActionTextBox = new System.Windows.Forms.TextBox();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
@@ -941,6 +943,8 @@
             // 
             // actionViewPanel
             // 
+            this.actionViewPanel.Controls.Add(this.nameActionTextBox);
+            this.actionViewPanel.Controls.Add(this.nameActionLabel);
             this.actionViewPanel.Controls.Add(this.actionResponsePanel);
             this.actionViewPanel.Controls.Add(this.excludedCheckboxPanel);
             this.actionViewPanel.Controls.Add(this.requiredCheckboxPanel);
@@ -970,7 +974,7 @@
             this.actionResponsePanel.Controls.Add(this.actionResponseLabel);
             this.actionResponsePanel.Location = new System.Drawing.Point(298, 34);
             this.actionResponsePanel.Name = "actionResponsePanel";
-            this.actionResponsePanel.Size = new System.Drawing.Size(698, 658);
+            this.actionResponsePanel.Size = new System.Drawing.Size(698, 655);
             this.actionResponsePanel.TabIndex = 21;
             // 
             // addExpPanel
@@ -1753,7 +1757,7 @@
             // 
             // actionViewLabel
             // 
-            this.actionViewLabel.Location = new System.Drawing.Point(12, 9);
+            this.actionViewLabel.Location = new System.Drawing.Point(553, 5);
             this.actionViewLabel.Name = "actionViewLabel";
             this.actionViewLabel.Size = new System.Drawing.Size(443, 23);
             this.actionViewLabel.TabIndex = 2;
@@ -1863,6 +1867,7 @@
             this.objectManipAddLocationButton.TabIndex = 16;
             this.objectManipAddLocationButton.Text = "Add location...";
             this.objectManipAddLocationButton.UseVisualStyleBackColor = true;
+            this.objectManipAddLocationButton.Click += new System.EventHandler(this.objectManipAddLocationButton_Click);
             // 
             // objectManipAddObjectButton
             // 
@@ -1872,6 +1877,7 @@
             this.objectManipAddObjectButton.TabIndex = 15;
             this.objectManipAddObjectButton.Text = "Add object...";
             this.objectManipAddObjectButton.UseVisualStyleBackColor = true;
+            this.objectManipAddObjectButton.Click += new System.EventHandler(this.objectManipAddObjectButton_Click);
             // 
             // objectManipAddObjectLabel
             // 
@@ -1881,14 +1887,30 @@
             this.objectManipAddObjectLabel.Size = new System.Drawing.Size(232, 13);
             this.objectManipAddObjectLabel.TabIndex = 13;
             // 
+            // nameActionLabel
+            // 
+            this.nameActionLabel.AutoSize = true;
+            this.nameActionLabel.Location = new System.Drawing.Point(12, 14);
+            this.nameActionLabel.Name = "nameActionLabel";
+            this.nameActionLabel.Size = new System.Drawing.Size(86, 13);
+            this.nameActionLabel.TabIndex = 22;
+            this.nameActionLabel.Text = "Name this action";
+            // 
+            // nameActionTextBox
+            // 
+            this.nameActionTextBox.Location = new System.Drawing.Point(105, 10);
+            this.nameActionTextBox.Name = "nameActionTextBox";
+            this.nameActionTextBox.Size = new System.Drawing.Size(270, 20);
+            this.nameActionTextBox.TabIndex = 23;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this.actionViewPanel);
-            this.Controls.Add(this.objectManipPanel);
             this.Controls.Add(this.mainViewPanel);
+            this.Controls.Add(this.objectManipPanel);
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "World Generator";
@@ -1918,6 +1940,7 @@
             this.descriptionPanel.ResumeLayout(false);
             this.descriptionPanel.PerformLayout();
             this.actionViewPanel.ResumeLayout(false);
+            this.actionViewPanel.PerformLayout();
             this.actionResponsePanel.ResumeLayout(false);
             this.actionResponsePanel.PerformLayout();
             this.addExpPanel.ResumeLayout(false);
@@ -2134,6 +2157,8 @@
         private System.Windows.Forms.Panel addExpPanel;
         private System.Windows.Forms.NumericUpDown addExpNumeric;
         private System.Windows.Forms.CheckBox addExpCheckBox;
+        private System.Windows.Forms.TextBox nameActionTextBox;
+        private System.Windows.Forms.Label nameActionLabel;
     }
 }
 

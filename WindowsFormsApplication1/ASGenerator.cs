@@ -19,6 +19,8 @@ namespace WindowsFormsApplication1
 {
     class ASGenerator
     {
+        public static string INVENTORY = "InventoryHolder";
+        public static string THISROOM = "this.room";
         ObjectType objectType;
         string[] package = new String[2];
         List<String> imports;
@@ -34,6 +36,7 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> descriptions;
         List<String> dialogue;
         List<String> conversations;
+        Dictionary<string, ActionItem> actions;
 
         public ASGenerator()
         {
@@ -62,6 +65,7 @@ namespace WindowsFormsApplication1
             descriptions = new Dictionary<string, string>();
             dialogue = new List<String>();
             conversations = new List<String>();
+            actions = new Dictionary<string, ActionItem>();
         }
 
         public void generateAS()
@@ -498,10 +502,6 @@ namespace WindowsFormsApplication1
 
             return conversationString;
         }
-
-
-
-
     }
 
 }

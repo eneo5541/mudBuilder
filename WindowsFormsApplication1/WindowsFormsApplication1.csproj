@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionItem.cs" />
     <Compile Include="ASGenerator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

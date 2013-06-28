@@ -19,6 +19,7 @@ namespace WindowsFormsApplication1
         ASGenerator asGenerator;
         ObjectType layoutState;
         string fileName;
+        ActionItem currentAction;
 
         public Form1()
         {
@@ -27,6 +28,8 @@ namespace WindowsFormsApplication1
             asGenerator = new ASGenerator();
             fileName = "";
             setLayout(ObjectType.ROOM);
+
+            mainViewPanel.BringToFront();
             mainViewPanel.Visible = true;
             actionViewPanel.Visible = false;
         }
@@ -245,7 +248,7 @@ namespace WindowsFormsApplication1
                 int objectPath = fileName.IndexOf("\\src\\objects\\rooms\\");
                 if (objectPath == -1)
                 {
-                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. Exit files must be inside the \src\objects\rooms folder of your project folder.");
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Exit files must be inside the \\src\\objects\\rooms folder of your project folder.");
                     return;
                 }
 
@@ -310,7 +313,7 @@ namespace WindowsFormsApplication1
                 int objectPath = npcName.IndexOf("\\src\\objects\\npcs\\");
                 if (objectPath == -1)
                 {
-                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. NPC files must be inside the \src\objects\npcs folder of your project folder.");
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. NPC files must be inside the \\src\\objects\\npcs folder of your project folder.");
                     return;
                 }
 
@@ -355,7 +358,7 @@ namespace WindowsFormsApplication1
                 int objectPath = itemName.IndexOf("\\src\\objects\\gettables\\");
                 if (objectPath == -1)
                 {
-                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. Item files must be inside the \src\objects\gettables folder of your project folder.");
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Item files must be inside the \\src\\objects\\gettables folder of your project folder.");
                     return;
                 }
 
@@ -502,6 +505,7 @@ namespace WindowsFormsApplication1
 // Manipulate the actions for objects
         private void addActionButton_Click(object sender, EventArgs e)
         {
+            actionViewPanel.BringToFront();
             mainViewPanel.Visible = false;
             actionViewPanel.Visible = true;
             actionViewLabel.Text = "Adding an action to a " + layoutState.ToString().ToLower() + ".";
@@ -518,12 +522,14 @@ namespace WindowsFormsApplication1
 // Close the actions panel
         private void actionCancelButton_Click(object sender, EventArgs e)
         {
+            mainViewPanel.BringToFront();
             mainViewPanel.Visible = true;
             actionViewPanel.Visible = false;
         }
 
         private void actionConfirmButton_Click(object sender, EventArgs e)
         {
+            mainViewPanel.BringToFront();
             mainViewPanel.Visible = true;
             actionViewPanel.Visible = false;
         }
@@ -584,7 +590,7 @@ namespace WindowsFormsApplication1
                 int objectPath = fileName.IndexOf(requiredPath);
                 if (objectPath == -1)
                 {
-                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. " + layoutState.ToString().ToLower() + " files must be inside the " + requiredPath + " folder of your project folder.");
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. " + layoutState.ToString().ToLower() + " files must be inside the " + requiredPath + " folder of your project folder.");
                     return;
                 }
 
@@ -655,7 +661,7 @@ namespace WindowsFormsApplication1
                 int objectPath = fileName.IndexOf(excludedPath);
                 if (objectPath == -1)
                 {
-                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. " + layoutState.ToString().ToLower() + " files must be inside the " + excludedPath + " folder of your project folder.");
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. " + layoutState.ToString().ToLower() + " files must be inside the " + excludedPath + " folder of your project folder.");
                     return;
                 }
 
@@ -704,7 +710,7 @@ namespace WindowsFormsApplication1
                 int objectPath = fileName.IndexOf("\\src\\objects\\rooms\\");
                 if (objectPath == -1)
                 {
-                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. Room files must be inside the \\src\\objects\\rooms\\ folder of your project folder.");
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Room files must be inside the \\src\\objects\\rooms\\ folder of your project folder.");
                     return;
                 }
 
@@ -721,12 +727,23 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+
+
+
 // Manipulating NPCs in the request
         Dictionary<string, string> addNpcs = new Dictionary<string, string>();
         private void rAddNpcButton_Click(object sender, EventArgs e)
         {
             showObjectManipPanel("Add an NPC to a location");
             objectManipInventoryCheckBox.Visible = false;
+            confirmHandler = (x, y) => { 
+                string[] targetPath = x.Split('\\'); 
+                string[] locationPath = y.Split('\\'); 
+                rAddNpcCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
+                //asGenerator.addAddNpcAction(path[path.Length - 1], itemName);
+                return null; 
+            };
         }
 
         private void rAddNpcRemoveButton_Click(object sender, EventArgs e)
@@ -742,6 +759,14 @@ namespace WindowsFormsApplication1
         {
             showObjectManipPanel("Move an NPC to new location");
             objectManipInventoryCheckBox.Visible = false;
+            confirmHandler = (x, y) =>
+            {
+                string[] targetPath = x.Split('\\');
+                string[] locationPath = y.Split('\\');
+                rMoveNpcCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
+                //asGenerator.addMoveNpcAction(path[path.Length - 1], itemName);
+                return null;
+            };
         }
 
         private void rMoveNpcRemoveButton_Click(object sender, EventArgs e)
@@ -760,6 +785,13 @@ namespace WindowsFormsApplication1
             objectManipAddLocationButton.Visible = false;
             objectManipAddLocationLabel.Text = "";
             objectManipThisRoomCheckBox.Visible = false;
+            confirmHandler = (x, y) =>
+            {
+                string[] targetPath = x.Split('\\');
+                rRemoveNpcCheckList.Items.Add(targetPath[targetPath.Length - 1], false);
+                //asGenerator.addRemoveNpcAction(path[path.Length - 1], itemName);
+                return null;
+            };
         }
 
         private void rRemoveNpcRemoveButton_Click(object sender, EventArgs e)
@@ -776,6 +808,14 @@ namespace WindowsFormsApplication1
         private void rAddItemButton_Click(object sender, EventArgs e)
         {
             showObjectManipPanel("Add an item to a location");
+            confirmHandler = (x, y) =>
+            {
+                string[] targetPath = x.Split('\\');
+                string[] locationPath = y.Split('\\');
+                rAddItemCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
+                //asGenerator.addAddNpcAction(path[path.Length - 1], itemName);
+                return null;
+            };
         }
 
         private void rAddItemRemoveButton_Click(object sender, EventArgs e)
@@ -790,7 +830,15 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> moveItem = new Dictionary<string, string>();
         private void rMoveItemButton_Click(object sender, EventArgs e)
         {
-            showObjectManipPanel("Move an item to new location");
+            showObjectManipPanel("Move an item to new location"); 
+            confirmHandler = (x, y) =>
+            {
+                string[] targetPath = x.Split('\\');
+                string[] locationPath = y.Split('\\');
+                rMoveItemCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
+                //asGenerator.addMoveItemAction(path[path.Length - 1], itemName);
+                return null;
+            };
         }
 
         private void rMoveItemRemoveButton_Click(object sender, EventArgs e)
@@ -808,7 +856,13 @@ namespace WindowsFormsApplication1
             objectManipInventoryCheckBox.Visible = false;
             objectManipAddLocationButton.Visible = false;
             objectManipAddLocationLabel.Text = "";
-            objectManipThisRoomCheckBox.Visible = false;
+            objectManipThisRoomCheckBox.Visible = false; confirmHandler = (x, y) =>
+            {
+                string[] targetPath = x.Split('\\');
+                rRemoveItemCheckList.Items.Add(targetPath[targetPath.Length - 1], false);
+                //asGenerator.addRemoveItemAction(path[path.Length - 1], itemName);
+                return null;
+            };
         }
 
         private void rRemoveItemRemoveButton_Click(object sender, EventArgs e)
@@ -822,16 +876,33 @@ namespace WindowsFormsApplication1
 
 
 // Object manipulation panel
+        ObjectType objectManipType = ObjectType.NONE;
+        string objectName;
+        string objectLocation;
+        Func<string, string, dynamic> confirmHandler;
+
         private void showObjectManipPanel(string message)
         {
+            objectManipPanel.BringToFront();
             objectManipLabel.Text = message;
             actionViewPanel.Enabled = false;
             objectManipPanel.Visible = true;
+            confirmHandler = (x, y) => null;
+
+            objectName = "";
+            objectLocation = "";
         }
         private void hideObjectManipPanel()
         {
+            objectManipType = ObjectType.NONE;
+
+            confirmHandler = (x, y) => null;
+
             actionViewPanel.Enabled = true;
             objectManipPanel.Visible = false;
+
+            objectName = "";
+            objectLocation = "";
 
             objectManipAddLocationButton.Visible = true;
             objectManipAddLocationButton.Enabled = true;
@@ -850,6 +921,12 @@ namespace WindowsFormsApplication1
 
         private void objectManipConfirmButton_Click(object sender, EventArgs e)
         {
+            if (objectName == "" || (objectManipAddLocationButton.Visible && objectLocation == ""))
+            {
+                System.Windows.Forms.MessageBox.Show("You cannot leave a field blank.");
+                return;
+            }
+            confirmHandler.Invoke(objectName, objectLocation);
             hideObjectManipPanel();
         }
 
@@ -860,11 +937,13 @@ namespace WindowsFormsApplication1
                 objectManipThisRoomCheckBox.Checked = false;
                 objectManipAddLocationButton.Enabled = false;
                 objectManipAddLocationLabel.Text = "You may not add a location if you have selected a preset location.";
+                this.objectLocation = ASGenerator.INVENTORY;
             }
             else if (!objectManipThisRoomCheckBox.Checked && !objectManipInventoryCheckBox.Checked)
             {
                 objectManipAddLocationButton.Enabled = true;
                 objectManipAddLocationLabel.Text = "";
+                this.objectLocation = "";
             }
         }
 
@@ -875,11 +954,68 @@ namespace WindowsFormsApplication1
                 objectManipInventoryCheckBox.Checked = false;
                 objectManipAddLocationButton.Enabled = false;
                 objectManipAddLocationLabel.Text = "You may not add a location if you have selected a preset location.";
+                this.objectLocation = ASGenerator.THISROOM;
             }
             else if (!objectManipThisRoomCheckBox.Checked && !objectManipInventoryCheckBox.Checked)
             {
                 objectManipAddLocationButton.Enabled = true;
                 objectManipAddLocationLabel.Text = "";
+                this.objectLocation = "";
+            }
+        }
+
+        private void objectManipAddObjectButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string objectName = "" + openFileDialog1.FileName;
+
+                string requiredPath = (objectManipType == ObjectType.ITEM) ? @"\src\objects\gettables\" : @"\src\objects\npcs\";
+                int objectPath = objectName.IndexOf(requiredPath);
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. " + objectManipType.ToString().ToLower() + " files must be inside the " + requiredPath + " folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = objectName.Substring(objectName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. " + objectManipType.ToString().ToLower() + " files must be .as files.");
+                    return;
+                }
+
+                string[] path = objectName.Split('\\');
+                objectManipAddObjectLabel.Text = "... " + path[path.Length - 1];
+                this.objectName = objectName.Substring(objectPath, (objectName.Length - objectPath));
+            }
+        }
+
+        private void objectManipAddLocationButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string objectName = "" + openFileDialog1.FileName;
+
+                int objectPath = objectName.IndexOf("\\src\\objects\\rooms\\");
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Room files must be inside the \\src\\objects\\rooms\\ folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = objectName.Substring(objectName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Room files must be .as files.");
+                    return;
+                }
+
+                string[] path = objectName.Split('\\');
+                objectManipAddLocationLabel.Text = "... " + path[path.Length - 1];
+                this.objectLocation = objectName.Substring(objectPath, (objectName.Length - objectPath));
             }
         }
 
