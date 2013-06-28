@@ -43,9 +43,6 @@
             this.longDescPanel = new System.Windows.Forms.Panel();
             this.longDescLabel = new System.Windows.Forms.Label();
             this.longDescTextBox = new System.Windows.Forms.TextBox();
-            this.aliasPanel = new System.Windows.Forms.Panel();
-            this.aliasLabel = new System.Windows.Forms.Label();
-            this.aliasTextBox = new System.Windows.Forms.TextBox();
             this.exitsCheckedList = new System.Windows.Forms.CheckedListBox();
             this.exitsLabel = new System.Windows.Forms.Label();
             this.directionLabel = new System.Windows.Forms.Label();
@@ -56,50 +53,10 @@
             this.findExitLocationButton = new System.Windows.Forms.Button();
             this.directionTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.itemPickupCheckBox = new System.Windows.Forms.CheckBox();
-            this.addNPCsPanel = new System.Windows.Forms.Panel();
-            this.removeCheckedNPCsButton = new System.Windows.Forms.Button();
-            this.addNPCsButton = new System.Windows.Forms.Button();
-            this.addedNPCsCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.addNpcsLabel = new System.Windows.Forms.Label();
-            this.addItemPanel = new System.Windows.Forms.Panel();
-            this.removeCheckedItemsButton = new System.Windows.Forms.Button();
-            this.addItemButton = new System.Windows.Forms.Button();
-            this.addedItemsCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.addItemLabel = new System.Windows.Forms.Label();
-            this.descriptionPanel = new System.Windows.Forms.Panel();
-            this.removeCheckedDescriptionsButton = new System.Windows.Forms.Button();
-            this.descriptionCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.addDescriptionButton = new System.Windows.Forms.Button();
-            this.descriptionDescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionDescriptionLabel = new System.Windows.Forms.Label();
-            this.descriptionNameLabel = new System.Windows.Forms.Label();
-            this.descriptionNameTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionLabel = new System.Windows.Forms.Label();
             this.generatedLabel = new System.Windows.Forms.Label();
-            this.addDialoguePanel = new System.Windows.Forms.Panel();
-            this.removeCheckedDialogueButton = new System.Windows.Forms.Button();
-            this.dialogueCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.addDialogueButton = new System.Windows.Forms.Button();
-            this.dialogueLabel = new System.Windows.Forms.Label();
-            this.dialogueTextBox = new System.Windows.Forms.TextBox();
-            this.addDialogueLabel = new System.Windows.Forms.Label();
-            this.addConversationPanel = new System.Windows.Forms.Panel();
-            this.removeCheckedConversationsButton = new System.Windows.Forms.Button();
-            this.conversationCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.addConversationButton = new System.Windows.Forms.Button();
-            this.conversationLabel = new System.Windows.Forms.Label();
-            this.conversationTextBox = new System.Windows.Forms.TextBox();
-            this.addConversationLabel = new System.Windows.Forms.Label();
             this.clearAllButton = new System.Windows.Forms.Button();
             this.objectNameErrorLabel = new System.Windows.Forms.Label();
             this.mainViewPanel = new System.Windows.Forms.Panel();
-            this.aliasInstructionLabel = new System.Windows.Forms.Label();
-            this.addActionPanel = new System.Windows.Forms.Panel();
-            this.removeCheckedAction = new System.Windows.Forms.Button();
-            this.actionCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.addActionLabel = new System.Windows.Forms.Label();
-            this.addActionButton = new System.Windows.Forms.Button();
             this.actionViewPanel = new System.Windows.Forms.Panel();
             this.actionCancelButton = new System.Windows.Forms.Button();
             this.actionConfirmButton = new System.Windows.Forms.Button();
@@ -111,21 +68,64 @@
             this.actionKeywordsLabel = new System.Windows.Forms.Label();
             this.actionKeywordTextBox = new System.Windows.Forms.TextBox();
             this.addActionKeywordLabel = new System.Windows.Forms.Label();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.descriptionNameTextBox = new System.Windows.Forms.TextBox();
+            this.descriptionNameLabel = new System.Windows.Forms.Label();
+            this.descriptionDescriptionLabel = new System.Windows.Forms.Label();
+            this.descriptionDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.addDescriptionButton = new System.Windows.Forms.Button();
+            this.descriptionCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.removeCheckedDescriptionsButton = new System.Windows.Forms.Button();
+            this.descriptionPanel = new System.Windows.Forms.Panel();
+            this.aliasTextBox = new System.Windows.Forms.TextBox();
+            this.aliasLabel = new System.Windows.Forms.Label();
+            this.aliasInstructionLabel = new System.Windows.Forms.Label();
+            this.aliasPanel = new System.Windows.Forms.Panel();
+            this.addConversationLabel = new System.Windows.Forms.Label();
+            this.conversationTextBox = new System.Windows.Forms.TextBox();
+            this.conversationLabel = new System.Windows.Forms.Label();
+            this.addConversationButton = new System.Windows.Forms.Button();
+            this.conversationCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.removeCheckedConversationsButton = new System.Windows.Forms.Button();
+            this.addConversationPanel = new System.Windows.Forms.Panel();
+            this.addItemLabel = new System.Windows.Forms.Label();
+            this.addedItemsCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.addItemButton = new System.Windows.Forms.Button();
+            this.removeCheckedItemsButton = new System.Windows.Forms.Button();
+            this.addItemPanel = new System.Windows.Forms.Panel();
+            this.addActionLabel = new System.Windows.Forms.Label();
+            this.actionCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.removeCheckedAction = new System.Windows.Forms.Button();
+            this.addActionButton = new System.Windows.Forms.Button();
+            this.addActionPanel = new System.Windows.Forms.Panel();
+            this.addDialogueLabel = new System.Windows.Forms.Label();
+            this.dialogueTextBox = new System.Windows.Forms.TextBox();
+            this.dialogueLabel = new System.Windows.Forms.Label();
+            this.addDialogueButton = new System.Windows.Forms.Button();
+            this.dialogueCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.removeCheckedDialogueButton = new System.Windows.Forms.Button();
+            this.addDialoguePanel = new System.Windows.Forms.Panel();
+            this.itemPickupCheckBox = new System.Windows.Forms.CheckBox();
+            this.addNpcsLabel = new System.Windows.Forms.Label();
+            this.addedNPCsCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.addNPCsButton = new System.Windows.Forms.Button();
+            this.removeCheckedNPCsButton = new System.Windows.Forms.Button();
+            this.addNPCsPanel = new System.Windows.Forms.Panel();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
             this.longDescPanel.SuspendLayout();
-            this.aliasPanel.SuspendLayout();
             this.exitsPanel.SuspendLayout();
-            this.addNPCsPanel.SuspendLayout();
-            this.addItemPanel.SuspendLayout();
-            this.descriptionPanel.SuspendLayout();
-            this.addDialoguePanel.SuspendLayout();
-            this.addConversationPanel.SuspendLayout();
             this.mainViewPanel.SuspendLayout();
-            this.addActionPanel.SuspendLayout();
             this.actionViewPanel.SuspendLayout();
             this.actionKeywordPanel.SuspendLayout();
+            this.descriptionPanel.SuspendLayout();
+            this.aliasPanel.SuspendLayout();
+            this.addConversationPanel.SuspendLayout();
+            this.addItemPanel.SuspendLayout();
+            this.addActionPanel.SuspendLayout();
+            this.addDialoguePanel.SuspendLayout();
+            this.addNPCsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generateButton
@@ -272,35 +272,6 @@
             this.longDescTextBox.TabIndex = 2;
             this.longDescTextBox.TextChanged += new System.EventHandler(this.longDescTextBox_TextChanged);
             // 
-            // aliasPanel
-            // 
-            this.aliasPanel.Controls.Add(this.aliasInstructionLabel);
-            this.aliasPanel.Controls.Add(this.aliasLabel);
-            this.aliasPanel.Controls.Add(this.aliasTextBox);
-            this.aliasPanel.Location = new System.Drawing.Point(12, 344);
-            this.aliasPanel.Name = "aliasPanel";
-            this.aliasPanel.Size = new System.Drawing.Size(336, 260);
-            this.aliasPanel.TabIndex = 7;
-            // 
-            // aliasLabel
-            // 
-            this.aliasLabel.AutoSize = true;
-            this.aliasLabel.Location = new System.Drawing.Point(3, 3);
-            this.aliasLabel.Name = "aliasLabel";
-            this.aliasLabel.Size = new System.Drawing.Size(40, 13);
-            this.aliasLabel.TabIndex = 3;
-            this.aliasLabel.Text = "Aliases";
-            // 
-            // aliasTextBox
-            // 
-            this.aliasTextBox.AcceptsReturn = true;
-            this.aliasTextBox.Location = new System.Drawing.Point(97, 0);
-            this.aliasTextBox.Multiline = true;
-            this.aliasTextBox.Name = "aliasTextBox";
-            this.aliasTextBox.Size = new System.Drawing.Size(236, 222);
-            this.aliasTextBox.TabIndex = 2;
-            this.aliasTextBox.TextChanged += new System.EventHandler(this.aliasTextBox_TextChanged);
-            // 
             // exitsCheckedList
             // 
             this.exitsCheckedList.CheckOnClick = true;
@@ -338,7 +309,7 @@
             this.exitsPanel.Controls.Add(this.exitsCheckedList);
             this.exitsPanel.Controls.Add(this.directionLabel);
             this.exitsPanel.Controls.Add(this.exitsLabel);
-            this.exitsPanel.Location = new System.Drawing.Point(12, 344);
+            this.exitsPanel.Location = new System.Drawing.Point(618, 389);
             this.exitsPanel.Name = "exitsPanel";
             this.exitsPanel.Size = new System.Drawing.Size(258, 297);
             this.exitsPanel.TabIndex = 11;
@@ -394,342 +365,12 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // itemPickupCheckBox
-            // 
-            this.itemPickupCheckBox.Checked = true;
-            this.itemPickupCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.itemPickupCheckBox.Location = new System.Drawing.Point(383, 125);
-            this.itemPickupCheckBox.Name = "itemPickupCheckBox";
-            this.itemPickupCheckBox.Size = new System.Drawing.Size(101, 34);
-            this.itemPickupCheckBox.TabIndex = 12;
-            this.itemPickupCheckBox.Text = "Player can carry this item";
-            this.itemPickupCheckBox.UseVisualStyleBackColor = true;
-            this.itemPickupCheckBox.CheckedChanged += new System.EventHandler(this.itemPickupCheckBox_CheckedChanged);
-            // 
-            // addNPCsPanel
-            // 
-            this.addNPCsPanel.Controls.Add(this.removeCheckedNPCsButton);
-            this.addNPCsPanel.Controls.Add(this.addNPCsButton);
-            this.addNPCsPanel.Controls.Add(this.addedNPCsCheckedList);
-            this.addNPCsPanel.Controls.Add(this.addNpcsLabel);
-            this.addNPCsPanel.Location = new System.Drawing.Point(381, 123);
-            this.addNPCsPanel.Name = "addNPCsPanel";
-            this.addNPCsPanel.Size = new System.Drawing.Size(188, 237);
-            this.addNPCsPanel.TabIndex = 13;
-            // 
-            // removeCheckedNPCsButton
-            // 
-            this.removeCheckedNPCsButton.Location = new System.Drawing.Point(6, 209);
-            this.removeCheckedNPCsButton.Name = "removeCheckedNPCsButton";
-            this.removeCheckedNPCsButton.Size = new System.Drawing.Size(162, 23);
-            this.removeCheckedNPCsButton.TabIndex = 15;
-            this.removeCheckedNPCsButton.Text = "Remove checked NPCs";
-            this.removeCheckedNPCsButton.UseVisualStyleBackColor = true;
-            this.removeCheckedNPCsButton.Click += new System.EventHandler(this.removeCheckedNPCsButton_Click);
-            // 
-            // addNPCsButton
-            // 
-            this.addNPCsButton.Location = new System.Drawing.Point(6, 22);
-            this.addNPCsButton.Name = "addNPCsButton";
-            this.addNPCsButton.Size = new System.Drawing.Size(75, 23);
-            this.addNPCsButton.TabIndex = 12;
-            this.addNPCsButton.Text = "Add NPC";
-            this.addNPCsButton.UseVisualStyleBackColor = true;
-            this.addNPCsButton.Click += new System.EventHandler(this.addNPCsButton_Click);
-            // 
-            // addedNPCsCheckedList
-            // 
-            this.addedNPCsCheckedList.CheckOnClick = true;
-            this.addedNPCsCheckedList.FormattingEnabled = true;
-            this.addedNPCsCheckedList.Location = new System.Drawing.Point(6, 49);
-            this.addedNPCsCheckedList.Name = "addedNPCsCheckedList";
-            this.addedNPCsCheckedList.Size = new System.Drawing.Size(179, 154);
-            this.addedNPCsCheckedList.TabIndex = 8;
-            // 
-            // addNpcsLabel
-            // 
-            this.addNpcsLabel.AutoSize = true;
-            this.addNpcsLabel.Location = new System.Drawing.Point(3, 3);
-            this.addNpcsLabel.Name = "addNpcsLabel";
-            this.addNpcsLabel.Size = new System.Drawing.Size(66, 13);
-            this.addNpcsLabel.TabIndex = 9;
-            this.addNpcsLabel.Text = "Add an NPC";
-            // 
-            // addItemPanel
-            // 
-            this.addItemPanel.Controls.Add(this.removeCheckedItemsButton);
-            this.addItemPanel.Controls.Add(this.addItemButton);
-            this.addItemPanel.Controls.Add(this.addedItemsCheckedList);
-            this.addItemPanel.Controls.Add(this.addItemLabel);
-            this.addItemPanel.Location = new System.Drawing.Point(381, 389);
-            this.addItemPanel.Name = "addItemPanel";
-            this.addItemPanel.Size = new System.Drawing.Size(188, 237);
-            this.addItemPanel.TabIndex = 14;
-            // 
-            // removeCheckedItemsButton
-            // 
-            this.removeCheckedItemsButton.Location = new System.Drawing.Point(6, 209);
-            this.removeCheckedItemsButton.Name = "removeCheckedItemsButton";
-            this.removeCheckedItemsButton.Size = new System.Drawing.Size(162, 23);
-            this.removeCheckedItemsButton.TabIndex = 15;
-            this.removeCheckedItemsButton.Text = "Remove checked Items";
-            this.removeCheckedItemsButton.UseVisualStyleBackColor = true;
-            this.removeCheckedItemsButton.Click += new System.EventHandler(this.removeCheckedItemsButton_Click);
-            // 
-            // addItemButton
-            // 
-            this.addItemButton.Location = new System.Drawing.Point(6, 22);
-            this.addItemButton.Name = "addItemButton";
-            this.addItemButton.Size = new System.Drawing.Size(75, 23);
-            this.addItemButton.TabIndex = 12;
-            this.addItemButton.Text = "Add Item";
-            this.addItemButton.UseVisualStyleBackColor = true;
-            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
-            // 
-            // addedItemsCheckedList
-            // 
-            this.addedItemsCheckedList.CheckOnClick = true;
-            this.addedItemsCheckedList.FormattingEnabled = true;
-            this.addedItemsCheckedList.Location = new System.Drawing.Point(6, 49);
-            this.addedItemsCheckedList.Name = "addedItemsCheckedList";
-            this.addedItemsCheckedList.Size = new System.Drawing.Size(179, 154);
-            this.addedItemsCheckedList.TabIndex = 8;
-            // 
-            // addItemLabel
-            // 
-            this.addItemLabel.AutoSize = true;
-            this.addItemLabel.Location = new System.Drawing.Point(3, 3);
-            this.addItemLabel.Name = "addItemLabel";
-            this.addItemLabel.Size = new System.Drawing.Size(64, 13);
-            this.addItemLabel.TabIndex = 9;
-            this.addItemLabel.Text = "Add an Item";
-            // 
-            // descriptionPanel
-            // 
-            this.descriptionPanel.Controls.Add(this.removeCheckedDescriptionsButton);
-            this.descriptionPanel.Controls.Add(this.descriptionCheckedList);
-            this.descriptionPanel.Controls.Add(this.addDescriptionButton);
-            this.descriptionPanel.Controls.Add(this.descriptionDescriptionTextBox);
-            this.descriptionPanel.Controls.Add(this.descriptionDescriptionLabel);
-            this.descriptionPanel.Controls.Add(this.descriptionNameLabel);
-            this.descriptionPanel.Controls.Add(this.descriptionNameTextBox);
-            this.descriptionPanel.Controls.Add(this.descriptionLabel);
-            this.descriptionPanel.Location = new System.Drawing.Point(12, 344);
-            this.descriptionPanel.Name = "descriptionPanel";
-            this.descriptionPanel.Size = new System.Drawing.Size(280, 367);
-            this.descriptionPanel.TabIndex = 15;
-            // 
-            // removeCheckedDescriptionsButton
-            // 
-            this.removeCheckedDescriptionsButton.Location = new System.Drawing.Point(6, 339);
-            this.removeCheckedDescriptionsButton.Name = "removeCheckedDescriptionsButton";
-            this.removeCheckedDescriptionsButton.Size = new System.Drawing.Size(215, 23);
-            this.removeCheckedDescriptionsButton.TabIndex = 17;
-            this.removeCheckedDescriptionsButton.Text = "Remove checked Descriptions";
-            this.removeCheckedDescriptionsButton.UseVisualStyleBackColor = true;
-            this.removeCheckedDescriptionsButton.Click += new System.EventHandler(this.removeCheckedDescriptionsButton_Click);
-            // 
-            // descriptionCheckedList
-            // 
-            this.descriptionCheckedList.CheckOnClick = true;
-            this.descriptionCheckedList.FormattingEnabled = true;
-            this.descriptionCheckedList.Location = new System.Drawing.Point(6, 164);
-            this.descriptionCheckedList.Name = "descriptionCheckedList";
-            this.descriptionCheckedList.Size = new System.Drawing.Size(260, 169);
-            this.descriptionCheckedList.TabIndex = 6;
-            // 
-            // addDescriptionButton
-            // 
-            this.addDescriptionButton.Location = new System.Drawing.Point(167, 39);
-            this.addDescriptionButton.Name = "addDescriptionButton";
-            this.addDescriptionButton.Size = new System.Drawing.Size(99, 23);
-            this.addDescriptionButton.TabIndex = 5;
-            this.addDescriptionButton.Text = "Add description";
-            this.addDescriptionButton.UseVisualStyleBackColor = true;
-            this.addDescriptionButton.Click += new System.EventHandler(this.addDescriptionButton_Click);
-            // 
-            // descriptionDescriptionTextBox
-            // 
-            this.descriptionDescriptionTextBox.Location = new System.Drawing.Point(6, 85);
-            this.descriptionDescriptionTextBox.Multiline = true;
-            this.descriptionDescriptionTextBox.Name = "descriptionDescriptionTextBox";
-            this.descriptionDescriptionTextBox.Size = new System.Drawing.Size(260, 72);
-            this.descriptionDescriptionTextBox.TabIndex = 4;
-            // 
-            // descriptionDescriptionLabel
-            // 
-            this.descriptionDescriptionLabel.AutoSize = true;
-            this.descriptionDescriptionLabel.Location = new System.Drawing.Point(3, 67);
-            this.descriptionDescriptionLabel.Name = "descriptionDescriptionLabel";
-            this.descriptionDescriptionLabel.Size = new System.Drawing.Size(81, 13);
-            this.descriptionDescriptionLabel.TabIndex = 3;
-            this.descriptionDescriptionLabel.Text = "Item description";
-            // 
-            // descriptionNameLabel
-            // 
-            this.descriptionNameLabel.AutoSize = true;
-            this.descriptionNameLabel.Location = new System.Drawing.Point(3, 24);
-            this.descriptionNameLabel.Name = "descriptionNameLabel";
-            this.descriptionNameLabel.Size = new System.Drawing.Size(56, 13);
-            this.descriptionNameLabel.TabIndex = 2;
-            this.descriptionNameLabel.Text = "Item name";
-            // 
-            // descriptionNameTextBox
-            // 
-            this.descriptionNameTextBox.Location = new System.Drawing.Point(6, 42);
-            this.descriptionNameTextBox.Name = "descriptionNameTextBox";
-            this.descriptionNameTextBox.Size = new System.Drawing.Size(155, 20);
-            this.descriptionNameTextBox.TabIndex = 1;
-            // 
-            // descriptionLabel
-            // 
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(3, 3);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(158, 13);
-            this.descriptionLabel.TabIndex = 0;
-            this.descriptionLabel.Text = "Add a description to a room item";
-            // 
             // generatedLabel
             // 
             this.generatedLabel.Location = new System.Drawing.Point(604, 695);
             this.generatedLabel.Name = "generatedLabel";
             this.generatedLabel.Size = new System.Drawing.Size(294, 23);
             this.generatedLabel.TabIndex = 16;
-            // 
-            // addDialoguePanel
-            // 
-            this.addDialoguePanel.Controls.Add(this.removeCheckedDialogueButton);
-            this.addDialoguePanel.Controls.Add(this.dialogueCheckedList);
-            this.addDialoguePanel.Controls.Add(this.addDialogueButton);
-            this.addDialoguePanel.Controls.Add(this.dialogueLabel);
-            this.addDialoguePanel.Controls.Add(this.dialogueTextBox);
-            this.addDialoguePanel.Controls.Add(this.addDialogueLabel);
-            this.addDialoguePanel.Location = new System.Drawing.Point(381, 123);
-            this.addDialoguePanel.Name = "addDialoguePanel";
-            this.addDialoguePanel.Size = new System.Drawing.Size(280, 251);
-            this.addDialoguePanel.TabIndex = 18;
-            // 
-            // removeCheckedDialogueButton
-            // 
-            this.removeCheckedDialogueButton.Location = new System.Drawing.Point(6, 213);
-            this.removeCheckedDialogueButton.Name = "removeCheckedDialogueButton";
-            this.removeCheckedDialogueButton.Size = new System.Drawing.Size(215, 23);
-            this.removeCheckedDialogueButton.TabIndex = 17;
-            this.removeCheckedDialogueButton.Text = "Remove checked dialogue";
-            this.removeCheckedDialogueButton.UseVisualStyleBackColor = true;
-            this.removeCheckedDialogueButton.Click += new System.EventHandler(this.removeCheckedDialogueButton_Click);
-            // 
-            // dialogueCheckedList
-            // 
-            this.dialogueCheckedList.CheckOnClick = true;
-            this.dialogueCheckedList.FormattingEnabled = true;
-            this.dialogueCheckedList.Location = new System.Drawing.Point(6, 68);
-            this.dialogueCheckedList.Name = "dialogueCheckedList";
-            this.dialogueCheckedList.Size = new System.Drawing.Size(260, 139);
-            this.dialogueCheckedList.TabIndex = 6;
-            // 
-            // addDialogueButton
-            // 
-            this.addDialogueButton.Location = new System.Drawing.Point(167, 39);
-            this.addDialogueButton.Name = "addDialogueButton";
-            this.addDialogueButton.Size = new System.Drawing.Size(99, 23);
-            this.addDialogueButton.TabIndex = 5;
-            this.addDialogueButton.Text = "Add dialogue";
-            this.addDialogueButton.UseVisualStyleBackColor = true;
-            this.addDialogueButton.Click += new System.EventHandler(this.addDialogueButton_Click);
-            // 
-            // dialogueLabel
-            // 
-            this.dialogueLabel.AutoSize = true;
-            this.dialogueLabel.Location = new System.Drawing.Point(3, 24);
-            this.dialogueLabel.Name = "dialogueLabel";
-            this.dialogueLabel.Size = new System.Drawing.Size(69, 13);
-            this.dialogueLabel.TabIndex = 2;
-            this.dialogueLabel.Text = "Dialogue text";
-            // 
-            // dialogueTextBox
-            // 
-            this.dialogueTextBox.Location = new System.Drawing.Point(6, 42);
-            this.dialogueTextBox.Name = "dialogueTextBox";
-            this.dialogueTextBox.Size = new System.Drawing.Size(155, 20);
-            this.dialogueTextBox.TabIndex = 1;
-            // 
-            // addDialogueLabel
-            // 
-            this.addDialogueLabel.AutoSize = true;
-            this.addDialogueLabel.Location = new System.Drawing.Point(3, 3);
-            this.addDialogueLabel.Name = "addDialogueLabel";
-            this.addDialogueLabel.Size = new System.Drawing.Size(140, 13);
-            this.addDialogueLabel.TabIndex = 0;
-            this.addDialogueLabel.Text = "Add idle dialogue to an NPC";
-            // 
-            // addConversationPanel
-            // 
-            this.addConversationPanel.Controls.Add(this.removeCheckedConversationsButton);
-            this.addConversationPanel.Controls.Add(this.conversationCheckedList);
-            this.addConversationPanel.Controls.Add(this.addConversationButton);
-            this.addConversationPanel.Controls.Add(this.conversationLabel);
-            this.addConversationPanel.Controls.Add(this.conversationTextBox);
-            this.addConversationPanel.Controls.Add(this.addConversationLabel);
-            this.addConversationPanel.Location = new System.Drawing.Point(381, 389);
-            this.addConversationPanel.Name = "addConversationPanel";
-            this.addConversationPanel.Size = new System.Drawing.Size(280, 251);
-            this.addConversationPanel.TabIndex = 19;
-            // 
-            // removeCheckedConversationsButton
-            // 
-            this.removeCheckedConversationsButton.Location = new System.Drawing.Point(6, 213);
-            this.removeCheckedConversationsButton.Name = "removeCheckedConversationsButton";
-            this.removeCheckedConversationsButton.Size = new System.Drawing.Size(215, 23);
-            this.removeCheckedConversationsButton.TabIndex = 17;
-            this.removeCheckedConversationsButton.Text = "Remove checked conversations";
-            this.removeCheckedConversationsButton.UseVisualStyleBackColor = true;
-            this.removeCheckedConversationsButton.Click += new System.EventHandler(this.removeCheckedConversationsButton_Click);
-            // 
-            // conversationCheckedList
-            // 
-            this.conversationCheckedList.CheckOnClick = true;
-            this.conversationCheckedList.FormattingEnabled = true;
-            this.conversationCheckedList.Location = new System.Drawing.Point(6, 68);
-            this.conversationCheckedList.Name = "conversationCheckedList";
-            this.conversationCheckedList.Size = new System.Drawing.Size(260, 139);
-            this.conversationCheckedList.TabIndex = 6;
-            // 
-            // addConversationButton
-            // 
-            this.addConversationButton.Location = new System.Drawing.Point(167, 39);
-            this.addConversationButton.Name = "addConversationButton";
-            this.addConversationButton.Size = new System.Drawing.Size(99, 23);
-            this.addConversationButton.TabIndex = 5;
-            this.addConversationButton.Text = "Add conversation";
-            this.addConversationButton.UseVisualStyleBackColor = true;
-            this.addConversationButton.Click += new System.EventHandler(this.addConversationButton_Click);
-            // 
-            // conversationLabel
-            // 
-            this.conversationLabel.AutoSize = true;
-            this.conversationLabel.Location = new System.Drawing.Point(3, 24);
-            this.conversationLabel.Name = "conversationLabel";
-            this.conversationLabel.Size = new System.Drawing.Size(89, 13);
-            this.conversationLabel.TabIndex = 2;
-            this.conversationLabel.Text = "Conversation text";
-            // 
-            // conversationTextBox
-            // 
-            this.conversationTextBox.Location = new System.Drawing.Point(6, 42);
-            this.conversationTextBox.Name = "conversationTextBox";
-            this.conversationTextBox.Size = new System.Drawing.Size(155, 20);
-            this.conversationTextBox.TabIndex = 1;
-            // 
-            // addConversationLabel
-            // 
-            this.addConversationLabel.AutoSize = true;
-            this.addConversationLabel.Location = new System.Drawing.Point(3, 3);
-            this.addConversationLabel.Name = "addConversationLabel";
-            this.addConversationLabel.Size = new System.Drawing.Size(179, 13);
-            this.addConversationLabel.TabIndex = 0;
-            this.addConversationLabel.Text = "Add conversation options to an NPC";
             // 
             // clearAllButton
             // 
@@ -752,12 +393,12 @@
             // 
             // mainViewPanel
             // 
+            this.mainViewPanel.Controls.Add(this.addActionPanel);
+            this.mainViewPanel.Controls.Add(this.exitsPanel);
             this.mainViewPanel.Controls.Add(this.aliasPanel);
-            this.mainViewPanel.Controls.Add(this.descriptionPanel);
             this.mainViewPanel.Controls.Add(this.addItemPanel);
             this.mainViewPanel.Controls.Add(this.addConversationPanel);
             this.mainViewPanel.Controls.Add(this.addNPCsPanel);
-            this.mainViewPanel.Controls.Add(this.addActionPanel);
             this.mainViewPanel.Controls.Add(this.clearAllButton);
             this.mainViewPanel.Controls.Add(this.generateButton);
             this.mainViewPanel.Controls.Add(this.itemPickupCheckBox);
@@ -766,71 +407,13 @@
             this.mainViewPanel.Controls.Add(this.shortDescPanel);
             this.mainViewPanel.Controls.Add(this.longDescPanel);
             this.mainViewPanel.Controls.Add(this.objectTypePanel);
-            this.mainViewPanel.Controls.Add(this.exitsPanel);
             this.mainViewPanel.Controls.Add(this.addDialoguePanel);
+            this.mainViewPanel.Controls.Add(this.descriptionPanel);
             this.mainViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainViewPanel.Location = new System.Drawing.Point(0, 0);
             this.mainViewPanel.Name = "mainViewPanel";
             this.mainViewPanel.Size = new System.Drawing.Size(1008, 730);
             this.mainViewPanel.TabIndex = 22;
-            // 
-            // aliasInstructionLabel
-            // 
-            this.aliasInstructionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.aliasInstructionLabel.Location = new System.Drawing.Point(3, 20);
-            this.aliasInstructionLabel.Name = "aliasInstructionLabel";
-            this.aliasInstructionLabel.Size = new System.Drawing.Size(87, 92);
-            this.aliasInstructionLabel.TabIndex = 4;
-            this.aliasInstructionLabel.Text = "Separate each alias onto a new line. ";
-            // 
-            // addActionPanel
-            // 
-            this.addActionPanel.Controls.Add(this.addActionButton);
-            this.addActionPanel.Controls.Add(this.removeCheckedAction);
-            this.addActionPanel.Controls.Add(this.actionCheckedList);
-            this.addActionPanel.Controls.Add(this.addActionLabel);
-            this.addActionPanel.Location = new System.Drawing.Point(678, 123);
-            this.addActionPanel.Name = "addActionPanel";
-            this.addActionPanel.Size = new System.Drawing.Size(198, 409);
-            this.addActionPanel.TabIndex = 22;
-            // 
-            // removeCheckedAction
-            // 
-            this.removeCheckedAction.Location = new System.Drawing.Point(6, 370);
-            this.removeCheckedAction.Name = "removeCheckedAction";
-            this.removeCheckedAction.Size = new System.Drawing.Size(169, 23);
-            this.removeCheckedAction.TabIndex = 17;
-            this.removeCheckedAction.Text = "Remove checked action";
-            this.removeCheckedAction.UseVisualStyleBackColor = true;
-            this.removeCheckedAction.Click += new System.EventHandler(this.removeCheckedAction_Click);
-            // 
-            // actionCheckedList
-            // 
-            this.actionCheckedList.CheckOnClick = true;
-            this.actionCheckedList.FormattingEnabled = true;
-            this.actionCheckedList.Location = new System.Drawing.Point(6, 48);
-            this.actionCheckedList.Name = "actionCheckedList";
-            this.actionCheckedList.Size = new System.Drawing.Size(181, 319);
-            this.actionCheckedList.TabIndex = 6;
-            // 
-            // addActionLabel
-            // 
-            this.addActionLabel.AutoSize = true;
-            this.addActionLabel.Location = new System.Drawing.Point(3, 3);
-            this.addActionLabel.Name = "addActionLabel";
-            this.addActionLabel.Size = new System.Drawing.Size(111, 13);
-            this.addActionLabel.TabIndex = 0;
-            this.addActionLabel.Text = "Add a triggered action";
-            // 
-            // addActionButton
-            // 
-            this.addActionButton.Location = new System.Drawing.Point(6, 21);
-            this.addActionButton.Name = "addActionButton";
-            this.addActionButton.Size = new System.Drawing.Size(169, 23);
-            this.addActionButton.TabIndex = 18;
-            this.addActionButton.Text = "Add new triggered action";
-            this.addActionButton.UseVisualStyleBackColor = true;
-            this.addActionButton.Click += new System.EventHandler(this.addActionButton_Click);
             // 
             // actionViewPanel
             // 
@@ -939,6 +522,423 @@
             this.addActionKeywordLabel.TabIndex = 0;
             this.addActionKeywordLabel.Text = "Add action keywords";
             // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Location = new System.Drawing.Point(3, 3);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(158, 13);
+            this.descriptionLabel.TabIndex = 0;
+            this.descriptionLabel.Text = "Add a description to a room item";
+            // 
+            // descriptionNameTextBox
+            // 
+            this.descriptionNameTextBox.Location = new System.Drawing.Point(6, 42);
+            this.descriptionNameTextBox.Name = "descriptionNameTextBox";
+            this.descriptionNameTextBox.Size = new System.Drawing.Size(155, 20);
+            this.descriptionNameTextBox.TabIndex = 1;
+            // 
+            // descriptionNameLabel
+            // 
+            this.descriptionNameLabel.AutoSize = true;
+            this.descriptionNameLabel.Location = new System.Drawing.Point(3, 24);
+            this.descriptionNameLabel.Name = "descriptionNameLabel";
+            this.descriptionNameLabel.Size = new System.Drawing.Size(56, 13);
+            this.descriptionNameLabel.TabIndex = 2;
+            this.descriptionNameLabel.Text = "Item name";
+            // 
+            // descriptionDescriptionLabel
+            // 
+            this.descriptionDescriptionLabel.AutoSize = true;
+            this.descriptionDescriptionLabel.Location = new System.Drawing.Point(3, 67);
+            this.descriptionDescriptionLabel.Name = "descriptionDescriptionLabel";
+            this.descriptionDescriptionLabel.Size = new System.Drawing.Size(81, 13);
+            this.descriptionDescriptionLabel.TabIndex = 3;
+            this.descriptionDescriptionLabel.Text = "Item description";
+            // 
+            // descriptionDescriptionTextBox
+            // 
+            this.descriptionDescriptionTextBox.Location = new System.Drawing.Point(6, 85);
+            this.descriptionDescriptionTextBox.Multiline = true;
+            this.descriptionDescriptionTextBox.Name = "descriptionDescriptionTextBox";
+            this.descriptionDescriptionTextBox.Size = new System.Drawing.Size(260, 72);
+            this.descriptionDescriptionTextBox.TabIndex = 4;
+            // 
+            // addDescriptionButton
+            // 
+            this.addDescriptionButton.Location = new System.Drawing.Point(167, 39);
+            this.addDescriptionButton.Name = "addDescriptionButton";
+            this.addDescriptionButton.Size = new System.Drawing.Size(99, 23);
+            this.addDescriptionButton.TabIndex = 5;
+            this.addDescriptionButton.Text = "Add description";
+            this.addDescriptionButton.UseVisualStyleBackColor = true;
+            this.addDescriptionButton.Click += new System.EventHandler(this.addDescriptionButton_Click);
+            // 
+            // descriptionCheckedList
+            // 
+            this.descriptionCheckedList.CheckOnClick = true;
+            this.descriptionCheckedList.FormattingEnabled = true;
+            this.descriptionCheckedList.Location = new System.Drawing.Point(6, 164);
+            this.descriptionCheckedList.Name = "descriptionCheckedList";
+            this.descriptionCheckedList.Size = new System.Drawing.Size(260, 169);
+            this.descriptionCheckedList.TabIndex = 6;
+            // 
+            // removeCheckedDescriptionsButton
+            // 
+            this.removeCheckedDescriptionsButton.Location = new System.Drawing.Point(6, 339);
+            this.removeCheckedDescriptionsButton.Name = "removeCheckedDescriptionsButton";
+            this.removeCheckedDescriptionsButton.Size = new System.Drawing.Size(215, 23);
+            this.removeCheckedDescriptionsButton.TabIndex = 17;
+            this.removeCheckedDescriptionsButton.Text = "Remove checked Descriptions";
+            this.removeCheckedDescriptionsButton.UseVisualStyleBackColor = true;
+            this.removeCheckedDescriptionsButton.Click += new System.EventHandler(this.removeCheckedDescriptionsButton_Click);
+            // 
+            // descriptionPanel
+            // 
+            this.descriptionPanel.Controls.Add(this.removeCheckedDescriptionsButton);
+            this.descriptionPanel.Controls.Add(this.descriptionCheckedList);
+            this.descriptionPanel.Controls.Add(this.addDescriptionButton);
+            this.descriptionPanel.Controls.Add(this.descriptionDescriptionTextBox);
+            this.descriptionPanel.Controls.Add(this.descriptionDescriptionLabel);
+            this.descriptionPanel.Controls.Add(this.descriptionNameLabel);
+            this.descriptionPanel.Controls.Add(this.descriptionNameTextBox);
+            this.descriptionPanel.Controls.Add(this.descriptionLabel);
+            this.descriptionPanel.Location = new System.Drawing.Point(12, 344);
+            this.descriptionPanel.Name = "descriptionPanel";
+            this.descriptionPanel.Size = new System.Drawing.Size(280, 367);
+            this.descriptionPanel.TabIndex = 15;
+            // 
+            // aliasTextBox
+            // 
+            this.aliasTextBox.AcceptsReturn = true;
+            this.aliasTextBox.Location = new System.Drawing.Point(97, 0);
+            this.aliasTextBox.Multiline = true;
+            this.aliasTextBox.Name = "aliasTextBox";
+            this.aliasTextBox.Size = new System.Drawing.Size(236, 222);
+            this.aliasTextBox.TabIndex = 2;
+            this.aliasTextBox.TextChanged += new System.EventHandler(this.aliasTextBox_TextChanged);
+            // 
+            // aliasLabel
+            // 
+            this.aliasLabel.AutoSize = true;
+            this.aliasLabel.Location = new System.Drawing.Point(3, 3);
+            this.aliasLabel.Name = "aliasLabel";
+            this.aliasLabel.Size = new System.Drawing.Size(40, 13);
+            this.aliasLabel.TabIndex = 3;
+            this.aliasLabel.Text = "Aliases";
+            // 
+            // aliasInstructionLabel
+            // 
+            this.aliasInstructionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.aliasInstructionLabel.Location = new System.Drawing.Point(3, 20);
+            this.aliasInstructionLabel.Name = "aliasInstructionLabel";
+            this.aliasInstructionLabel.Size = new System.Drawing.Size(87, 92);
+            this.aliasInstructionLabel.TabIndex = 4;
+            this.aliasInstructionLabel.Text = "Separate each alias onto a new line. ";
+            // 
+            // aliasPanel
+            // 
+            this.aliasPanel.Controls.Add(this.aliasInstructionLabel);
+            this.aliasPanel.Controls.Add(this.aliasLabel);
+            this.aliasPanel.Controls.Add(this.aliasTextBox);
+            this.aliasPanel.Location = new System.Drawing.Point(12, 344);
+            this.aliasPanel.Name = "aliasPanel";
+            this.aliasPanel.Size = new System.Drawing.Size(336, 260);
+            this.aliasPanel.TabIndex = 7;
+            // 
+            // addConversationLabel
+            // 
+            this.addConversationLabel.AutoSize = true;
+            this.addConversationLabel.Location = new System.Drawing.Point(3, 3);
+            this.addConversationLabel.Name = "addConversationLabel";
+            this.addConversationLabel.Size = new System.Drawing.Size(179, 13);
+            this.addConversationLabel.TabIndex = 0;
+            this.addConversationLabel.Text = "Add conversation options to an NPC";
+            // 
+            // conversationTextBox
+            // 
+            this.conversationTextBox.Location = new System.Drawing.Point(6, 42);
+            this.conversationTextBox.Name = "conversationTextBox";
+            this.conversationTextBox.Size = new System.Drawing.Size(155, 20);
+            this.conversationTextBox.TabIndex = 1;
+            // 
+            // conversationLabel
+            // 
+            this.conversationLabel.AutoSize = true;
+            this.conversationLabel.Location = new System.Drawing.Point(3, 24);
+            this.conversationLabel.Name = "conversationLabel";
+            this.conversationLabel.Size = new System.Drawing.Size(89, 13);
+            this.conversationLabel.TabIndex = 2;
+            this.conversationLabel.Text = "Conversation text";
+            // 
+            // addConversationButton
+            // 
+            this.addConversationButton.Location = new System.Drawing.Point(167, 39);
+            this.addConversationButton.Name = "addConversationButton";
+            this.addConversationButton.Size = new System.Drawing.Size(99, 23);
+            this.addConversationButton.TabIndex = 5;
+            this.addConversationButton.Text = "Add conversation";
+            this.addConversationButton.UseVisualStyleBackColor = true;
+            this.addConversationButton.Click += new System.EventHandler(this.addConversationButton_Click);
+            // 
+            // conversationCheckedList
+            // 
+            this.conversationCheckedList.CheckOnClick = true;
+            this.conversationCheckedList.FormattingEnabled = true;
+            this.conversationCheckedList.Location = new System.Drawing.Point(6, 68);
+            this.conversationCheckedList.Name = "conversationCheckedList";
+            this.conversationCheckedList.Size = new System.Drawing.Size(260, 139);
+            this.conversationCheckedList.TabIndex = 6;
+            // 
+            // removeCheckedConversationsButton
+            // 
+            this.removeCheckedConversationsButton.Location = new System.Drawing.Point(6, 213);
+            this.removeCheckedConversationsButton.Name = "removeCheckedConversationsButton";
+            this.removeCheckedConversationsButton.Size = new System.Drawing.Size(215, 23);
+            this.removeCheckedConversationsButton.TabIndex = 17;
+            this.removeCheckedConversationsButton.Text = "Remove checked conversations";
+            this.removeCheckedConversationsButton.UseVisualStyleBackColor = true;
+            this.removeCheckedConversationsButton.Click += new System.EventHandler(this.removeCheckedConversationsButton_Click);
+            // 
+            // addConversationPanel
+            // 
+            this.addConversationPanel.Controls.Add(this.removeCheckedConversationsButton);
+            this.addConversationPanel.Controls.Add(this.conversationCheckedList);
+            this.addConversationPanel.Controls.Add(this.addConversationButton);
+            this.addConversationPanel.Controls.Add(this.conversationLabel);
+            this.addConversationPanel.Controls.Add(this.conversationTextBox);
+            this.addConversationPanel.Controls.Add(this.addConversationLabel);
+            this.addConversationPanel.Location = new System.Drawing.Point(381, 389);
+            this.addConversationPanel.Name = "addConversationPanel";
+            this.addConversationPanel.Size = new System.Drawing.Size(280, 251);
+            this.addConversationPanel.TabIndex = 19;
+            // 
+            // addItemLabel
+            // 
+            this.addItemLabel.AutoSize = true;
+            this.addItemLabel.Location = new System.Drawing.Point(3, 3);
+            this.addItemLabel.Name = "addItemLabel";
+            this.addItemLabel.Size = new System.Drawing.Size(64, 13);
+            this.addItemLabel.TabIndex = 9;
+            this.addItemLabel.Text = "Add an Item";
+            // 
+            // addedItemsCheckedList
+            // 
+            this.addedItemsCheckedList.CheckOnClick = true;
+            this.addedItemsCheckedList.FormattingEnabled = true;
+            this.addedItemsCheckedList.Location = new System.Drawing.Point(6, 49);
+            this.addedItemsCheckedList.Name = "addedItemsCheckedList";
+            this.addedItemsCheckedList.Size = new System.Drawing.Size(179, 154);
+            this.addedItemsCheckedList.TabIndex = 8;
+            // 
+            // addItemButton
+            // 
+            this.addItemButton.Location = new System.Drawing.Point(6, 22);
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(75, 23);
+            this.addItemButton.TabIndex = 12;
+            this.addItemButton.Text = "Add Item";
+            this.addItemButton.UseVisualStyleBackColor = true;
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
+            // 
+            // removeCheckedItemsButton
+            // 
+            this.removeCheckedItemsButton.Location = new System.Drawing.Point(6, 209);
+            this.removeCheckedItemsButton.Name = "removeCheckedItemsButton";
+            this.removeCheckedItemsButton.Size = new System.Drawing.Size(162, 23);
+            this.removeCheckedItemsButton.TabIndex = 15;
+            this.removeCheckedItemsButton.Text = "Remove checked Items";
+            this.removeCheckedItemsButton.UseVisualStyleBackColor = true;
+            this.removeCheckedItemsButton.Click += new System.EventHandler(this.removeCheckedItemsButton_Click);
+            // 
+            // addItemPanel
+            // 
+            this.addItemPanel.Controls.Add(this.removeCheckedItemsButton);
+            this.addItemPanel.Controls.Add(this.addItemButton);
+            this.addItemPanel.Controls.Add(this.addedItemsCheckedList);
+            this.addItemPanel.Controls.Add(this.addItemLabel);
+            this.addItemPanel.Location = new System.Drawing.Point(381, 389);
+            this.addItemPanel.Name = "addItemPanel";
+            this.addItemPanel.Size = new System.Drawing.Size(188, 237);
+            this.addItemPanel.TabIndex = 14;
+            // 
+            // addActionLabel
+            // 
+            this.addActionLabel.AutoSize = true;
+            this.addActionLabel.Location = new System.Drawing.Point(3, 3);
+            this.addActionLabel.Name = "addActionLabel";
+            this.addActionLabel.Size = new System.Drawing.Size(111, 13);
+            this.addActionLabel.TabIndex = 0;
+            this.addActionLabel.Text = "Add a triggered action";
+            // 
+            // actionCheckedList
+            // 
+            this.actionCheckedList.CheckOnClick = true;
+            this.actionCheckedList.FormattingEnabled = true;
+            this.actionCheckedList.Location = new System.Drawing.Point(6, 48);
+            this.actionCheckedList.Name = "actionCheckedList";
+            this.actionCheckedList.Size = new System.Drawing.Size(181, 169);
+            this.actionCheckedList.TabIndex = 6;
+            // 
+            // removeCheckedAction
+            // 
+            this.removeCheckedAction.Location = new System.Drawing.Point(6, 222);
+            this.removeCheckedAction.Name = "removeCheckedAction";
+            this.removeCheckedAction.Size = new System.Drawing.Size(169, 23);
+            this.removeCheckedAction.TabIndex = 17;
+            this.removeCheckedAction.Text = "Remove checked action";
+            this.removeCheckedAction.UseVisualStyleBackColor = true;
+            this.removeCheckedAction.Click += new System.EventHandler(this.removeCheckedAction_Click);
+            // 
+            // addActionButton
+            // 
+            this.addActionButton.Location = new System.Drawing.Point(6, 21);
+            this.addActionButton.Name = "addActionButton";
+            this.addActionButton.Size = new System.Drawing.Size(169, 23);
+            this.addActionButton.TabIndex = 18;
+            this.addActionButton.Text = "Add new triggered action";
+            this.addActionButton.UseVisualStyleBackColor = true;
+            this.addActionButton.Click += new System.EventHandler(this.addActionButton_Click);
+            // 
+            // addActionPanel
+            // 
+            this.addActionPanel.Controls.Add(this.addActionButton);
+            this.addActionPanel.Controls.Add(this.removeCheckedAction);
+            this.addActionPanel.Controls.Add(this.actionCheckedList);
+            this.addActionPanel.Controls.Add(this.addActionLabel);
+            this.addActionPanel.Location = new System.Drawing.Point(678, 123);
+            this.addActionPanel.Name = "addActionPanel";
+            this.addActionPanel.Size = new System.Drawing.Size(198, 251);
+            this.addActionPanel.TabIndex = 22;
+            // 
+            // addDialogueLabel
+            // 
+            this.addDialogueLabel.AutoSize = true;
+            this.addDialogueLabel.Location = new System.Drawing.Point(3, 3);
+            this.addDialogueLabel.Name = "addDialogueLabel";
+            this.addDialogueLabel.Size = new System.Drawing.Size(140, 13);
+            this.addDialogueLabel.TabIndex = 0;
+            this.addDialogueLabel.Text = "Add idle dialogue to an NPC";
+            // 
+            // dialogueTextBox
+            // 
+            this.dialogueTextBox.Location = new System.Drawing.Point(6, 42);
+            this.dialogueTextBox.Name = "dialogueTextBox";
+            this.dialogueTextBox.Size = new System.Drawing.Size(155, 20);
+            this.dialogueTextBox.TabIndex = 1;
+            // 
+            // dialogueLabel
+            // 
+            this.dialogueLabel.AutoSize = true;
+            this.dialogueLabel.Location = new System.Drawing.Point(3, 24);
+            this.dialogueLabel.Name = "dialogueLabel";
+            this.dialogueLabel.Size = new System.Drawing.Size(69, 13);
+            this.dialogueLabel.TabIndex = 2;
+            this.dialogueLabel.Text = "Dialogue text";
+            // 
+            // addDialogueButton
+            // 
+            this.addDialogueButton.Location = new System.Drawing.Point(167, 39);
+            this.addDialogueButton.Name = "addDialogueButton";
+            this.addDialogueButton.Size = new System.Drawing.Size(99, 23);
+            this.addDialogueButton.TabIndex = 5;
+            this.addDialogueButton.Text = "Add dialogue";
+            this.addDialogueButton.UseVisualStyleBackColor = true;
+            this.addDialogueButton.Click += new System.EventHandler(this.addDialogueButton_Click);
+            // 
+            // dialogueCheckedList
+            // 
+            this.dialogueCheckedList.CheckOnClick = true;
+            this.dialogueCheckedList.FormattingEnabled = true;
+            this.dialogueCheckedList.Location = new System.Drawing.Point(6, 68);
+            this.dialogueCheckedList.Name = "dialogueCheckedList";
+            this.dialogueCheckedList.Size = new System.Drawing.Size(260, 139);
+            this.dialogueCheckedList.TabIndex = 6;
+            // 
+            // removeCheckedDialogueButton
+            // 
+            this.removeCheckedDialogueButton.Location = new System.Drawing.Point(6, 213);
+            this.removeCheckedDialogueButton.Name = "removeCheckedDialogueButton";
+            this.removeCheckedDialogueButton.Size = new System.Drawing.Size(215, 23);
+            this.removeCheckedDialogueButton.TabIndex = 17;
+            this.removeCheckedDialogueButton.Text = "Remove checked dialogue";
+            this.removeCheckedDialogueButton.UseVisualStyleBackColor = true;
+            this.removeCheckedDialogueButton.Click += new System.EventHandler(this.removeCheckedDialogueButton_Click);
+            // 
+            // addDialoguePanel
+            // 
+            this.addDialoguePanel.Controls.Add(this.removeCheckedDialogueButton);
+            this.addDialoguePanel.Controls.Add(this.dialogueCheckedList);
+            this.addDialoguePanel.Controls.Add(this.addDialogueButton);
+            this.addDialoguePanel.Controls.Add(this.dialogueLabel);
+            this.addDialoguePanel.Controls.Add(this.dialogueTextBox);
+            this.addDialoguePanel.Controls.Add(this.addDialogueLabel);
+            this.addDialoguePanel.Location = new System.Drawing.Point(381, 123);
+            this.addDialoguePanel.Name = "addDialoguePanel";
+            this.addDialoguePanel.Size = new System.Drawing.Size(280, 251);
+            this.addDialoguePanel.TabIndex = 18;
+            // 
+            // itemPickupCheckBox
+            // 
+            this.itemPickupCheckBox.Checked = true;
+            this.itemPickupCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.itemPickupCheckBox.Location = new System.Drawing.Point(383, 125);
+            this.itemPickupCheckBox.Name = "itemPickupCheckBox";
+            this.itemPickupCheckBox.Size = new System.Drawing.Size(101, 34);
+            this.itemPickupCheckBox.TabIndex = 12;
+            this.itemPickupCheckBox.Text = "Player can carry this item";
+            this.itemPickupCheckBox.UseVisualStyleBackColor = true;
+            this.itemPickupCheckBox.CheckedChanged += new System.EventHandler(this.itemPickupCheckBox_CheckedChanged);
+            // 
+            // addNpcsLabel
+            // 
+            this.addNpcsLabel.AutoSize = true;
+            this.addNpcsLabel.Location = new System.Drawing.Point(3, 3);
+            this.addNpcsLabel.Name = "addNpcsLabel";
+            this.addNpcsLabel.Size = new System.Drawing.Size(66, 13);
+            this.addNpcsLabel.TabIndex = 9;
+            this.addNpcsLabel.Text = "Add an NPC";
+            // 
+            // addedNPCsCheckedList
+            // 
+            this.addedNPCsCheckedList.CheckOnClick = true;
+            this.addedNPCsCheckedList.FormattingEnabled = true;
+            this.addedNPCsCheckedList.Location = new System.Drawing.Point(6, 49);
+            this.addedNPCsCheckedList.Name = "addedNPCsCheckedList";
+            this.addedNPCsCheckedList.Size = new System.Drawing.Size(179, 154);
+            this.addedNPCsCheckedList.TabIndex = 8;
+            // 
+            // addNPCsButton
+            // 
+            this.addNPCsButton.Location = new System.Drawing.Point(6, 22);
+            this.addNPCsButton.Name = "addNPCsButton";
+            this.addNPCsButton.Size = new System.Drawing.Size(75, 23);
+            this.addNPCsButton.TabIndex = 12;
+            this.addNPCsButton.Text = "Add NPC";
+            this.addNPCsButton.UseVisualStyleBackColor = true;
+            this.addNPCsButton.Click += new System.EventHandler(this.addNPCsButton_Click);
+            // 
+            // removeCheckedNPCsButton
+            // 
+            this.removeCheckedNPCsButton.Location = new System.Drawing.Point(6, 209);
+            this.removeCheckedNPCsButton.Name = "removeCheckedNPCsButton";
+            this.removeCheckedNPCsButton.Size = new System.Drawing.Size(162, 23);
+            this.removeCheckedNPCsButton.TabIndex = 15;
+            this.removeCheckedNPCsButton.Text = "Remove checked NPCs";
+            this.removeCheckedNPCsButton.UseVisualStyleBackColor = true;
+            this.removeCheckedNPCsButton.Click += new System.EventHandler(this.removeCheckedNPCsButton_Click);
+            // 
+            // addNPCsPanel
+            // 
+            this.addNPCsPanel.Controls.Add(this.removeCheckedNPCsButton);
+            this.addNPCsPanel.Controls.Add(this.addNPCsButton);
+            this.addNPCsPanel.Controls.Add(this.addedNPCsCheckedList);
+            this.addNPCsPanel.Controls.Add(this.addNpcsLabel);
+            this.addNPCsPanel.Location = new System.Drawing.Point(381, 123);
+            this.addNPCsPanel.Name = "addNPCsPanel";
+            this.addNPCsPanel.Size = new System.Drawing.Size(188, 237);
+            this.addNPCsPanel.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -958,26 +958,26 @@
             this.shortDescPanel.PerformLayout();
             this.longDescPanel.ResumeLayout(false);
             this.longDescPanel.PerformLayout();
-            this.aliasPanel.ResumeLayout(false);
-            this.aliasPanel.PerformLayout();
             this.exitsPanel.ResumeLayout(false);
             this.exitsPanel.PerformLayout();
-            this.addNPCsPanel.ResumeLayout(false);
-            this.addNPCsPanel.PerformLayout();
-            this.addItemPanel.ResumeLayout(false);
-            this.addItemPanel.PerformLayout();
-            this.descriptionPanel.ResumeLayout(false);
-            this.descriptionPanel.PerformLayout();
-            this.addDialoguePanel.ResumeLayout(false);
-            this.addDialoguePanel.PerformLayout();
-            this.addConversationPanel.ResumeLayout(false);
-            this.addConversationPanel.PerformLayout();
             this.mainViewPanel.ResumeLayout(false);
-            this.addActionPanel.ResumeLayout(false);
-            this.addActionPanel.PerformLayout();
             this.actionViewPanel.ResumeLayout(false);
             this.actionKeywordPanel.ResumeLayout(false);
             this.actionKeywordPanel.PerformLayout();
+            this.descriptionPanel.ResumeLayout(false);
+            this.descriptionPanel.PerformLayout();
+            this.aliasPanel.ResumeLayout(false);
+            this.aliasPanel.PerformLayout();
+            this.addConversationPanel.ResumeLayout(false);
+            this.addConversationPanel.PerformLayout();
+            this.addItemPanel.ResumeLayout(false);
+            this.addItemPanel.PerformLayout();
+            this.addActionPanel.ResumeLayout(false);
+            this.addActionPanel.PerformLayout();
+            this.addDialoguePanel.ResumeLayout(false);
+            this.addDialoguePanel.PerformLayout();
+            this.addNPCsPanel.ResumeLayout(false);
+            this.addNPCsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -999,9 +999,6 @@
         private System.Windows.Forms.Panel longDescPanel;
         private System.Windows.Forms.Label longDescLabel;
         private System.Windows.Forms.TextBox longDescTextBox;
-        private System.Windows.Forms.Panel aliasPanel;
-        private System.Windows.Forms.Label aliasLabel;
-        private System.Windows.Forms.TextBox aliasTextBox;
         private System.Windows.Forms.CheckedListBox exitsCheckedList;
         private System.Windows.Forms.Label exitsLabel;
         private System.Windows.Forms.Label directionLabel;
@@ -1012,50 +1009,10 @@
         private System.Windows.Forms.TextBox directionTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button removeExitsButton;
-        private System.Windows.Forms.CheckBox itemPickupCheckBox;
-        private System.Windows.Forms.Panel addNPCsPanel;
-        private System.Windows.Forms.Button removeCheckedNPCsButton;
-        private System.Windows.Forms.Button addNPCsButton;
-        private System.Windows.Forms.CheckedListBox addedNPCsCheckedList;
-        private System.Windows.Forms.Label addNpcsLabel;
-        private System.Windows.Forms.Panel addItemPanel;
-        private System.Windows.Forms.Button removeCheckedItemsButton;
-        private System.Windows.Forms.Button addItemButton;
-        private System.Windows.Forms.CheckedListBox addedItemsCheckedList;
-        private System.Windows.Forms.Label addItemLabel;
-        private System.Windows.Forms.Panel descriptionPanel;
-        private System.Windows.Forms.CheckedListBox descriptionCheckedList;
-        private System.Windows.Forms.Button addDescriptionButton;
-        private System.Windows.Forms.TextBox descriptionDescriptionTextBox;
-        private System.Windows.Forms.Label descriptionDescriptionLabel;
-        private System.Windows.Forms.Label descriptionNameLabel;
-        private System.Windows.Forms.TextBox descriptionNameTextBox;
-        private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label generatedLabel;
-        private System.Windows.Forms.Button removeCheckedDescriptionsButton;
-        private System.Windows.Forms.Panel addDialoguePanel;
-        private System.Windows.Forms.Button removeCheckedDialogueButton;
-        private System.Windows.Forms.CheckedListBox dialogueCheckedList;
-        private System.Windows.Forms.Button addDialogueButton;
-        private System.Windows.Forms.Label dialogueLabel;
-        private System.Windows.Forms.TextBox dialogueTextBox;
-        private System.Windows.Forms.Label addDialogueLabel;
-        private System.Windows.Forms.Panel addConversationPanel;
-        private System.Windows.Forms.Button removeCheckedConversationsButton;
-        private System.Windows.Forms.CheckedListBox conversationCheckedList;
-        private System.Windows.Forms.Button addConversationButton;
-        private System.Windows.Forms.Label conversationLabel;
-        private System.Windows.Forms.TextBox conversationTextBox;
-        private System.Windows.Forms.Label addConversationLabel;
         private System.Windows.Forms.Button clearAllButton;
         private System.Windows.Forms.Label objectNameErrorLabel;
         private System.Windows.Forms.Panel mainViewPanel;
-        private System.Windows.Forms.Label aliasInstructionLabel;
-        private System.Windows.Forms.Panel addActionPanel;
-        private System.Windows.Forms.Button removeCheckedAction;
-        private System.Windows.Forms.CheckedListBox actionCheckedList;
-        private System.Windows.Forms.Label addActionLabel;
-        private System.Windows.Forms.Button addActionButton;
         private System.Windows.Forms.Panel actionViewPanel;
         private System.Windows.Forms.Label actionViewLabel;
         private System.Windows.Forms.Button actionConfirmButton;
@@ -1067,6 +1024,49 @@
         private System.Windows.Forms.Label actionKeywordsLabel;
         private System.Windows.Forms.TextBox actionKeywordTextBox;
         private System.Windows.Forms.Label addActionKeywordLabel;
+        private System.Windows.Forms.Panel addActionPanel;
+        private System.Windows.Forms.Button addActionButton;
+        private System.Windows.Forms.Button removeCheckedAction;
+        private System.Windows.Forms.CheckedListBox actionCheckedList;
+        private System.Windows.Forms.Label addActionLabel;
+        private System.Windows.Forms.Panel aliasPanel;
+        private System.Windows.Forms.Label aliasInstructionLabel;
+        private System.Windows.Forms.Label aliasLabel;
+        private System.Windows.Forms.TextBox aliasTextBox;
+        private System.Windows.Forms.Panel addItemPanel;
+        private System.Windows.Forms.Button removeCheckedItemsButton;
+        private System.Windows.Forms.Button addItemButton;
+        private System.Windows.Forms.CheckedListBox addedItemsCheckedList;
+        private System.Windows.Forms.Label addItemLabel;
+        private System.Windows.Forms.Panel addConversationPanel;
+        private System.Windows.Forms.Button removeCheckedConversationsButton;
+        private System.Windows.Forms.CheckedListBox conversationCheckedList;
+        private System.Windows.Forms.Button addConversationButton;
+        private System.Windows.Forms.Label conversationLabel;
+        private System.Windows.Forms.TextBox conversationTextBox;
+        private System.Windows.Forms.Label addConversationLabel;
+        private System.Windows.Forms.Panel addNPCsPanel;
+        private System.Windows.Forms.Button removeCheckedNPCsButton;
+        private System.Windows.Forms.Button addNPCsButton;
+        private System.Windows.Forms.CheckedListBox addedNPCsCheckedList;
+        private System.Windows.Forms.Label addNpcsLabel;
+        private System.Windows.Forms.CheckBox itemPickupCheckBox;
+        private System.Windows.Forms.Panel addDialoguePanel;
+        private System.Windows.Forms.Button removeCheckedDialogueButton;
+        private System.Windows.Forms.CheckedListBox dialogueCheckedList;
+        private System.Windows.Forms.Button addDialogueButton;
+        private System.Windows.Forms.Label dialogueLabel;
+        private System.Windows.Forms.TextBox dialogueTextBox;
+        private System.Windows.Forms.Label addDialogueLabel;
+        private System.Windows.Forms.Panel descriptionPanel;
+        private System.Windows.Forms.Button removeCheckedDescriptionsButton;
+        private System.Windows.Forms.CheckedListBox descriptionCheckedList;
+        private System.Windows.Forms.Button addDescriptionButton;
+        private System.Windows.Forms.TextBox descriptionDescriptionTextBox;
+        private System.Windows.Forms.Label descriptionDescriptionLabel;
+        private System.Windows.Forms.Label descriptionNameLabel;
+        private System.Windows.Forms.TextBox descriptionNameTextBox;
+        private System.Windows.Forms.Label descriptionLabel;
     }
 }
 
