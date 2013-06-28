@@ -672,6 +672,16 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+
+        private void addExpCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (addExpCheckBox.Checked)
+                addExpNumeric.Visible = true;
+            else
+                addExpNumeric.Visible = false;
+        }
+
 // Manipulate the room the player is moved to
         string movePlayerPath;
 
@@ -713,6 +723,12 @@ namespace WindowsFormsApplication1
 
 // Manipulating NPCs in the request
         Dictionary<string, string> addNpcs = new Dictionary<string, string>();
+        private void rAddNpcButton_Click(object sender, EventArgs e)
+        {
+            showObjectManipPanel("Add an NPC to a location");
+            objectManipInventoryCheckBox.Visible = false;
+        }
+
         private void rAddNpcRemoveButton_Click(object sender, EventArgs e)
         {
             while (rAddNpcCheckList.CheckedItems.Count > 0)
@@ -722,6 +738,12 @@ namespace WindowsFormsApplication1
         }
 
         Dictionary<string, string> moveNpcs = new Dictionary<string, string>();
+        private void rMoveNpcButton_Click(object sender, EventArgs e)
+        {
+            showObjectManipPanel("Move an NPC to new location");
+            objectManipInventoryCheckBox.Visible = false;
+        }
+
         private void rMoveNpcRemoveButton_Click(object sender, EventArgs e)
         {
             while (rMoveNpcCheckList.CheckedItems.Count > 0)
@@ -731,6 +753,15 @@ namespace WindowsFormsApplication1
         }
 
         Dictionary<string, string> removeNpcs = new Dictionary<string, string>();
+        private void rRemoveNpcButton_Click(object sender, EventArgs e)
+        {
+            showObjectManipPanel("Remove an NPC from all locations");
+            objectManipInventoryCheckBox.Visible = false;
+            objectManipAddLocationButton.Visible = false;
+            objectManipAddLocationLabel.Text = "";
+            objectManipThisRoomCheckBox.Visible = false;
+        }
+
         private void rRemoveNpcRemoveButton_Click(object sender, EventArgs e)
         {
             while (rRemoveNpcCheckList.CheckedItems.Count > 0)
@@ -742,6 +773,11 @@ namespace WindowsFormsApplication1
 
 // Manipulating items in the request
         Dictionary<string, string> addItem = new Dictionary<string, string>();
+        private void rAddItemButton_Click(object sender, EventArgs e)
+        {
+            showObjectManipPanel("Add an item to a location");
+        }
+
         private void rAddItemRemoveButton_Click(object sender, EventArgs e)
         {
             while (rAddItemCheckList.CheckedItems.Count > 0)
@@ -752,6 +788,11 @@ namespace WindowsFormsApplication1
         }
 
         Dictionary<string, string> moveItem = new Dictionary<string, string>();
+        private void rMoveItemButton_Click(object sender, EventArgs e)
+        {
+            showObjectManipPanel("Move an item to new location");
+        }
+
         private void rMoveItemRemoveButton_Click(object sender, EventArgs e)
         {
             while (rMoveItemCheckList.CheckedItems.Count > 0)
@@ -761,6 +802,15 @@ namespace WindowsFormsApplication1
         }
 
         Dictionary<string, string> removeItem = new Dictionary<string, string>();
+        private void rRemoveItemButton_Click(object sender, EventArgs e)
+        {
+            showObjectManipPanel("Remove an item from all locations");
+            objectManipInventoryCheckBox.Visible = false;
+            objectManipAddLocationButton.Visible = false;
+            objectManipAddLocationLabel.Text = "";
+            objectManipThisRoomCheckBox.Visible = false;
+        }
+
         private void rRemoveItemRemoveButton_Click(object sender, EventArgs e)
         {
             while (rRemoveItemCheckList.CheckedItems.Count > 0)
@@ -768,6 +818,71 @@ namespace WindowsFormsApplication1
                 rRemoveItemCheckList.Items.Remove(rRemoveItemCheckList.CheckedItems[0]);
             }
         }
+
+
+
+// Object manipulation panel
+        private void showObjectManipPanel(string message)
+        {
+            objectManipLabel.Text = message;
+            actionViewPanel.Enabled = false;
+            objectManipPanel.Visible = true;
+        }
+        private void hideObjectManipPanel()
+        {
+            actionViewPanel.Enabled = true;
+            objectManipPanel.Visible = false;
+
+            objectManipAddLocationButton.Visible = true;
+            objectManipAddLocationButton.Enabled = true;
+            objectManipInventoryCheckBox.Visible = true;
+            objectManipInventoryCheckBox.Checked = false;
+            objectManipThisRoomCheckBox.Visible = true;
+            objectManipThisRoomCheckBox.Checked = false;
+            objectManipAddLocationLabel.Text = "";
+            objectManipAddObjectLabel.Text = "";
+        }
+
+        private void objectManipCancelButton_Click(object sender, EventArgs e)
+        {
+            hideObjectManipPanel();
+        }
+
+        private void objectManipConfirmButton_Click(object sender, EventArgs e)
+        {
+            hideObjectManipPanel();
+        }
+
+        private void objectManipInventoryCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (objectManipInventoryCheckBox.Checked)
+            {
+                objectManipThisRoomCheckBox.Checked = false;
+                objectManipAddLocationButton.Enabled = false;
+                objectManipAddLocationLabel.Text = "You may not add a location if you have selected a preset location.";
+            }
+            else if (!objectManipThisRoomCheckBox.Checked && !objectManipInventoryCheckBox.Checked)
+            {
+                objectManipAddLocationButton.Enabled = true;
+                objectManipAddLocationLabel.Text = "";
+            }
+        }
+
+        private void objectManipThisRoomCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (objectManipThisRoomCheckBox.Checked)
+            {
+                objectManipInventoryCheckBox.Checked = false;
+                objectManipAddLocationButton.Enabled = false;
+                objectManipAddLocationLabel.Text = "You may not add a location if you have selected a preset location.";
+            }
+            else if (!objectManipThisRoomCheckBox.Checked && !objectManipInventoryCheckBox.Checked)
+            {
+                objectManipAddLocationButton.Enabled = true;
+                objectManipAddLocationLabel.Text = "";
+            }
+        }
+
 
 
 

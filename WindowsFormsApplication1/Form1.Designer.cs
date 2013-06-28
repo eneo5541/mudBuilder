@@ -101,39 +101,10 @@
             this.descriptionNameTextBox = new System.Windows.Forms.TextBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.actionViewPanel = new System.Windows.Forms.Panel();
-            this.excludedCheckboxPanel = new System.Windows.Forms.Panel();
-            this.addExcludedCheckBox = new System.Windows.Forms.CheckBox();
-            this.actionExcludedPanel = new System.Windows.Forms.Panel();
-            this.actionExcludedObjectLabel = new System.Windows.Forms.Label();
-            this.actionExcludedCheckboxPanel = new System.Windows.Forms.Panel();
-            this.excludedRoomRadio = new System.Windows.Forms.RadioButton();
-            this.excludedNPCRadio = new System.Windows.Forms.RadioButton();
-            this.excludedItemRadio = new System.Windows.Forms.RadioButton();
-            this.addObjectExcludedButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.actionExcludedLabel = new System.Windows.Forms.Label();
-            this.requiredCheckboxPanel = new System.Windows.Forms.Panel();
-            this.addRequiredCheckBox = new System.Windows.Forms.CheckBox();
-            this.actionRequiredPanel = new System.Windows.Forms.Panel();
-            this.actionRequiredObjectLabel = new System.Windows.Forms.Label();
-            this.actionRequiredCheckboxPanel = new System.Windows.Forms.Panel();
-            this.requiredRoomRadio = new System.Windows.Forms.RadioButton();
-            this.requiredNPCRadio = new System.Windows.Forms.RadioButton();
-            this.requiredItemRadio = new System.Windows.Forms.RadioButton();
-            this.addObjectRequiredButton = new System.Windows.Forms.Button();
-            this.addActionRequiredTextbox = new System.Windows.Forms.TextBox();
-            this.actionRequiredLabel = new System.Windows.Forms.Label();
-            this.actionKeywordPanel = new System.Windows.Forms.Panel();
-            this.actionRemoveCheckedKeywordButton = new System.Windows.Forms.Button();
-            this.actionKeywordCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.actionKeywordButton = new System.Windows.Forms.Button();
-            this.actionKeywordsLabel = new System.Windows.Forms.Label();
-            this.actionKeywordTextBox = new System.Windows.Forms.TextBox();
-            this.addActionKeywordLabel = new System.Windows.Forms.Label();
-            this.actionViewLabel = new System.Windows.Forms.Label();
-            this.actionConfirmButton = new System.Windows.Forms.Button();
-            this.actionCancelButton = new System.Windows.Forms.Button();
             this.actionResponsePanel = new System.Windows.Forms.Panel();
+            this.addExpPanel = new System.Windows.Forms.Panel();
+            this.addExpNumeric = new System.Windows.Forms.NumericUpDown();
+            this.addExpCheckBox = new System.Windows.Forms.CheckBox();
             this.rRemoveItemPanel = new System.Windows.Forms.Panel();
             this.rRemoveItemCheckList = new System.Windows.Forms.CheckedListBox();
             this.rRemoveItemRemoveButton = new System.Windows.Forms.Button();
@@ -179,13 +150,52 @@
             this.reloadRoomCheckbox = new System.Windows.Forms.CheckBox();
             this.lookAtRoomPanel = new System.Windows.Forms.Panel();
             this.lookAtRoomCheckbox = new System.Windows.Forms.CheckBox();
-            this.addExpPanel = new System.Windows.Forms.Panel();
-            this.addExpNumeric = new System.Windows.Forms.NumericUpDown();
-            this.addExpLabel = new System.Windows.Forms.Label();
             this.addTextPanel = new System.Windows.Forms.Panel();
             this.addTextTextBox = new System.Windows.Forms.TextBox();
             this.addTextLabel = new System.Windows.Forms.Label();
             this.actionResponseLabel = new System.Windows.Forms.Label();
+            this.excludedCheckboxPanel = new System.Windows.Forms.Panel();
+            this.addExcludedCheckBox = new System.Windows.Forms.CheckBox();
+            this.actionExcludedPanel = new System.Windows.Forms.Panel();
+            this.actionExcludedObjectLabel = new System.Windows.Forms.Label();
+            this.actionExcludedCheckboxPanel = new System.Windows.Forms.Panel();
+            this.excludedRoomRadio = new System.Windows.Forms.RadioButton();
+            this.excludedNPCRadio = new System.Windows.Forms.RadioButton();
+            this.excludedItemRadio = new System.Windows.Forms.RadioButton();
+            this.addObjectExcludedButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.actionExcludedLabel = new System.Windows.Forms.Label();
+            this.requiredCheckboxPanel = new System.Windows.Forms.Panel();
+            this.addRequiredCheckBox = new System.Windows.Forms.CheckBox();
+            this.actionRequiredPanel = new System.Windows.Forms.Panel();
+            this.actionRequiredObjectLabel = new System.Windows.Forms.Label();
+            this.actionRequiredCheckboxPanel = new System.Windows.Forms.Panel();
+            this.requiredRoomRadio = new System.Windows.Forms.RadioButton();
+            this.requiredNPCRadio = new System.Windows.Forms.RadioButton();
+            this.requiredItemRadio = new System.Windows.Forms.RadioButton();
+            this.addObjectRequiredButton = new System.Windows.Forms.Button();
+            this.addActionRequiredTextbox = new System.Windows.Forms.TextBox();
+            this.actionRequiredLabel = new System.Windows.Forms.Label();
+            this.actionKeywordPanel = new System.Windows.Forms.Panel();
+            this.actionRemoveCheckedKeywordButton = new System.Windows.Forms.Button();
+            this.actionKeywordCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.actionKeywordButton = new System.Windows.Forms.Button();
+            this.actionKeywordsLabel = new System.Windows.Forms.Label();
+            this.actionKeywordTextBox = new System.Windows.Forms.TextBox();
+            this.addActionKeywordLabel = new System.Windows.Forms.Label();
+            this.actionViewLabel = new System.Windows.Forms.Label();
+            this.actionConfirmButton = new System.Windows.Forms.Button();
+            this.actionCancelButton = new System.Windows.Forms.Button();
+            this.objectManipPanel = new System.Windows.Forms.Panel();
+            this.objectManipThisRoomCheckBox = new System.Windows.Forms.CheckBox();
+            this.objectManipInventoryCheckBox = new System.Windows.Forms.CheckBox();
+            this.objectManipLabel = new System.Windows.Forms.Label();
+            this.objectManipConfirmButton = new System.Windows.Forms.Button();
+            this.objectManipCancelButton = new System.Windows.Forms.Button();
+            this.objectManipAddLocationLabel = new System.Windows.Forms.Label();
+            this.objectManipAddLocationButton = new System.Windows.Forms.Button();
+            this.objectManipAddObjectButton = new System.Windows.Forms.Button();
+            this.objectManipAddObjectLabel = new System.Windows.Forms.Label();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
@@ -200,14 +210,9 @@
             this.addDialoguePanel.SuspendLayout();
             this.descriptionPanel.SuspendLayout();
             this.actionViewPanel.SuspendLayout();
-            this.excludedCheckboxPanel.SuspendLayout();
-            this.actionExcludedPanel.SuspendLayout();
-            this.actionExcludedCheckboxPanel.SuspendLayout();
-            this.requiredCheckboxPanel.SuspendLayout();
-            this.actionRequiredPanel.SuspendLayout();
-            this.actionRequiredCheckboxPanel.SuspendLayout();
-            this.actionKeywordPanel.SuspendLayout();
             this.actionResponsePanel.SuspendLayout();
+            this.addExpPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addExpNumeric)).BeginInit();
             this.rRemoveItemPanel.SuspendLayout();
             this.rRemoveNpcPanel.SuspendLayout();
             this.rAddItemPanel.SuspendLayout();
@@ -218,9 +223,15 @@
             this.movePlayerToNewRoomPanel.SuspendLayout();
             this.reloadRoomPanel.SuspendLayout();
             this.lookAtRoomPanel.SuspendLayout();
-            this.addExpPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addExpNumeric)).BeginInit();
             this.addTextPanel.SuspendLayout();
+            this.excludedCheckboxPanel.SuspendLayout();
+            this.actionExcludedPanel.SuspendLayout();
+            this.actionExcludedCheckboxPanel.SuspendLayout();
+            this.requiredCheckboxPanel.SuspendLayout();
+            this.actionRequiredPanel.SuspendLayout();
+            this.actionRequiredCheckboxPanel.SuspendLayout();
+            this.actionKeywordPanel.SuspendLayout();
+            this.objectManipPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generateButton
@@ -930,18 +941,533 @@
             // 
             // actionViewPanel
             // 
+            this.actionViewPanel.Controls.Add(this.actionResponsePanel);
             this.actionViewPanel.Controls.Add(this.excludedCheckboxPanel);
             this.actionViewPanel.Controls.Add(this.requiredCheckboxPanel);
             this.actionViewPanel.Controls.Add(this.actionKeywordPanel);
             this.actionViewPanel.Controls.Add(this.actionViewLabel);
             this.actionViewPanel.Controls.Add(this.actionConfirmButton);
             this.actionViewPanel.Controls.Add(this.actionCancelButton);
-            this.actionViewPanel.Controls.Add(this.actionResponsePanel);
             this.actionViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.actionViewPanel.Location = new System.Drawing.Point(0, 0);
             this.actionViewPanel.Name = "actionViewPanel";
             this.actionViewPanel.Size = new System.Drawing.Size(1008, 730);
             this.actionViewPanel.TabIndex = 23;
+            // 
+            // actionResponsePanel
+            // 
+            this.actionResponsePanel.Controls.Add(this.addExpPanel);
+            this.actionResponsePanel.Controls.Add(this.rRemoveItemPanel);
+            this.actionResponsePanel.Controls.Add(this.rRemoveNpcPanel);
+            this.actionResponsePanel.Controls.Add(this.rAddItemPanel);
+            this.actionResponsePanel.Controls.Add(this.rAddNpcPanel);
+            this.actionResponsePanel.Controls.Add(this.rMoveItemPanel);
+            this.actionResponsePanel.Controls.Add(this.rMoveNPCPanel);
+            this.actionResponsePanel.Controls.Add(this.movePlayerPanel);
+            this.actionResponsePanel.Controls.Add(this.reloadRoomPanel);
+            this.actionResponsePanel.Controls.Add(this.lookAtRoomPanel);
+            this.actionResponsePanel.Controls.Add(this.addTextPanel);
+            this.actionResponsePanel.Controls.Add(this.actionResponseLabel);
+            this.actionResponsePanel.Location = new System.Drawing.Point(298, 34);
+            this.actionResponsePanel.Name = "actionResponsePanel";
+            this.actionResponsePanel.Size = new System.Drawing.Size(698, 658);
+            this.actionResponsePanel.TabIndex = 21;
+            // 
+            // addExpPanel
+            // 
+            this.addExpPanel.Controls.Add(this.addExpNumeric);
+            this.addExpPanel.Controls.Add(this.addExpCheckBox);
+            this.addExpPanel.Location = new System.Drawing.Point(421, 42);
+            this.addExpPanel.Name = "addExpPanel";
+            this.addExpPanel.Size = new System.Drawing.Size(265, 30);
+            this.addExpPanel.TabIndex = 17;
+            // 
+            // addExpNumeric
+            // 
+            this.addExpNumeric.Location = new System.Drawing.Point(117, 3);
+            this.addExpNumeric.Name = "addExpNumeric";
+            this.addExpNumeric.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addExpNumeric.Size = new System.Drawing.Size(80, 20);
+            this.addExpNumeric.TabIndex = 4;
+            this.addExpNumeric.Visible = false;
+            // 
+            // addExpCheckBox
+            // 
+            this.addExpCheckBox.AutoSize = true;
+            this.addExpCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.addExpCheckBox.Name = "addExpCheckBox";
+            this.addExpCheckBox.Size = new System.Drawing.Size(101, 17);
+            this.addExpCheckBox.TabIndex = 7;
+            this.addExpCheckBox.Text = "Add Experience";
+            this.addExpCheckBox.UseVisualStyleBackColor = true;
+            this.addExpCheckBox.CheckedChanged += new System.EventHandler(this.addExpCheckBox_CheckedChanged);
+            // 
+            // rRemoveItemPanel
+            // 
+            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemCheckList);
+            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemRemoveButton);
+            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemButton);
+            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemLabel);
+            this.rRemoveItemPanel.Controls.Add(this.label7);
+            this.rRemoveItemPanel.Location = new System.Drawing.Point(477, 443);
+            this.rRemoveItemPanel.Name = "rRemoveItemPanel";
+            this.rRemoveItemPanel.Size = new System.Drawing.Size(221, 196);
+            this.rRemoveItemPanel.TabIndex = 16;
+            // 
+            // rRemoveItemCheckList
+            // 
+            this.rRemoveItemCheckList.FormattingEnabled = true;
+            this.rRemoveItemCheckList.Location = new System.Drawing.Point(6, 56);
+            this.rRemoveItemCheckList.Name = "rRemoveItemCheckList";
+            this.rRemoveItemCheckList.Size = new System.Drawing.Size(200, 139);
+            this.rRemoveItemCheckList.TabIndex = 6;
+            // 
+            // rRemoveItemRemoveButton
+            // 
+            this.rRemoveItemRemoveButton.Location = new System.Drawing.Point(96, 26);
+            this.rRemoveItemRemoveButton.Name = "rRemoveItemRemoveButton";
+            this.rRemoveItemRemoveButton.Size = new System.Drawing.Size(110, 23);
+            this.rRemoveItemRemoveButton.TabIndex = 5;
+            this.rRemoveItemRemoveButton.Text = "Remove checked";
+            this.rRemoveItemRemoveButton.UseVisualStyleBackColor = true;
+            this.rRemoveItemRemoveButton.Click += new System.EventHandler(this.rRemoveItemRemoveButton_Click);
+            // 
+            // rRemoveItemButton
+            // 
+            this.rRemoveItemButton.Location = new System.Drawing.Point(5, 27);
+            this.rRemoveItemButton.Name = "rRemoveItemButton";
+            this.rRemoveItemButton.Size = new System.Drawing.Size(75, 23);
+            this.rRemoveItemButton.TabIndex = 4;
+            this.rRemoveItemButton.Text = "Add item...";
+            this.rRemoveItemButton.UseVisualStyleBackColor = true;
+            this.rRemoveItemButton.Click += new System.EventHandler(this.rRemoveItemButton_Click);
+            // 
+            // rRemoveItemLabel
+            // 
+            this.rRemoveItemLabel.AutoSize = true;
+            this.rRemoveItemLabel.Location = new System.Drawing.Point(3, 3);
+            this.rRemoveItemLabel.Name = "rRemoveItemLabel";
+            this.rRemoveItemLabel.Size = new System.Drawing.Size(69, 13);
+            this.rRemoveItemLabel.TabIndex = 2;
+            this.rRemoveItemLabel.Text = "Remove item";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "label7";
+            // 
+            // rRemoveNpcPanel
+            // 
+            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNpcCheckList);
+            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNpcRemoveButton);
+            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNpcButton);
+            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNPCLabel);
+            this.rRemoveNpcPanel.Controls.Add(this.label5);
+            this.rRemoveNpcPanel.Location = new System.Drawing.Point(477, 244);
+            this.rRemoveNpcPanel.Name = "rRemoveNpcPanel";
+            this.rRemoveNpcPanel.Size = new System.Drawing.Size(221, 196);
+            this.rRemoveNpcPanel.TabIndex = 13;
+            // 
+            // rRemoveNpcCheckList
+            // 
+            this.rRemoveNpcCheckList.FormattingEnabled = true;
+            this.rRemoveNpcCheckList.Location = new System.Drawing.Point(6, 56);
+            this.rRemoveNpcCheckList.Name = "rRemoveNpcCheckList";
+            this.rRemoveNpcCheckList.Size = new System.Drawing.Size(200, 139);
+            this.rRemoveNpcCheckList.TabIndex = 6;
+            // 
+            // rRemoveNpcRemoveButton
+            // 
+            this.rRemoveNpcRemoveButton.Location = new System.Drawing.Point(96, 26);
+            this.rRemoveNpcRemoveButton.Name = "rRemoveNpcRemoveButton";
+            this.rRemoveNpcRemoveButton.Size = new System.Drawing.Size(110, 23);
+            this.rRemoveNpcRemoveButton.TabIndex = 5;
+            this.rRemoveNpcRemoveButton.Text = "Remove checked";
+            this.rRemoveNpcRemoveButton.UseVisualStyleBackColor = true;
+            this.rRemoveNpcRemoveButton.Click += new System.EventHandler(this.rRemoveNpcRemoveButton_Click);
+            // 
+            // rRemoveNpcButton
+            // 
+            this.rRemoveNpcButton.Location = new System.Drawing.Point(5, 27);
+            this.rRemoveNpcButton.Name = "rRemoveNpcButton";
+            this.rRemoveNpcButton.Size = new System.Drawing.Size(75, 23);
+            this.rRemoveNpcButton.TabIndex = 4;
+            this.rRemoveNpcButton.Text = "Add NPC...";
+            this.rRemoveNpcButton.UseVisualStyleBackColor = true;
+            this.rRemoveNpcButton.Click += new System.EventHandler(this.rRemoveNpcButton_Click);
+            // 
+            // rRemoveNPCLabel
+            // 
+            this.rRemoveNPCLabel.AutoSize = true;
+            this.rRemoveNPCLabel.Location = new System.Drawing.Point(3, 3);
+            this.rRemoveNPCLabel.Name = "rRemoveNPCLabel";
+            this.rRemoveNPCLabel.Size = new System.Drawing.Size(72, 13);
+            this.rRemoveNPCLabel.TabIndex = 2;
+            this.rRemoveNPCLabel.Text = "Remove NPC";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "label5";
+            // 
+            // rAddItemPanel
+            // 
+            this.rAddItemPanel.Controls.Add(this.rAddItemCheckList);
+            this.rAddItemPanel.Controls.Add(this.rAddItemRemoveButton);
+            this.rAddItemPanel.Controls.Add(this.rAddItemButton);
+            this.rAddItemPanel.Controls.Add(this.rAddItemLabel);
+            this.rAddItemPanel.Controls.Add(this.label9);
+            this.rAddItemPanel.Location = new System.Drawing.Point(6, 443);
+            this.rAddItemPanel.Name = "rAddItemPanel";
+            this.rAddItemPanel.Size = new System.Drawing.Size(221, 196);
+            this.rAddItemPanel.TabIndex = 15;
+            // 
+            // rAddItemCheckList
+            // 
+            this.rAddItemCheckList.FormattingEnabled = true;
+            this.rAddItemCheckList.Location = new System.Drawing.Point(6, 56);
+            this.rAddItemCheckList.Name = "rAddItemCheckList";
+            this.rAddItemCheckList.Size = new System.Drawing.Size(200, 139);
+            this.rAddItemCheckList.TabIndex = 6;
+            // 
+            // rAddItemRemoveButton
+            // 
+            this.rAddItemRemoveButton.Location = new System.Drawing.Point(96, 26);
+            this.rAddItemRemoveButton.Name = "rAddItemRemoveButton";
+            this.rAddItemRemoveButton.Size = new System.Drawing.Size(110, 23);
+            this.rAddItemRemoveButton.TabIndex = 5;
+            this.rAddItemRemoveButton.Text = "Remove checked";
+            this.rAddItemRemoveButton.UseVisualStyleBackColor = true;
+            this.rAddItemRemoveButton.Click += new System.EventHandler(this.rAddItemRemoveButton_Click);
+            // 
+            // rAddItemButton
+            // 
+            this.rAddItemButton.Location = new System.Drawing.Point(5, 27);
+            this.rAddItemButton.Name = "rAddItemButton";
+            this.rAddItemButton.Size = new System.Drawing.Size(75, 23);
+            this.rAddItemButton.TabIndex = 4;
+            this.rAddItemButton.Text = "Add item...";
+            this.rAddItemButton.UseVisualStyleBackColor = true;
+            this.rAddItemButton.Click += new System.EventHandler(this.rAddItemButton_Click);
+            // 
+            // rAddItemLabel
+            // 
+            this.rAddItemLabel.AutoSize = true;
+            this.rAddItemLabel.Location = new System.Drawing.Point(3, 3);
+            this.rAddItemLabel.Name = "rAddItemLabel";
+            this.rAddItemLabel.Size = new System.Drawing.Size(48, 13);
+            this.rAddItemLabel.TabIndex = 2;
+            this.rAddItemLabel.Text = "Add item";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "label9";
+            // 
+            // rAddNpcPanel
+            // 
+            this.rAddNpcPanel.Controls.Add(this.rAddNpcCheckList);
+            this.rAddNpcPanel.Controls.Add(this.rAddNpcRemoveButton);
+            this.rAddNpcPanel.Controls.Add(this.rAddNpcButton);
+            this.rAddNpcPanel.Controls.Add(this.rAddNPCLabel);
+            this.rAddNpcPanel.Controls.Add(this.label2);
+            this.rAddNpcPanel.Location = new System.Drawing.Point(6, 244);
+            this.rAddNpcPanel.Name = "rAddNpcPanel";
+            this.rAddNpcPanel.Size = new System.Drawing.Size(221, 196);
+            this.rAddNpcPanel.TabIndex = 13;
+            // 
+            // rAddNpcCheckList
+            // 
+            this.rAddNpcCheckList.FormattingEnabled = true;
+            this.rAddNpcCheckList.Location = new System.Drawing.Point(6, 56);
+            this.rAddNpcCheckList.Name = "rAddNpcCheckList";
+            this.rAddNpcCheckList.Size = new System.Drawing.Size(200, 139);
+            this.rAddNpcCheckList.TabIndex = 6;
+            // 
+            // rAddNpcRemoveButton
+            // 
+            this.rAddNpcRemoveButton.Location = new System.Drawing.Point(96, 26);
+            this.rAddNpcRemoveButton.Name = "rAddNpcRemoveButton";
+            this.rAddNpcRemoveButton.Size = new System.Drawing.Size(110, 23);
+            this.rAddNpcRemoveButton.TabIndex = 5;
+            this.rAddNpcRemoveButton.Text = "Remove checked";
+            this.rAddNpcRemoveButton.UseVisualStyleBackColor = true;
+            this.rAddNpcRemoveButton.Click += new System.EventHandler(this.rAddNpcRemoveButton_Click);
+            // 
+            // rAddNpcButton
+            // 
+            this.rAddNpcButton.Location = new System.Drawing.Point(5, 27);
+            this.rAddNpcButton.Name = "rAddNpcButton";
+            this.rAddNpcButton.Size = new System.Drawing.Size(75, 23);
+            this.rAddNpcButton.TabIndex = 4;
+            this.rAddNpcButton.Text = "Add NPC...";
+            this.rAddNpcButton.UseVisualStyleBackColor = true;
+            this.rAddNpcButton.Click += new System.EventHandler(this.rAddNpcButton_Click);
+            // 
+            // rAddNPCLabel
+            // 
+            this.rAddNPCLabel.AutoSize = true;
+            this.rAddNPCLabel.Location = new System.Drawing.Point(3, 3);
+            this.rAddNPCLabel.Name = "rAddNPCLabel";
+            this.rAddNPCLabel.Size = new System.Drawing.Size(51, 13);
+            this.rAddNPCLabel.TabIndex = 2;
+            this.rAddNPCLabel.Text = "Add NPC";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "label2";
+            // 
+            // rMoveItemPanel
+            // 
+            this.rMoveItemPanel.Controls.Add(this.rMoveItemCheckList);
+            this.rMoveItemPanel.Controls.Add(this.rMoveItemRemoveButton);
+            this.rMoveItemPanel.Controls.Add(this.rMoveItemButton);
+            this.rMoveItemPanel.Controls.Add(this.rMoveItemLabel);
+            this.rMoveItemPanel.Controls.Add(this.label11);
+            this.rMoveItemPanel.Location = new System.Drawing.Point(241, 443);
+            this.rMoveItemPanel.Name = "rMoveItemPanel";
+            this.rMoveItemPanel.Size = new System.Drawing.Size(221, 196);
+            this.rMoveItemPanel.TabIndex = 14;
+            // 
+            // rMoveItemCheckList
+            // 
+            this.rMoveItemCheckList.FormattingEnabled = true;
+            this.rMoveItemCheckList.Location = new System.Drawing.Point(6, 56);
+            this.rMoveItemCheckList.Name = "rMoveItemCheckList";
+            this.rMoveItemCheckList.Size = new System.Drawing.Size(200, 139);
+            this.rMoveItemCheckList.TabIndex = 6;
+            // 
+            // rMoveItemRemoveButton
+            // 
+            this.rMoveItemRemoveButton.Location = new System.Drawing.Point(96, 26);
+            this.rMoveItemRemoveButton.Name = "rMoveItemRemoveButton";
+            this.rMoveItemRemoveButton.Size = new System.Drawing.Size(110, 23);
+            this.rMoveItemRemoveButton.TabIndex = 5;
+            this.rMoveItemRemoveButton.Text = "Remove checked";
+            this.rMoveItemRemoveButton.UseVisualStyleBackColor = true;
+            this.rMoveItemRemoveButton.Click += new System.EventHandler(this.rMoveItemRemoveButton_Click);
+            // 
+            // rMoveItemButton
+            // 
+            this.rMoveItemButton.Location = new System.Drawing.Point(5, 27);
+            this.rMoveItemButton.Name = "rMoveItemButton";
+            this.rMoveItemButton.Size = new System.Drawing.Size(75, 23);
+            this.rMoveItemButton.TabIndex = 4;
+            this.rMoveItemButton.Text = "Add item...";
+            this.rMoveItemButton.UseVisualStyleBackColor = true;
+            this.rMoveItemButton.Click += new System.EventHandler(this.rMoveItemButton_Click);
+            // 
+            // rMoveItemLabel
+            // 
+            this.rMoveItemLabel.AutoSize = true;
+            this.rMoveItemLabel.Location = new System.Drawing.Point(3, 3);
+            this.rMoveItemLabel.Name = "rMoveItemLabel";
+            this.rMoveItemLabel.Size = new System.Drawing.Size(56, 13);
+            this.rMoveItemLabel.TabIndex = 2;
+            this.rMoveItemLabel.Text = "Move item";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "label11";
+            // 
+            // rMoveNPCPanel
+            // 
+            this.rMoveNPCPanel.Controls.Add(this.rMoveNpcCheckList);
+            this.rMoveNPCPanel.Controls.Add(this.rMoveNpcRemoveButton);
+            this.rMoveNPCPanel.Controls.Add(this.rMoveNpcButton);
+            this.rMoveNPCPanel.Controls.Add(this.rMoveNPCLabel);
+            this.rMoveNPCPanel.Controls.Add(this.label4);
+            this.rMoveNPCPanel.Location = new System.Drawing.Point(241, 244);
+            this.rMoveNPCPanel.Name = "rMoveNPCPanel";
+            this.rMoveNPCPanel.Size = new System.Drawing.Size(221, 196);
+            this.rMoveNPCPanel.TabIndex = 12;
+            // 
+            // rMoveNpcCheckList
+            // 
+            this.rMoveNpcCheckList.FormattingEnabled = true;
+            this.rMoveNpcCheckList.Location = new System.Drawing.Point(6, 56);
+            this.rMoveNpcCheckList.Name = "rMoveNpcCheckList";
+            this.rMoveNpcCheckList.Size = new System.Drawing.Size(200, 139);
+            this.rMoveNpcCheckList.TabIndex = 6;
+            // 
+            // rMoveNpcRemoveButton
+            // 
+            this.rMoveNpcRemoveButton.Location = new System.Drawing.Point(96, 26);
+            this.rMoveNpcRemoveButton.Name = "rMoveNpcRemoveButton";
+            this.rMoveNpcRemoveButton.Size = new System.Drawing.Size(110, 23);
+            this.rMoveNpcRemoveButton.TabIndex = 5;
+            this.rMoveNpcRemoveButton.Text = "Remove checked";
+            this.rMoveNpcRemoveButton.UseVisualStyleBackColor = true;
+            this.rMoveNpcRemoveButton.Click += new System.EventHandler(this.rMoveNpcRemoveButton_Click);
+            // 
+            // rMoveNpcButton
+            // 
+            this.rMoveNpcButton.Location = new System.Drawing.Point(5, 27);
+            this.rMoveNpcButton.Name = "rMoveNpcButton";
+            this.rMoveNpcButton.Size = new System.Drawing.Size(75, 23);
+            this.rMoveNpcButton.TabIndex = 4;
+            this.rMoveNpcButton.Text = "Add NPC...";
+            this.rMoveNpcButton.UseVisualStyleBackColor = true;
+            this.rMoveNpcButton.Click += new System.EventHandler(this.rMoveNpcButton_Click);
+            // 
+            // rMoveNPCLabel
+            // 
+            this.rMoveNPCLabel.AutoSize = true;
+            this.rMoveNPCLabel.Location = new System.Drawing.Point(3, 3);
+            this.rMoveNPCLabel.Name = "rMoveNPCLabel";
+            this.rMoveNPCLabel.Size = new System.Drawing.Size(59, 13);
+            this.rMoveNPCLabel.TabIndex = 2;
+            this.rMoveNPCLabel.Text = "Move NPC";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "label4";
+            // 
+            // movePlayerPanel
+            // 
+            this.movePlayerPanel.Controls.Add(this.movePlayerToNewRoomPanel);
+            this.movePlayerPanel.Controls.Add(this.movePlayerCheckBox);
+            this.movePlayerPanel.Location = new System.Drawing.Point(421, 151);
+            this.movePlayerPanel.Name = "movePlayerPanel";
+            this.movePlayerPanel.Size = new System.Drawing.Size(274, 90);
+            this.movePlayerPanel.TabIndex = 7;
+            // 
+            // movePlayerToNewRoomPanel
+            // 
+            this.movePlayerToNewRoomPanel.Controls.Add(this.movePlayerOutputLabel);
+            this.movePlayerToNewRoomPanel.Controls.Add(this.movePlayerButton);
+            this.movePlayerToNewRoomPanel.Location = new System.Drawing.Point(23, 24);
+            this.movePlayerToNewRoomPanel.Name = "movePlayerToNewRoomPanel";
+            this.movePlayerToNewRoomPanel.Size = new System.Drawing.Size(242, 64);
+            this.movePlayerToNewRoomPanel.TabIndex = 8;
+            this.movePlayerToNewRoomPanel.Visible = false;
+            // 
+            // movePlayerOutputLabel
+            // 
+            this.movePlayerOutputLabel.AutoEllipsis = true;
+            this.movePlayerOutputLabel.Location = new System.Drawing.Point(5, 32);
+            this.movePlayerOutputLabel.Name = "movePlayerOutputLabel";
+            this.movePlayerOutputLabel.Size = new System.Drawing.Size(228, 23);
+            this.movePlayerOutputLabel.TabIndex = 21;
+            // 
+            // movePlayerButton
+            // 
+            this.movePlayerButton.Location = new System.Drawing.Point(3, 2);
+            this.movePlayerButton.Name = "movePlayerButton";
+            this.movePlayerButton.Size = new System.Drawing.Size(75, 23);
+            this.movePlayerButton.TabIndex = 20;
+            this.movePlayerButton.Text = "Add room...";
+            this.movePlayerButton.UseVisualStyleBackColor = true;
+            this.movePlayerButton.Click += new System.EventHandler(this.movePlayerButton_Click);
+            // 
+            // movePlayerCheckBox
+            // 
+            this.movePlayerCheckBox.AutoSize = true;
+            this.movePlayerCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.movePlayerCheckBox.Name = "movePlayerCheckBox";
+            this.movePlayerCheckBox.Size = new System.Drawing.Size(154, 17);
+            this.movePlayerCheckBox.TabIndex = 6;
+            this.movePlayerCheckBox.Text = "Move player to a new room";
+            this.movePlayerCheckBox.UseVisualStyleBackColor = true;
+            this.movePlayerCheckBox.CheckedChanged += new System.EventHandler(this.movePlayerCheckBox_CheckedChanged);
+            // 
+            // reloadRoomPanel
+            // 
+            this.reloadRoomPanel.Controls.Add(this.reloadRoomCheckbox);
+            this.reloadRoomPanel.Location = new System.Drawing.Point(421, 114);
+            this.reloadRoomPanel.Name = "reloadRoomPanel";
+            this.reloadRoomPanel.Size = new System.Drawing.Size(265, 30);
+            this.reloadRoomPanel.TabIndex = 6;
+            // 
+            // reloadRoomCheckbox
+            // 
+            this.reloadRoomCheckbox.AutoSize = true;
+            this.reloadRoomCheckbox.Location = new System.Drawing.Point(3, 3);
+            this.reloadRoomCheckbox.Name = "reloadRoomCheckbox";
+            this.reloadRoomCheckbox.Size = new System.Drawing.Size(137, 17);
+            this.reloadRoomCheckbox.TabIndex = 5;
+            this.reloadRoomCheckbox.Text = "Reload room\'s contents";
+            this.reloadRoomCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // lookAtRoomPanel
+            // 
+            this.lookAtRoomPanel.Controls.Add(this.lookAtRoomCheckbox);
+            this.lookAtRoomPanel.Location = new System.Drawing.Point(421, 78);
+            this.lookAtRoomPanel.Name = "lookAtRoomPanel";
+            this.lookAtRoomPanel.Size = new System.Drawing.Size(265, 30);
+            this.lookAtRoomPanel.TabIndex = 5;
+            // 
+            // lookAtRoomCheckbox
+            // 
+            this.lookAtRoomCheckbox.AutoSize = true;
+            this.lookAtRoomCheckbox.Location = new System.Drawing.Point(3, 3);
+            this.lookAtRoomCheckbox.Name = "lookAtRoomCheckbox";
+            this.lookAtRoomCheckbox.Size = new System.Drawing.Size(182, 17);
+            this.lookAtRoomCheckbox.TabIndex = 5;
+            this.lookAtRoomCheckbox.Text = "Display updated room description";
+            this.lookAtRoomCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // addTextPanel
+            // 
+            this.addTextPanel.Controls.Add(this.addTextTextBox);
+            this.addTextPanel.Controls.Add(this.addTextLabel);
+            this.addTextPanel.Location = new System.Drawing.Point(6, 19);
+            this.addTextPanel.Name = "addTextPanel";
+            this.addTextPanel.Size = new System.Drawing.Size(409, 222);
+            this.addTextPanel.TabIndex = 1;
+            // 
+            // addTextTextBox
+            // 
+            this.addTextTextBox.Location = new System.Drawing.Point(6, 23);
+            this.addTextTextBox.Multiline = true;
+            this.addTextTextBox.Name = "addTextTextBox";
+            this.addTextTextBox.Size = new System.Drawing.Size(400, 196);
+            this.addTextTextBox.TabIndex = 3;
+            // 
+            // addTextLabel
+            // 
+            this.addTextLabel.AutoSize = true;
+            this.addTextLabel.Location = new System.Drawing.Point(3, 4);
+            this.addTextLabel.Name = "addTextLabel";
+            this.addTextLabel.Size = new System.Drawing.Size(79, 13);
+            this.addTextLabel.TabIndex = 2;
+            this.addTextLabel.Text = "Add output text";
+            // 
+            // actionResponseLabel
+            // 
+            this.actionResponseLabel.AutoSize = true;
+            this.actionResponseLabel.Location = new System.Drawing.Point(3, 3);
+            this.actionResponseLabel.Name = "actionResponseLabel";
+            this.actionResponseLabel.Size = new System.Drawing.Size(118, 13);
+            this.actionResponseLabel.TabIndex = 0;
+            this.actionResponseLabel.Text = "Add response functions";
             // 
             // excludedCheckboxPanel
             // 
@@ -1252,511 +1778,108 @@
             this.actionCancelButton.UseVisualStyleBackColor = true;
             this.actionCancelButton.Click += new System.EventHandler(this.actionCancelButton_Click);
             // 
-            // actionResponsePanel
-            // 
-            this.actionResponsePanel.Controls.Add(this.rRemoveItemPanel);
-            this.actionResponsePanel.Controls.Add(this.rRemoveNpcPanel);
-            this.actionResponsePanel.Controls.Add(this.rAddItemPanel);
-            this.actionResponsePanel.Controls.Add(this.rAddNpcPanel);
-            this.actionResponsePanel.Controls.Add(this.rMoveItemPanel);
-            this.actionResponsePanel.Controls.Add(this.rMoveNPCPanel);
-            this.actionResponsePanel.Controls.Add(this.movePlayerPanel);
-            this.actionResponsePanel.Controls.Add(this.reloadRoomPanel);
-            this.actionResponsePanel.Controls.Add(this.lookAtRoomPanel);
-            this.actionResponsePanel.Controls.Add(this.addExpPanel);
-            this.actionResponsePanel.Controls.Add(this.addTextPanel);
-            this.actionResponsePanel.Controls.Add(this.actionResponseLabel);
-            this.actionResponsePanel.Location = new System.Drawing.Point(298, 34);
-            this.actionResponsePanel.Name = "actionResponsePanel";
-            this.actionResponsePanel.Size = new System.Drawing.Size(698, 658);
-            this.actionResponsePanel.TabIndex = 21;
-            // 
-            // rRemoveItemPanel
-            // 
-            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemCheckList);
-            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemRemoveButton);
-            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemButton);
-            this.rRemoveItemPanel.Controls.Add(this.rRemoveItemLabel);
-            this.rRemoveItemPanel.Controls.Add(this.label7);
-            this.rRemoveItemPanel.Location = new System.Drawing.Point(477, 443);
-            this.rRemoveItemPanel.Name = "rRemoveItemPanel";
-            this.rRemoveItemPanel.Size = new System.Drawing.Size(221, 196);
-            this.rRemoveItemPanel.TabIndex = 16;
-            // 
-            // rRemoveItemCheckList
-            // 
-            this.rRemoveItemCheckList.FormattingEnabled = true;
-            this.rRemoveItemCheckList.Location = new System.Drawing.Point(6, 56);
-            this.rRemoveItemCheckList.Name = "rRemoveItemCheckList";
-            this.rRemoveItemCheckList.Size = new System.Drawing.Size(200, 139);
-            this.rRemoveItemCheckList.TabIndex = 6;
-            // 
-            // rRemoveItemRemoveButton
-            // 
-            this.rRemoveItemRemoveButton.Location = new System.Drawing.Point(96, 26);
-            this.rRemoveItemRemoveButton.Name = "rRemoveItemRemoveButton";
-            this.rRemoveItemRemoveButton.Size = new System.Drawing.Size(110, 23);
-            this.rRemoveItemRemoveButton.TabIndex = 5;
-            this.rRemoveItemRemoveButton.Text = "Remove checked";
-            this.rRemoveItemRemoveButton.UseVisualStyleBackColor = true;
-            this.rRemoveItemRemoveButton.Click += new System.EventHandler(this.rRemoveItemRemoveButton_Click);
-            // 
-            // rRemoveItemButton
-            // 
-            this.rRemoveItemButton.Location = new System.Drawing.Point(5, 27);
-            this.rRemoveItemButton.Name = "rRemoveItemButton";
-            this.rRemoveItemButton.Size = new System.Drawing.Size(75, 23);
-            this.rRemoveItemButton.TabIndex = 4;
-            this.rRemoveItemButton.Text = "Add item...";
-            this.rRemoveItemButton.UseVisualStyleBackColor = true;
-            // 
-            // rRemoveItemLabel
-            // 
-            this.rRemoveItemLabel.AutoSize = true;
-            this.rRemoveItemLabel.Location = new System.Drawing.Point(3, 3);
-            this.rRemoveItemLabel.Name = "rRemoveItemLabel";
-            this.rRemoveItemLabel.Size = new System.Drawing.Size(69, 13);
-            this.rRemoveItemLabel.TabIndex = 2;
-            this.rRemoveItemLabel.Text = "Remove item";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "label7";
-            // 
-            // rRemoveNpcPanel
-            // 
-            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNpcCheckList);
-            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNpcRemoveButton);
-            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNpcButton);
-            this.rRemoveNpcPanel.Controls.Add(this.rRemoveNPCLabel);
-            this.rRemoveNpcPanel.Controls.Add(this.label5);
-            this.rRemoveNpcPanel.Location = new System.Drawing.Point(477, 244);
-            this.rRemoveNpcPanel.Name = "rRemoveNpcPanel";
-            this.rRemoveNpcPanel.Size = new System.Drawing.Size(221, 196);
-            this.rRemoveNpcPanel.TabIndex = 13;
-            // 
-            // rRemoveNpcCheckList
-            // 
-            this.rRemoveNpcCheckList.FormattingEnabled = true;
-            this.rRemoveNpcCheckList.Location = new System.Drawing.Point(6, 56);
-            this.rRemoveNpcCheckList.Name = "rRemoveNpcCheckList";
-            this.rRemoveNpcCheckList.Size = new System.Drawing.Size(200, 139);
-            this.rRemoveNpcCheckList.TabIndex = 6;
-            // 
-            // rRemoveNpcRemoveButton
-            // 
-            this.rRemoveNpcRemoveButton.Location = new System.Drawing.Point(96, 26);
-            this.rRemoveNpcRemoveButton.Name = "rRemoveNpcRemoveButton";
-            this.rRemoveNpcRemoveButton.Size = new System.Drawing.Size(110, 23);
-            this.rRemoveNpcRemoveButton.TabIndex = 5;
-            this.rRemoveNpcRemoveButton.Text = "Remove checked";
-            this.rRemoveNpcRemoveButton.UseVisualStyleBackColor = true;
-            this.rRemoveNpcRemoveButton.Click += new System.EventHandler(this.rRemoveNpcRemoveButton_Click);
-            // 
-            // rRemoveNpcButton
-            // 
-            this.rRemoveNpcButton.Location = new System.Drawing.Point(5, 27);
-            this.rRemoveNpcButton.Name = "rRemoveNpcButton";
-            this.rRemoveNpcButton.Size = new System.Drawing.Size(75, 23);
-            this.rRemoveNpcButton.TabIndex = 4;
-            this.rRemoveNpcButton.Text = "Add NPC...";
-            this.rRemoveNpcButton.UseVisualStyleBackColor = true;
-            // 
-            // rRemoveNPCLabel
-            // 
-            this.rRemoveNPCLabel.AutoSize = true;
-            this.rRemoveNPCLabel.Location = new System.Drawing.Point(3, 3);
-            this.rRemoveNPCLabel.Name = "rRemoveNPCLabel";
-            this.rRemoveNPCLabel.Size = new System.Drawing.Size(72, 13);
-            this.rRemoveNPCLabel.TabIndex = 2;
-            this.rRemoveNPCLabel.Text = "Remove NPC";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "label5";
-            // 
-            // rAddItemPanel
-            // 
-            this.rAddItemPanel.Controls.Add(this.rAddItemCheckList);
-            this.rAddItemPanel.Controls.Add(this.rAddItemRemoveButton);
-            this.rAddItemPanel.Controls.Add(this.rAddItemButton);
-            this.rAddItemPanel.Controls.Add(this.rAddItemLabel);
-            this.rAddItemPanel.Controls.Add(this.label9);
-            this.rAddItemPanel.Location = new System.Drawing.Point(6, 443);
-            this.rAddItemPanel.Name = "rAddItemPanel";
-            this.rAddItemPanel.Size = new System.Drawing.Size(221, 196);
-            this.rAddItemPanel.TabIndex = 15;
-            // 
-            // rAddItemCheckList
-            // 
-            this.rAddItemCheckList.FormattingEnabled = true;
-            this.rAddItemCheckList.Location = new System.Drawing.Point(6, 56);
-            this.rAddItemCheckList.Name = "rAddItemCheckList";
-            this.rAddItemCheckList.Size = new System.Drawing.Size(200, 139);
-            this.rAddItemCheckList.TabIndex = 6;
-            // 
-            // rAddItemRemoveButton
-            // 
-            this.rAddItemRemoveButton.Location = new System.Drawing.Point(96, 26);
-            this.rAddItemRemoveButton.Name = "rAddItemRemoveButton";
-            this.rAddItemRemoveButton.Size = new System.Drawing.Size(110, 23);
-            this.rAddItemRemoveButton.TabIndex = 5;
-            this.rAddItemRemoveButton.Text = "Remove checked";
-            this.rAddItemRemoveButton.UseVisualStyleBackColor = true;
-            this.rAddItemRemoveButton.Click += new System.EventHandler(this.rAddItemRemoveButton_Click);
-            // 
-            // rAddItemButton
-            // 
-            this.rAddItemButton.Location = new System.Drawing.Point(5, 27);
-            this.rAddItemButton.Name = "rAddItemButton";
-            this.rAddItemButton.Size = new System.Drawing.Size(75, 23);
-            this.rAddItemButton.TabIndex = 4;
-            this.rAddItemButton.Text = "Add item...";
-            this.rAddItemButton.UseVisualStyleBackColor = true;
-            // 
-            // rAddItemLabel
-            // 
-            this.rAddItemLabel.AutoSize = true;
-            this.rAddItemLabel.Location = new System.Drawing.Point(3, 3);
-            this.rAddItemLabel.Name = "rAddItemLabel";
-            this.rAddItemLabel.Size = new System.Drawing.Size(48, 13);
-            this.rAddItemLabel.TabIndex = 2;
-            this.rAddItemLabel.Text = "Add item";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 3);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "label9";
-            // 
-            // rAddNpcPanel
-            // 
-            this.rAddNpcPanel.Controls.Add(this.rAddNpcCheckList);
-            this.rAddNpcPanel.Controls.Add(this.rAddNpcRemoveButton);
-            this.rAddNpcPanel.Controls.Add(this.rAddNpcButton);
-            this.rAddNpcPanel.Controls.Add(this.rAddNPCLabel);
-            this.rAddNpcPanel.Controls.Add(this.label2);
-            this.rAddNpcPanel.Location = new System.Drawing.Point(6, 244);
-            this.rAddNpcPanel.Name = "rAddNpcPanel";
-            this.rAddNpcPanel.Size = new System.Drawing.Size(221, 196);
-            this.rAddNpcPanel.TabIndex = 13;
-            // 
-            // rAddNpcCheckList
-            // 
-            this.rAddNpcCheckList.FormattingEnabled = true;
-            this.rAddNpcCheckList.Location = new System.Drawing.Point(6, 56);
-            this.rAddNpcCheckList.Name = "rAddNpcCheckList";
-            this.rAddNpcCheckList.Size = new System.Drawing.Size(200, 139);
-            this.rAddNpcCheckList.TabIndex = 6;
-            // 
-            // rAddNpcRemoveButton
-            // 
-            this.rAddNpcRemoveButton.Location = new System.Drawing.Point(96, 26);
-            this.rAddNpcRemoveButton.Name = "rAddNpcRemoveButton";
-            this.rAddNpcRemoveButton.Size = new System.Drawing.Size(110, 23);
-            this.rAddNpcRemoveButton.TabIndex = 5;
-            this.rAddNpcRemoveButton.Text = "Remove checked";
-            this.rAddNpcRemoveButton.UseVisualStyleBackColor = true;
-            this.rAddNpcRemoveButton.Click += new System.EventHandler(this.rAddNpcRemoveButton_Click);
-            // 
-            // rAddNpcButton
-            // 
-            this.rAddNpcButton.Location = new System.Drawing.Point(5, 27);
-            this.rAddNpcButton.Name = "rAddNpcButton";
-            this.rAddNpcButton.Size = new System.Drawing.Size(75, 23);
-            this.rAddNpcButton.TabIndex = 4;
-            this.rAddNpcButton.Text = "Add NPC...";
-            this.rAddNpcButton.UseVisualStyleBackColor = true;
-            // 
-            // rAddNPCLabel
-            // 
-            this.rAddNPCLabel.AutoSize = true;
-            this.rAddNPCLabel.Location = new System.Drawing.Point(3, 3);
-            this.rAddNPCLabel.Name = "rAddNPCLabel";
-            this.rAddNPCLabel.Size = new System.Drawing.Size(51, 13);
-            this.rAddNPCLabel.TabIndex = 2;
-            this.rAddNPCLabel.Text = "Add NPC";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
-            // 
-            // rMoveItemPanel
-            // 
-            this.rMoveItemPanel.Controls.Add(this.rMoveItemCheckList);
-            this.rMoveItemPanel.Controls.Add(this.rMoveItemRemoveButton);
-            this.rMoveItemPanel.Controls.Add(this.rMoveItemButton);
-            this.rMoveItemPanel.Controls.Add(this.rMoveItemLabel);
-            this.rMoveItemPanel.Controls.Add(this.label11);
-            this.rMoveItemPanel.Location = new System.Drawing.Point(241, 443);
-            this.rMoveItemPanel.Name = "rMoveItemPanel";
-            this.rMoveItemPanel.Size = new System.Drawing.Size(221, 196);
-            this.rMoveItemPanel.TabIndex = 14;
-            // 
-            // rMoveItemCheckList
-            // 
-            this.rMoveItemCheckList.FormattingEnabled = true;
-            this.rMoveItemCheckList.Location = new System.Drawing.Point(6, 56);
-            this.rMoveItemCheckList.Name = "rMoveItemCheckList";
-            this.rMoveItemCheckList.Size = new System.Drawing.Size(200, 139);
-            this.rMoveItemCheckList.TabIndex = 6;
-            // 
-            // rMoveItemRemoveButton
-            // 
-            this.rMoveItemRemoveButton.Location = new System.Drawing.Point(96, 26);
-            this.rMoveItemRemoveButton.Name = "rMoveItemRemoveButton";
-            this.rMoveItemRemoveButton.Size = new System.Drawing.Size(110, 23);
-            this.rMoveItemRemoveButton.TabIndex = 5;
-            this.rMoveItemRemoveButton.Text = "Remove checked";
-            this.rMoveItemRemoveButton.UseVisualStyleBackColor = true;
-            this.rMoveItemRemoveButton.Click += new System.EventHandler(this.rMoveItemRemoveButton_Click);
-            // 
-            // rMoveItemButton
-            // 
-            this.rMoveItemButton.Location = new System.Drawing.Point(5, 27);
-            this.rMoveItemButton.Name = "rMoveItemButton";
-            this.rMoveItemButton.Size = new System.Drawing.Size(75, 23);
-            this.rMoveItemButton.TabIndex = 4;
-            this.rMoveItemButton.Text = "Add item...";
-            this.rMoveItemButton.UseVisualStyleBackColor = true;
-            // 
-            // rMoveItemLabel
-            // 
-            this.rMoveItemLabel.AutoSize = true;
-            this.rMoveItemLabel.Location = new System.Drawing.Point(3, 3);
-            this.rMoveItemLabel.Name = "rMoveItemLabel";
-            this.rMoveItemLabel.Size = new System.Drawing.Size(56, 13);
-            this.rMoveItemLabel.TabIndex = 2;
-            this.rMoveItemLabel.Text = "Move item";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "label11";
-            // 
-            // rMoveNPCPanel
-            // 
-            this.rMoveNPCPanel.Controls.Add(this.rMoveNpcCheckList);
-            this.rMoveNPCPanel.Controls.Add(this.rMoveNpcRemoveButton);
-            this.rMoveNPCPanel.Controls.Add(this.rMoveNpcButton);
-            this.rMoveNPCPanel.Controls.Add(this.rMoveNPCLabel);
-            this.rMoveNPCPanel.Controls.Add(this.label4);
-            this.rMoveNPCPanel.Location = new System.Drawing.Point(241, 244);
-            this.rMoveNPCPanel.Name = "rMoveNPCPanel";
-            this.rMoveNPCPanel.Size = new System.Drawing.Size(221, 196);
-            this.rMoveNPCPanel.TabIndex = 12;
-            // 
-            // rMoveNpcCheckList
-            // 
-            this.rMoveNpcCheckList.FormattingEnabled = true;
-            this.rMoveNpcCheckList.Location = new System.Drawing.Point(6, 56);
-            this.rMoveNpcCheckList.Name = "rMoveNpcCheckList";
-            this.rMoveNpcCheckList.Size = new System.Drawing.Size(200, 139);
-            this.rMoveNpcCheckList.TabIndex = 6;
-            // 
-            // rMoveNpcRemoveButton
-            // 
-            this.rMoveNpcRemoveButton.Location = new System.Drawing.Point(96, 26);
-            this.rMoveNpcRemoveButton.Name = "rMoveNpcRemoveButton";
-            this.rMoveNpcRemoveButton.Size = new System.Drawing.Size(110, 23);
-            this.rMoveNpcRemoveButton.TabIndex = 5;
-            this.rMoveNpcRemoveButton.Text = "Remove checked";
-            this.rMoveNpcRemoveButton.UseVisualStyleBackColor = true;
-            this.rMoveNpcRemoveButton.Click += new System.EventHandler(this.rMoveNpcRemoveButton_Click);
-            // 
-            // rMoveNpcButton
-            // 
-            this.rMoveNpcButton.Location = new System.Drawing.Point(5, 27);
-            this.rMoveNpcButton.Name = "rMoveNpcButton";
-            this.rMoveNpcButton.Size = new System.Drawing.Size(75, 23);
-            this.rMoveNpcButton.TabIndex = 4;
-            this.rMoveNpcButton.Text = "Add NPC...";
-            this.rMoveNpcButton.UseVisualStyleBackColor = true;
-            // 
-            // rMoveNPCLabel
-            // 
-            this.rMoveNPCLabel.AutoSize = true;
-            this.rMoveNPCLabel.Location = new System.Drawing.Point(3, 3);
-            this.rMoveNPCLabel.Name = "rMoveNPCLabel";
-            this.rMoveNPCLabel.Size = new System.Drawing.Size(59, 13);
-            this.rMoveNPCLabel.TabIndex = 2;
-            this.rMoveNPCLabel.Text = "Move NPC";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
-            // 
-            // movePlayerPanel
-            // 
-            this.movePlayerPanel.Controls.Add(this.movePlayerToNewRoomPanel);
-            this.movePlayerPanel.Controls.Add(this.movePlayerCheckBox);
-            this.movePlayerPanel.Location = new System.Drawing.Point(421, 122);
-            this.movePlayerPanel.Name = "movePlayerPanel";
-            this.movePlayerPanel.Size = new System.Drawing.Size(274, 90);
-            this.movePlayerPanel.TabIndex = 7;
-            // 
-            // movePlayerToNewRoomPanel
-            // 
-            this.movePlayerToNewRoomPanel.Controls.Add(this.movePlayerOutputLabel);
-            this.movePlayerToNewRoomPanel.Controls.Add(this.movePlayerButton);
-            this.movePlayerToNewRoomPanel.Location = new System.Drawing.Point(23, 24);
-            this.movePlayerToNewRoomPanel.Name = "movePlayerToNewRoomPanel";
-            this.movePlayerToNewRoomPanel.Size = new System.Drawing.Size(242, 64);
-            this.movePlayerToNewRoomPanel.TabIndex = 8;
-            this.movePlayerToNewRoomPanel.Visible = false;
-            // 
-            // movePlayerOutputLabel
-            // 
-            this.movePlayerOutputLabel.AutoEllipsis = true;
-            this.movePlayerOutputLabel.Location = new System.Drawing.Point(5, 32);
-            this.movePlayerOutputLabel.Name = "movePlayerOutputLabel";
-            this.movePlayerOutputLabel.Size = new System.Drawing.Size(228, 23);
-            this.movePlayerOutputLabel.TabIndex = 21;
-            // 
-            // movePlayerButton
-            // 
-            this.movePlayerButton.Location = new System.Drawing.Point(3, 2);
-            this.movePlayerButton.Name = "movePlayerButton";
-            this.movePlayerButton.Size = new System.Drawing.Size(75, 23);
-            this.movePlayerButton.TabIndex = 20;
-            this.movePlayerButton.Text = "Add room...";
-            this.movePlayerButton.UseVisualStyleBackColor = true;
-            this.movePlayerButton.Click += new System.EventHandler(this.movePlayerButton_Click);
-            // 
-            // movePlayerCheckBox
-            // 
-            this.movePlayerCheckBox.AutoSize = true;
-            this.movePlayerCheckBox.Location = new System.Drawing.Point(3, 3);
-            this.movePlayerCheckBox.Name = "movePlayerCheckBox";
-            this.movePlayerCheckBox.Size = new System.Drawing.Size(154, 17);
-            this.movePlayerCheckBox.TabIndex = 6;
-            this.movePlayerCheckBox.Text = "Move player to a new room";
-            this.movePlayerCheckBox.UseVisualStyleBackColor = true;
-            this.movePlayerCheckBox.CheckedChanged += new System.EventHandler(this.movePlayerCheckBox_CheckedChanged);
-            // 
-            // reloadRoomPanel
-            // 
-            this.reloadRoomPanel.Controls.Add(this.reloadRoomCheckbox);
-            this.reloadRoomPanel.Location = new System.Drawing.Point(421, 87);
-            this.reloadRoomPanel.Name = "reloadRoomPanel";
-            this.reloadRoomPanel.Size = new System.Drawing.Size(265, 30);
-            this.reloadRoomPanel.TabIndex = 6;
-            // 
-            // reloadRoomCheckbox
-            // 
-            this.reloadRoomCheckbox.AutoSize = true;
-            this.reloadRoomCheckbox.Location = new System.Drawing.Point(3, 3);
-            this.reloadRoomCheckbox.Name = "reloadRoomCheckbox";
-            this.reloadRoomCheckbox.Size = new System.Drawing.Size(137, 17);
-            this.reloadRoomCheckbox.TabIndex = 5;
-            this.reloadRoomCheckbox.Text = "Reload room\'s contents";
-            this.reloadRoomCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // lookAtRoomPanel
-            // 
-            this.lookAtRoomPanel.Controls.Add(this.lookAtRoomCheckbox);
-            this.lookAtRoomPanel.Location = new System.Drawing.Point(421, 53);
-            this.lookAtRoomPanel.Name = "lookAtRoomPanel";
-            this.lookAtRoomPanel.Size = new System.Drawing.Size(265, 30);
-            this.lookAtRoomPanel.TabIndex = 5;
-            // 
-            // lookAtRoomCheckbox
-            // 
-            this.lookAtRoomCheckbox.AutoSize = true;
-            this.lookAtRoomCheckbox.Location = new System.Drawing.Point(3, 3);
-            this.lookAtRoomCheckbox.Name = "lookAtRoomCheckbox";
-            this.lookAtRoomCheckbox.Size = new System.Drawing.Size(182, 17);
-            this.lookAtRoomCheckbox.TabIndex = 5;
-            this.lookAtRoomCheckbox.Text = "Display updated room description";
-            this.lookAtRoomCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // addExpPanel
-            // 
-            this.addExpPanel.Controls.Add(this.addExpNumeric);
-            this.addExpPanel.Controls.Add(this.addExpLabel);
-            this.addExpPanel.Location = new System.Drawing.Point(421, 19);
-            this.addExpPanel.Name = "addExpPanel";
-            this.addExpPanel.Size = new System.Drawing.Size(265, 30);
-            this.addExpPanel.TabIndex = 4;
-            // 
-            // addExpNumeric
-            // 
-            this.addExpNumeric.Location = new System.Drawing.Point(51, 3);
-            this.addExpNumeric.Name = "addExpNumeric";
-            this.addExpNumeric.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addExpNumeric.Size = new System.Drawing.Size(80, 20);
-            this.addExpNumeric.TabIndex = 4;
-            // 
-            // addExpLabel
-            // 
-            this.addExpLabel.AutoSize = true;
-            this.addExpLabel.Location = new System.Drawing.Point(3, 5);
-            this.addExpLabel.Name = "addExpLabel";
-            this.addExpLabel.Size = new System.Drawing.Size(46, 13);
-            this.addExpLabel.TabIndex = 2;
-            this.addExpLabel.Text = "Add exp";
-            // 
-            // addTextPanel
-            // 
-            this.addTextPanel.Controls.Add(this.addTextTextBox);
-            this.addTextPanel.Controls.Add(this.addTextLabel);
-            this.addTextPanel.Location = new System.Drawing.Point(6, 19);
-            this.addTextPanel.Name = "addTextPanel";
-            this.addTextPanel.Size = new System.Drawing.Size(409, 222);
-            this.addTextPanel.TabIndex = 1;
-            // 
-            // addTextTextBox
-            // 
-            this.addTextTextBox.Location = new System.Drawing.Point(6, 23);
-            this.addTextTextBox.Multiline = true;
-            this.addTextTextBox.Name = "addTextTextBox";
-            this.addTextTextBox.Size = new System.Drawing.Size(400, 196);
-            this.addTextTextBox.TabIndex = 3;
-            // 
-            // addTextLabel
-            // 
-            this.addTextLabel.AutoSize = true;
-            this.addTextLabel.Location = new System.Drawing.Point(3, 4);
-            this.addTextLabel.Name = "addTextLabel";
-            this.addTextLabel.Size = new System.Drawing.Size(79, 13);
-            this.addTextLabel.TabIndex = 2;
-            this.addTextLabel.Text = "Add output text";
-            // 
-            // actionResponseLabel
-            // 
-            this.actionResponseLabel.AutoSize = true;
-            this.actionResponseLabel.Location = new System.Drawing.Point(3, 3);
-            this.actionResponseLabel.Name = "actionResponseLabel";
-            this.actionResponseLabel.Size = new System.Drawing.Size(118, 13);
-            this.actionResponseLabel.TabIndex = 0;
-            this.actionResponseLabel.Text = "Add response functions";
+            // objectManipPanel
+            // 
+            this.objectManipPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.objectManipPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.objectManipPanel.Controls.Add(this.objectManipThisRoomCheckBox);
+            this.objectManipPanel.Controls.Add(this.objectManipInventoryCheckBox);
+            this.objectManipPanel.Controls.Add(this.objectManipLabel);
+            this.objectManipPanel.Controls.Add(this.objectManipConfirmButton);
+            this.objectManipPanel.Controls.Add(this.objectManipCancelButton);
+            this.objectManipPanel.Controls.Add(this.objectManipAddLocationLabel);
+            this.objectManipPanel.Controls.Add(this.objectManipAddLocationButton);
+            this.objectManipPanel.Controls.Add(this.objectManipAddObjectButton);
+            this.objectManipPanel.Controls.Add(this.objectManipAddObjectLabel);
+            this.objectManipPanel.Location = new System.Drawing.Point(362, 151);
+            this.objectManipPanel.Name = "objectManipPanel";
+            this.objectManipPanel.Size = new System.Drawing.Size(316, 308);
+            this.objectManipPanel.TabIndex = 24;
+            this.objectManipPanel.Visible = false;
+            // 
+            // objectManipThisRoomCheckBox
+            // 
+            this.objectManipThisRoomCheckBox.AutoSize = true;
+            this.objectManipThisRoomCheckBox.Location = new System.Drawing.Point(34, 217);
+            this.objectManipThisRoomCheckBox.Name = "objectManipThisRoomCheckBox";
+            this.objectManipThisRoomCheckBox.Size = new System.Drawing.Size(240, 17);
+            this.objectManipThisRoomCheckBox.TabIndex = 22;
+            this.objectManipThisRoomCheckBox.Text = "Preset location to the player\'s current location";
+            this.objectManipThisRoomCheckBox.UseVisualStyleBackColor = true;
+            this.objectManipThisRoomCheckBox.CheckedChanged += new System.EventHandler(this.objectManipThisRoomCheckBox_CheckedChanged);
+            // 
+            // objectManipInventoryCheckBox
+            // 
+            this.objectManipInventoryCheckBox.AutoSize = true;
+            this.objectManipInventoryCheckBox.Location = new System.Drawing.Point(34, 189);
+            this.objectManipInventoryCheckBox.Name = "objectManipInventoryCheckBox";
+            this.objectManipInventoryCheckBox.Size = new System.Drawing.Size(210, 17);
+            this.objectManipInventoryCheckBox.TabIndex = 21;
+            this.objectManipInventoryCheckBox.Text = "Preset location to the player\'s inventory";
+            this.objectManipInventoryCheckBox.UseVisualStyleBackColor = true;
+            this.objectManipInventoryCheckBox.CheckedChanged += new System.EventHandler(this.objectManipInventoryCheckBox_CheckedChanged);
+            // 
+            // objectManipLabel
+            // 
+            this.objectManipLabel.AutoEllipsis = true;
+            this.objectManipLabel.Location = new System.Drawing.Point(26, 25);
+            this.objectManipLabel.Name = "objectManipLabel";
+            this.objectManipLabel.Size = new System.Drawing.Size(232, 13);
+            this.objectManipLabel.TabIndex = 20;
+            // 
+            // objectManipConfirmButton
+            // 
+            this.objectManipConfirmButton.Location = new System.Drawing.Point(202, 259);
+            this.objectManipConfirmButton.Name = "objectManipConfirmButton";
+            this.objectManipConfirmButton.Size = new System.Drawing.Size(75, 23);
+            this.objectManipConfirmButton.TabIndex = 19;
+            this.objectManipConfirmButton.Text = "Confirm";
+            this.objectManipConfirmButton.UseVisualStyleBackColor = true;
+            this.objectManipConfirmButton.Click += new System.EventHandler(this.objectManipConfirmButton_Click);
+            // 
+            // objectManipCancelButton
+            // 
+            this.objectManipCancelButton.Location = new System.Drawing.Point(34, 259);
+            this.objectManipCancelButton.Name = "objectManipCancelButton";
+            this.objectManipCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.objectManipCancelButton.TabIndex = 18;
+            this.objectManipCancelButton.Text = "Cancel";
+            this.objectManipCancelButton.UseVisualStyleBackColor = true;
+            this.objectManipCancelButton.Click += new System.EventHandler(this.objectManipCancelButton_Click);
+            // 
+            // objectManipAddLocationLabel
+            // 
+            this.objectManipAddLocationLabel.AutoEllipsis = true;
+            this.objectManipAddLocationLabel.Location = new System.Drawing.Point(37, 151);
+            this.objectManipAddLocationLabel.Name = "objectManipAddLocationLabel";
+            this.objectManipAddLocationLabel.Size = new System.Drawing.Size(232, 28);
+            this.objectManipAddLocationLabel.TabIndex = 17;
+            // 
+            // objectManipAddLocationButton
+            // 
+            this.objectManipAddLocationButton.Location = new System.Drawing.Point(34, 122);
+            this.objectManipAddLocationButton.Name = "objectManipAddLocationButton";
+            this.objectManipAddLocationButton.Size = new System.Drawing.Size(104, 23);
+            this.objectManipAddLocationButton.TabIndex = 16;
+            this.objectManipAddLocationButton.Text = "Add location...";
+            this.objectManipAddLocationButton.UseVisualStyleBackColor = true;
+            // 
+            // objectManipAddObjectButton
+            // 
+            this.objectManipAddObjectButton.Location = new System.Drawing.Point(34, 65);
+            this.objectManipAddObjectButton.Name = "objectManipAddObjectButton";
+            this.objectManipAddObjectButton.Size = new System.Drawing.Size(104, 23);
+            this.objectManipAddObjectButton.TabIndex = 15;
+            this.objectManipAddObjectButton.Text = "Add object...";
+            this.objectManipAddObjectButton.UseVisualStyleBackColor = true;
+            // 
+            // objectManipAddObjectLabel
+            // 
+            this.objectManipAddObjectLabel.AutoEllipsis = true;
+            this.objectManipAddObjectLabel.Location = new System.Drawing.Point(37, 94);
+            this.objectManipAddObjectLabel.Name = "objectManipAddObjectLabel";
+            this.objectManipAddObjectLabel.Size = new System.Drawing.Size(232, 13);
+            this.objectManipAddObjectLabel.TabIndex = 13;
             // 
             // Form1
             // 
@@ -1764,6 +1887,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this.actionViewPanel);
+            this.Controls.Add(this.objectManipPanel);
             this.Controls.Add(this.mainViewPanel);
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1794,22 +1918,11 @@
             this.descriptionPanel.ResumeLayout(false);
             this.descriptionPanel.PerformLayout();
             this.actionViewPanel.ResumeLayout(false);
-            this.excludedCheckboxPanel.ResumeLayout(false);
-            this.excludedCheckboxPanel.PerformLayout();
-            this.actionExcludedPanel.ResumeLayout(false);
-            this.actionExcludedPanel.PerformLayout();
-            this.actionExcludedCheckboxPanel.ResumeLayout(false);
-            this.actionExcludedCheckboxPanel.PerformLayout();
-            this.requiredCheckboxPanel.ResumeLayout(false);
-            this.requiredCheckboxPanel.PerformLayout();
-            this.actionRequiredPanel.ResumeLayout(false);
-            this.actionRequiredPanel.PerformLayout();
-            this.actionRequiredCheckboxPanel.ResumeLayout(false);
-            this.actionRequiredCheckboxPanel.PerformLayout();
-            this.actionKeywordPanel.ResumeLayout(false);
-            this.actionKeywordPanel.PerformLayout();
             this.actionResponsePanel.ResumeLayout(false);
             this.actionResponsePanel.PerformLayout();
+            this.addExpPanel.ResumeLayout(false);
+            this.addExpPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addExpNumeric)).EndInit();
             this.rRemoveItemPanel.ResumeLayout(false);
             this.rRemoveItemPanel.PerformLayout();
             this.rRemoveNpcPanel.ResumeLayout(false);
@@ -1829,11 +1942,24 @@
             this.reloadRoomPanel.PerformLayout();
             this.lookAtRoomPanel.ResumeLayout(false);
             this.lookAtRoomPanel.PerformLayout();
-            this.addExpPanel.ResumeLayout(false);
-            this.addExpPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addExpNumeric)).EndInit();
             this.addTextPanel.ResumeLayout(false);
             this.addTextPanel.PerformLayout();
+            this.excludedCheckboxPanel.ResumeLayout(false);
+            this.excludedCheckboxPanel.PerformLayout();
+            this.actionExcludedPanel.ResumeLayout(false);
+            this.actionExcludedPanel.PerformLayout();
+            this.actionExcludedCheckboxPanel.ResumeLayout(false);
+            this.actionExcludedCheckboxPanel.PerformLayout();
+            this.requiredCheckboxPanel.ResumeLayout(false);
+            this.requiredCheckboxPanel.PerformLayout();
+            this.actionRequiredPanel.ResumeLayout(false);
+            this.actionRequiredPanel.PerformLayout();
+            this.actionRequiredCheckboxPanel.ResumeLayout(false);
+            this.actionRequiredCheckboxPanel.PerformLayout();
+            this.actionKeywordPanel.ResumeLayout(false);
+            this.actionKeywordPanel.PerformLayout();
+            this.objectManipPanel.ResumeLayout(false);
+            this.objectManipPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1948,9 +2074,6 @@
         private System.Windows.Forms.Panel actionResponsePanel;
         private System.Windows.Forms.Panel lookAtRoomPanel;
         private System.Windows.Forms.CheckBox lookAtRoomCheckbox;
-        private System.Windows.Forms.Panel addExpPanel;
-        private System.Windows.Forms.NumericUpDown addExpNumeric;
-        private System.Windows.Forms.Label addExpLabel;
         private System.Windows.Forms.Panel addTextPanel;
         private System.Windows.Forms.TextBox addTextTextBox;
         private System.Windows.Forms.Label addTextLabel;
@@ -1998,6 +2121,19 @@
         private System.Windows.Forms.CheckedListBox rMoveNpcCheckList;
         private System.Windows.Forms.Button rMoveNpcRemoveButton;
         private System.Windows.Forms.Button rMoveNpcButton;
+        private System.Windows.Forms.Panel objectManipPanel;
+        private System.Windows.Forms.Label objectManipLabel;
+        private System.Windows.Forms.Button objectManipConfirmButton;
+        private System.Windows.Forms.Button objectManipCancelButton;
+        private System.Windows.Forms.Label objectManipAddLocationLabel;
+        private System.Windows.Forms.Button objectManipAddLocationButton;
+        private System.Windows.Forms.Button objectManipAddObjectButton;
+        private System.Windows.Forms.Label objectManipAddObjectLabel;
+        private System.Windows.Forms.CheckBox objectManipThisRoomCheckBox;
+        private System.Windows.Forms.CheckBox objectManipInventoryCheckBox;
+        private System.Windows.Forms.Panel addExpPanel;
+        private System.Windows.Forms.NumericUpDown addExpNumeric;
+        private System.Windows.Forms.CheckBox addExpCheckBox;
     }
 }
 
