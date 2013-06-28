@@ -496,6 +496,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+
+
 // Manipulate the actions for objects
         private void addActionButton_Click(object sender, EventArgs e)
         {
@@ -543,6 +546,170 @@ namespace WindowsFormsApplication1
             }
         }
 
+// Manipulate the required parameter
+        string requiredFilePath;
+
+        private void addObjectRequiredButton_Click(object sender, EventArgs e)
+        {
+            string requiredPath = "";
+            ObjectType requiredItemType = ObjectType.NONE;
+            if (requiredItemRadio.Checked)
+            {
+                requiredItemType = ObjectType.ITEM;
+                requiredPath = "\\src\\objects\\gettables\\";
+            }
+            else if (requiredNPCRadio.Checked)
+            {
+                requiredItemType = ObjectType.NPC;
+                requiredPath = "\\src\\objects\\npcs\\";
+            }
+            else if (requiredRoomRadio.Checked)
+            {
+                requiredItemType = ObjectType.ROOM;
+                requiredPath = "\\src\\objects\\rooms\\";
+            }
+
+            if (requiredItemType == ObjectType.NONE)
+            {
+                System.Windows.Forms.MessageBox.Show("You must select an item type for the required parameter.");
+                return;
+            }
+
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.fileName = "";
+                string fileName = "" + openFileDialog1.FileName;
+
+                int objectPath = fileName.IndexOf(requiredPath);
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. " + layoutState.ToString().ToLower() + " files must be inside the " + requiredPath + " folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = fileName.Substring(fileName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. " + layoutState.ToString().ToLower() + " files must be .as files.");
+                    return;
+                }
+
+                string[] path = fileName.Split('\\');
+                actionRequiredObjectLabel.Text = "... " + path[path.Length - 1];
+                this.requiredFilePath = fileName.Substring(objectPath, (fileName.Length - objectPath));
+            }
+        }
+
+        private void addRequiredCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (addRequiredCheckBox.Checked)
+                actionRequiredPanel.Visible = true;
+            else
+                actionRequiredPanel.Visible = false;
+        }
+
+// Manipulate the excluded parameter
+        string excludedFilePath;
+
+        private void addExcludedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (addExcludedCheckBox.Checked)
+                actionExcludedPanel.Visible = true;
+            else
+                actionExcludedPanel.Visible = false;
+        }
+
+        private void addObjectExcludedButton_Click(object sender, EventArgs e)
+        {
+            string excludedPath = "";
+            ObjectType excludedItemType = ObjectType.NONE;
+            if (excludedItemRadio.Checked)
+            {
+                excludedItemType = ObjectType.ITEM;
+                excludedPath = "\\src\\objects\\gettables\\";
+            }
+            else if (excludedNPCRadio.Checked)
+            {
+                excludedItemType = ObjectType.NPC;
+                excludedPath = "\\src\\objects\\npcs\\";
+            }
+            else if (excludedRoomRadio.Checked)
+            {
+                excludedItemType = ObjectType.ROOM;
+                excludedPath = "\\src\\objects\\rooms\\";
+            }
+
+            if (excludedItemType == ObjectType.NONE)
+            {
+                System.Windows.Forms.MessageBox.Show("You must select an item type for the excluded parameter.");
+                return;
+            }
+
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.fileName = "";
+                string fileName = "" + openFileDialog1.FileName;
+
+                int objectPath = fileName.IndexOf(excludedPath);
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. " + layoutState.ToString().ToLower() + " files must be inside the " + excludedPath + " folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = fileName.Substring(fileName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. " + layoutState.ToString().ToLower() + " files must be .as files.");
+                    return;
+                }
+
+                string[] path = fileName.Split('\\');
+                actionExcludedObjectLabel.Text = "... " + path[path.Length - 1];
+                this.excludedFilePath = fileName.Substring(objectPath, (fileName.Length - objectPath));
+            }
+        }
+
+// Manipulate the room the player is moved to
+        string movePlayerPath;
+
+        private void movePlayerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (movePlayerCheckBox.Checked)
+                movePlayerToNewRoomPanel.Visible = true;
+            else
+                movePlayerToNewRoomPanel.Visible = false;
+        }
+
+        private void movePlayerButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.fileName = "";
+                string fileName = "" + openFileDialog1.FileName;
+
+                int objectPath = fileName.IndexOf("\\src\\objects\\rooms\\");
+                if (objectPath == -1)
+                {
+                    System.Windows.Forms.MessageBox.Show(@"That is not a valid file. Room files must be inside the \\src\\objects\\rooms\\ folder of your project folder.");
+                    return;
+                }
+
+                string fileExtension = fileName.Substring(fileName.Length - 3, 3);
+                if (fileExtension != ".as")
+                {
+                    System.Windows.Forms.MessageBox.Show("That is not a valid file. Room files must be .as files.");
+                    return;
+                }
+
+                string[] path = fileName.Split('\\');
+                movePlayerOutputLabel.Text = "... " + path[path.Length - 1];
+                this.movePlayerPath = fileName.Substring(objectPath, (fileName.Length - objectPath));
+            }
+        }
 
 
 

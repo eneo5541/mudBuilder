@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 [Flags]
 enum ObjectType
 {
+    NONE,
     ITEM,
     NPC,
     ROOM
