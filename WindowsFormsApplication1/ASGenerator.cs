@@ -94,7 +94,9 @@ namespace WindowsFormsApplication1
                 if (conversations.Count > 0)
                     conversationString = parseConversations();
             }
-            
+
+            System.Windows.Forms.MessageBox.Show(""+actions.Count);
+                    
             try
             {
                 if (!Directory.Exists(pathString))
@@ -502,6 +504,18 @@ namespace WindowsFormsApplication1
 
             return conversationString;
         }
+
+// Add actions
+        public void addAction(string actionName, ActionItem action)
+        {
+            actions.Add(actionName, action);
+        }
+
+        public void removeAction(string actionName)
+        {
+            actions.Remove(actionName);
+        }
+
     }
 
 }

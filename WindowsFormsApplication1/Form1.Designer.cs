@@ -101,6 +101,8 @@
             this.descriptionNameTextBox = new System.Windows.Forms.TextBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.actionViewPanel = new System.Windows.Forms.Panel();
+            this.nameActionTextBox = new System.Windows.Forms.TextBox();
+            this.nameActionLabel = new System.Windows.Forms.Label();
             this.actionResponsePanel = new System.Windows.Forms.Panel();
             this.addExpPanel = new System.Windows.Forms.Panel();
             this.addExpNumeric = new System.Windows.Forms.NumericUpDown();
@@ -163,7 +165,7 @@
             this.excludedNPCRadio = new System.Windows.Forms.RadioButton();
             this.excludedItemRadio = new System.Windows.Forms.RadioButton();
             this.addObjectExcludedButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.addActionExcludedTextbox = new System.Windows.Forms.TextBox();
             this.actionExcludedLabel = new System.Windows.Forms.Label();
             this.requiredCheckboxPanel = new System.Windows.Forms.Panel();
             this.addRequiredCheckBox = new System.Windows.Forms.CheckBox();
@@ -183,9 +185,9 @@
             this.actionKeywordsLabel = new System.Windows.Forms.Label();
             this.actionKeywordTextBox = new System.Windows.Forms.TextBox();
             this.addActionKeywordLabel = new System.Windows.Forms.Label();
-            this.actionViewLabel = new System.Windows.Forms.Label();
             this.actionConfirmButton = new System.Windows.Forms.Button();
             this.actionCancelButton = new System.Windows.Forms.Button();
+            this.actionViewLabel = new System.Windows.Forms.Label();
             this.objectManipPanel = new System.Windows.Forms.Panel();
             this.objectManipThisRoomCheckBox = new System.Windows.Forms.CheckBox();
             this.objectManipInventoryCheckBox = new System.Windows.Forms.CheckBox();
@@ -196,8 +198,6 @@
             this.objectManipAddLocationButton = new System.Windows.Forms.Button();
             this.objectManipAddObjectButton = new System.Windows.Forms.Button();
             this.objectManipAddObjectLabel = new System.Windows.Forms.Label();
-            this.nameActionLabel = new System.Windows.Forms.Label();
-            this.nameActionTextBox = new System.Windows.Forms.TextBox();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
@@ -949,14 +949,30 @@
             this.actionViewPanel.Controls.Add(this.excludedCheckboxPanel);
             this.actionViewPanel.Controls.Add(this.requiredCheckboxPanel);
             this.actionViewPanel.Controls.Add(this.actionKeywordPanel);
-            this.actionViewPanel.Controls.Add(this.actionViewLabel);
             this.actionViewPanel.Controls.Add(this.actionConfirmButton);
             this.actionViewPanel.Controls.Add(this.actionCancelButton);
+            this.actionViewPanel.Controls.Add(this.actionViewLabel);
             this.actionViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.actionViewPanel.Location = new System.Drawing.Point(0, 0);
             this.actionViewPanel.Name = "actionViewPanel";
             this.actionViewPanel.Size = new System.Drawing.Size(1008, 730);
             this.actionViewPanel.TabIndex = 23;
+            // 
+            // nameActionTextBox
+            // 
+            this.nameActionTextBox.Location = new System.Drawing.Point(105, 10);
+            this.nameActionTextBox.Name = "nameActionTextBox";
+            this.nameActionTextBox.Size = new System.Drawing.Size(270, 20);
+            this.nameActionTextBox.TabIndex = 23;
+            // 
+            // nameActionLabel
+            // 
+            this.nameActionLabel.AutoSize = true;
+            this.nameActionLabel.Location = new System.Drawing.Point(12, 14);
+            this.nameActionLabel.Name = "nameActionLabel";
+            this.nameActionLabel.Size = new System.Drawing.Size(86, 13);
+            this.nameActionLabel.TabIndex = 22;
+            this.nameActionLabel.Text = "Name this action";
             // 
             // actionResponsePanel
             // 
@@ -1498,7 +1514,7 @@
             this.actionExcludedPanel.Controls.Add(this.actionExcludedObjectLabel);
             this.actionExcludedPanel.Controls.Add(this.actionExcludedCheckboxPanel);
             this.actionExcludedPanel.Controls.Add(this.addObjectExcludedButton);
-            this.actionExcludedPanel.Controls.Add(this.textBox1);
+            this.actionExcludedPanel.Controls.Add(this.addActionExcludedTextbox);
             this.actionExcludedPanel.Controls.Add(this.actionExcludedLabel);
             this.actionExcludedPanel.Location = new System.Drawing.Point(19, 23);
             this.actionExcludedPanel.Name = "actionExcludedPanel";
@@ -1564,12 +1580,12 @@
             this.addObjectExcludedButton.UseVisualStyleBackColor = true;
             this.addObjectExcludedButton.Click += new System.EventHandler(this.addObjectExcludedButton_Click);
             // 
-            // textBox1
+            // addActionExcludedTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 20);
-            this.textBox1.TabIndex = 11;
+            this.addActionExcludedTextbox.Location = new System.Drawing.Point(6, 25);
+            this.addActionExcludedTextbox.Name = "addActionExcludedTextbox";
+            this.addActionExcludedTextbox.Size = new System.Drawing.Size(162, 20);
+            this.addActionExcludedTextbox.TabIndex = 11;
             // 
             // actionExcludedLabel
             // 
@@ -1755,13 +1771,6 @@
             this.addActionKeywordLabel.TabIndex = 0;
             this.addActionKeywordLabel.Text = "Add action keywords";
             // 
-            // actionViewLabel
-            // 
-            this.actionViewLabel.Location = new System.Drawing.Point(553, 5);
-            this.actionViewLabel.Name = "actionViewLabel";
-            this.actionViewLabel.Size = new System.Drawing.Size(443, 23);
-            this.actionViewLabel.TabIndex = 2;
-            // 
             // actionConfirmButton
             // 
             this.actionConfirmButton.Location = new System.Drawing.Point(921, 695);
@@ -1781,6 +1790,14 @@
             this.actionCancelButton.Text = "Cancel";
             this.actionCancelButton.UseVisualStyleBackColor = true;
             this.actionCancelButton.Click += new System.EventHandler(this.actionCancelButton_Click);
+            // 
+            // actionViewLabel
+            // 
+            this.actionViewLabel.Location = new System.Drawing.Point(553, 12);
+            this.actionViewLabel.Name = "actionViewLabel";
+            this.actionViewLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.actionViewLabel.Size = new System.Drawing.Size(443, 23);
+            this.actionViewLabel.TabIndex = 2;
             // 
             // objectManipPanel
             // 
@@ -1886,22 +1903,6 @@
             this.objectManipAddObjectLabel.Name = "objectManipAddObjectLabel";
             this.objectManipAddObjectLabel.Size = new System.Drawing.Size(232, 13);
             this.objectManipAddObjectLabel.TabIndex = 13;
-            // 
-            // nameActionLabel
-            // 
-            this.nameActionLabel.AutoSize = true;
-            this.nameActionLabel.Location = new System.Drawing.Point(12, 14);
-            this.nameActionLabel.Name = "nameActionLabel";
-            this.nameActionLabel.Size = new System.Drawing.Size(86, 13);
-            this.nameActionLabel.TabIndex = 22;
-            this.nameActionLabel.Text = "Name this action";
-            // 
-            // nameActionTextBox
-            // 
-            this.nameActionTextBox.Location = new System.Drawing.Point(105, 10);
-            this.nameActionTextBox.Name = "nameActionTextBox";
-            this.nameActionTextBox.Size = new System.Drawing.Size(270, 20);
-            this.nameActionTextBox.TabIndex = 23;
             // 
             // Form1
             // 
@@ -2092,7 +2093,7 @@
         private System.Windows.Forms.RadioButton excludedNPCRadio;
         private System.Windows.Forms.RadioButton excludedItemRadio;
         private System.Windows.Forms.Button addObjectExcludedButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox addActionExcludedTextbox;
         private System.Windows.Forms.Label actionExcludedLabel;
         private System.Windows.Forms.Panel actionResponsePanel;
         private System.Windows.Forms.Panel lookAtRoomPanel;

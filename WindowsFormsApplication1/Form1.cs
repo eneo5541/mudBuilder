@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -505,6 +506,7 @@ namespace WindowsFormsApplication1
 // Manipulate the actions for objects
         private void addActionButton_Click(object sender, EventArgs e)
         {
+            currentAction = new ActionItem();
             actionViewPanel.BringToFront();
             mainViewPanel.Visible = false;
             actionViewPanel.Visible = true;
@@ -515,6 +517,7 @@ namespace WindowsFormsApplication1
         {
             while (actionCheckedList.CheckedItems.Count > 0)
             {
+                asGenerator.removeAction(actionCheckedList.CheckedItems[0].ToString());
                 actionCheckedList.Items.Remove(actionCheckedList.CheckedItems[0]);
             }
         }
@@ -522,21 +525,94 @@ namespace WindowsFormsApplication1
 // Close the actions panel
         private void actionCancelButton_Click(object sender, EventArgs e)
         {
+            currentAction = new ActionItem();
             mainViewPanel.BringToFront();
             mainViewPanel.Visible = true;
             actionViewPanel.Visible = false;
+
+            clearActionsPanel();
         }
 
         private void actionConfirmButton_Click(object sender, EventArgs e)
         {
+            if (!compileCurrentAction())
+            {
+                System.Windows.Forms.MessageBox.Show("Required fields cannot be left blank - the action must have at least 1 keyword and at least 1 response function.");
+                return;
+            }
             mainViewPanel.BringToFront();
             mainViewPanel.Visible = true;
             actionViewPanel.Visible = false;
+
+            actionCheckedList.Items.Add(currentAction.name, false);
+            asGenerator.addAction(currentAction.name, currentAction);
+
+            clearActionsPanel();
+        }
+
+        private void clearActionsPanel()
+        {
+            nameActionTextBox.Text = "";
+            addActionRequiredTextbox.Text = "";
+            addActionExcludedTextbox.Text = "";
+            actionRequiredObjectLabel.Text = "";
+            actionExcludedObjectLabel.Text = "";
+            movePlayerOutputLabel.Text = "";
+            addTextTextBox.Text = "";
+
+            requiredItemRadio.Checked = false;
+            requiredNPCRadio.Checked = false;
+            requiredRoomRadio.Checked = false;
+
+            excludedItemRadio.Checked = false;
+            excludedNPCRadio.Checked = false;
+            excludedRoomRadio.Checked = false;
+
+            addExcludedCheckBox.Checked = false;
+            addRequiredCheckBox.Checked = false;
+
+            addExpCheckBox.Checked = false;
+            lookAtRoomCheckbox.Checked = false;
+            reloadRoomCheckbox.Checked = false;
+            movePlayerCheckBox.Checked = false;
+
+            while (actionKeywordCheckedList.Items.Count > 0)
+            {
+                actionKeywordCheckedList.Items.Remove(actionKeywordCheckedList.Items[0]);
+            }
+            while (rAddNpcCheckList.Items.Count > 0)
+            {
+                rAddNpcCheckList.Items.Remove(rAddNpcCheckList.Items[0]);
+            }
+            while (rMoveNpcCheckList.Items.Count > 0)
+            {
+                rMoveNpcCheckList.Items.Remove(rMoveNpcCheckList.Items[0]);
+            }
+            while (rRemoveNpcCheckList.Items.Count > 0)
+            {
+                rRemoveNpcCheckList.Items.Remove(rRemoveNpcCheckList.Items[0]);
+            }
+            while (rAddItemCheckList.Items.Count > 0)
+            {
+                rAddItemCheckList.Items.Remove(rAddItemCheckList.Items[0]);
+            }
+            while (rMoveItemCheckList.Items.Count > 0)
+            {
+                rMoveItemCheckList.Items.Remove(rMoveItemCheckList.Items[0]);
+            }
+            while (rRemoveItemCheckList.Items.Count > 0)
+            {
+                rRemoveItemCheckList.Items.Remove(rRemoveItemCheckList.Items[0]);
+            }
+
         }
 
 // Manipulate the lists of keywords for each action
         private void actionKeywordButton_Click(object sender, EventArgs e)
         {
+            if(actionKeywordTextBox.Text == "")
+                return;
+            
             string parseNewLinesForAS = "'" + actionKeywordTextBox.Text.Replace(Environment.NewLine, "','") + "'";
 
             actionKeywordCheckedList.Items.Add(parseNewLinesForAS, false);
@@ -554,11 +630,11 @@ namespace WindowsFormsApplication1
 
 // Manipulate the required parameter
         string requiredFilePath;
+        ObjectType requiredItemType;
 
         private void addObjectRequiredButton_Click(object sender, EventArgs e)
         {
             string requiredPath = "";
-            ObjectType requiredItemType = ObjectType.NONE;
             if (requiredItemRadio.Checked)
             {
                 requiredItemType = ObjectType.ITEM;
@@ -617,6 +693,7 @@ namespace WindowsFormsApplication1
 
 // Manipulate the excluded parameter
         string excludedFilePath;
+        ObjectType excludedItemType;
 
         private void addExcludedCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -629,7 +706,7 @@ namespace WindowsFormsApplication1
         private void addObjectExcludedButton_Click(object sender, EventArgs e)
         {
             string excludedPath = "";
-            ObjectType excludedItemType = ObjectType.NONE;
+
             if (excludedItemRadio.Checked)
             {
                 excludedItemType = ObjectType.ITEM;
@@ -735,13 +812,14 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> addNpcs = new Dictionary<string, string>();
         private void rAddNpcButton_Click(object sender, EventArgs e)
         {
+            objectManipType = ObjectType.NPC;
             showObjectManipPanel("Add an NPC to a location");
             objectManipInventoryCheckBox.Visible = false;
             confirmHandler = (x, y) => { 
                 string[] targetPath = x.Split('\\'); 
                 string[] locationPath = y.Split('\\'); 
                 rAddNpcCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
-                //asGenerator.addAddNpcAction(path[path.Length - 1], itemName);
+                currentAction.addNPCs.Add((targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1]), (x + "|" + y));
                 return null; 
             };
         }
@@ -750,6 +828,7 @@ namespace WindowsFormsApplication1
         {
             while (rAddNpcCheckList.CheckedItems.Count > 0)
             {
+                currentAction.addNPCs.Remove(rAddNpcCheckList.CheckedItems[0].ToString());
                 rAddNpcCheckList.Items.Remove(rAddNpcCheckList.CheckedItems[0]);
             }
         }
@@ -757,6 +836,7 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> moveNpcs = new Dictionary<string, string>();
         private void rMoveNpcButton_Click(object sender, EventArgs e)
         {
+            objectManipType = ObjectType.NPC;
             showObjectManipPanel("Move an NPC to new location");
             objectManipInventoryCheckBox.Visible = false;
             confirmHandler = (x, y) =>
@@ -764,7 +844,7 @@ namespace WindowsFormsApplication1
                 string[] targetPath = x.Split('\\');
                 string[] locationPath = y.Split('\\');
                 rMoveNpcCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
-                //asGenerator.addMoveNpcAction(path[path.Length - 1], itemName);
+                currentAction.moveNPCs.Add((targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1]), (x + "|" + y));
                 return null;
             };
         }
@@ -773,6 +853,7 @@ namespace WindowsFormsApplication1
         {
             while (rMoveNpcCheckList.CheckedItems.Count > 0)
             {
+                currentAction.moveNPCs.Remove(rMoveNpcCheckList.CheckedItems[0].ToString());
                 rMoveNpcCheckList.Items.Remove(rMoveNpcCheckList.CheckedItems[0]);
             }
         }
@@ -780,6 +861,7 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> removeNpcs = new Dictionary<string, string>();
         private void rRemoveNpcButton_Click(object sender, EventArgs e)
         {
+            objectManipType = ObjectType.NPC;
             showObjectManipPanel("Remove an NPC from all locations");
             objectManipInventoryCheckBox.Visible = false;
             objectManipAddLocationButton.Visible = false;
@@ -789,7 +871,7 @@ namespace WindowsFormsApplication1
             {
                 string[] targetPath = x.Split('\\');
                 rRemoveNpcCheckList.Items.Add(targetPath[targetPath.Length - 1], false);
-                //asGenerator.addRemoveNpcAction(path[path.Length - 1], itemName);
+                currentAction.removeNPCs.Add((targetPath[targetPath.Length - 1]), x);
                 return null;
             };
         }
@@ -798,6 +880,7 @@ namespace WindowsFormsApplication1
         {
             while (rRemoveNpcCheckList.CheckedItems.Count > 0)
             {
+                currentAction.removeNPCs.Remove(rRemoveNpcCheckList.CheckedItems[0].ToString());
                 rRemoveNpcCheckList.Items.Remove(rRemoveNpcCheckList.CheckedItems[0]);
             }
         }
@@ -807,13 +890,14 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> addItem = new Dictionary<string, string>();
         private void rAddItemButton_Click(object sender, EventArgs e)
         {
+            objectManipType = ObjectType.ITEM;
             showObjectManipPanel("Add an item to a location");
             confirmHandler = (x, y) =>
             {
                 string[] targetPath = x.Split('\\');
                 string[] locationPath = y.Split('\\');
                 rAddItemCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
-                //asGenerator.addAddNpcAction(path[path.Length - 1], itemName);
+                currentAction.addItems.Add((targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1]), (x + "|" + y));
                 return null;
             };
         }
@@ -822,6 +906,7 @@ namespace WindowsFormsApplication1
         {
             while (rAddItemCheckList.CheckedItems.Count > 0)
             {
+                currentAction.addItems.Remove(rAddItemCheckList.CheckedItems[0].ToString());
                 rAddItemCheckList.Items.Remove(rAddItemCheckList.CheckedItems[0]);
             }
 
@@ -830,13 +915,14 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> moveItem = new Dictionary<string, string>();
         private void rMoveItemButton_Click(object sender, EventArgs e)
         {
+            objectManipType = ObjectType.ITEM;
             showObjectManipPanel("Move an item to new location"); 
             confirmHandler = (x, y) =>
             {
                 string[] targetPath = x.Split('\\');
                 string[] locationPath = y.Split('\\');
                 rMoveItemCheckList.Items.Add(targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1], false);
-                //asGenerator.addMoveItemAction(path[path.Length - 1], itemName);
+                currentAction.moveItems.Add((targetPath[targetPath.Length - 1] + " - " + locationPath[locationPath.Length - 1]), (x + "|" + y));
                 return null;
             };
         }
@@ -845,6 +931,7 @@ namespace WindowsFormsApplication1
         {
             while (rMoveItemCheckList.CheckedItems.Count > 0)
             {
+                currentAction.moveItems.Remove(rMoveItemCheckList.CheckedItems[0].ToString());
                 rMoveItemCheckList.Items.Remove(rMoveItemCheckList.CheckedItems[0]);
             }
         }
@@ -852,6 +939,7 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> removeItem = new Dictionary<string, string>();
         private void rRemoveItemButton_Click(object sender, EventArgs e)
         {
+            objectManipType = ObjectType.ITEM;
             showObjectManipPanel("Remove an item from all locations");
             objectManipInventoryCheckBox.Visible = false;
             objectManipAddLocationButton.Visible = false;
@@ -860,7 +948,7 @@ namespace WindowsFormsApplication1
             {
                 string[] targetPath = x.Split('\\');
                 rRemoveItemCheckList.Items.Add(targetPath[targetPath.Length - 1], false);
-                //asGenerator.addRemoveItemAction(path[path.Length - 1], itemName);
+                currentAction.removeItems.Add((targetPath[targetPath.Length - 1]), x);
                 return null;
             };
         }
@@ -869,6 +957,7 @@ namespace WindowsFormsApplication1
         {
             while (rRemoveItemCheckList.CheckedItems.Count > 0)
             {
+                currentAction.removeItems.Remove(rRemoveItemCheckList.CheckedItems[0].ToString());
                 rRemoveItemCheckList.Items.Remove(rRemoveItemCheckList.CheckedItems[0]);
             }
         }
@@ -972,6 +1061,7 @@ namespace WindowsFormsApplication1
                 string objectName = "" + openFileDialog1.FileName;
 
                 string requiredPath = (objectManipType == ObjectType.ITEM) ? @"\src\objects\gettables\" : @"\src\objects\npcs\";
+
                 int objectPath = objectName.IndexOf(requiredPath);
                 if (objectPath == -1)
                 {
@@ -1019,6 +1109,69 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+// Compile the action
+        private Boolean compileCurrentAction()
+        {
+            Boolean hasData = false;
+
+            // Setup for action
+            if (nameActionTextBox.Text != "" && nameActionTextBox.Text != " ")
+            {
+                currentAction.name = nameActionTextBox.Text.Substring(0, 1).ToLower() + nameActionTextBox.Text.Substring(1, nameActionTextBox.Text.Length - 1);
+            }
+            else
+            {
+                 currentAction.name = "Action " + (actionCheckedList.Items.Count + 1);
+            }
+
+            if (actionKeywordCheckedList.Items.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (string keyList in actionKeywordCheckedList.Items)
+            {
+                currentAction.keywords.Add(keyList);
+            }
+
+            if (addRequiredCheckBox.Checked)
+            {
+                currentAction.requiredObject = new ParameterObject(requiredItemType, addActionRequiredTextbox.Text, requiredFilePath);
+            }
+
+            if (addExcludedCheckBox.Checked)
+            {
+                currentAction.excludedObject = new ParameterObject(excludedItemType, addActionExcludedTextbox.Text, excludedFilePath);
+            }
+
+            // Content of action
+            if (addTextTextBox.Text != "")
+            {
+                currentAction.outputText = addTextTextBox.Text;
+                hasData = true;
+            }
+
+            if (addExpCheckBox.Checked)
+            {
+                currentAction.experience = Convert.ToInt32(addExpNumeric.Value);
+                hasData = true;
+            }
+
+            currentAction.reloadRoom = reloadRoomCheckbox.Checked;
+            currentAction.lookAtRoom = lookAtRoomCheckbox.Checked;
+
+            if (movePlayerCheckBox.Checked)
+            {
+                currentAction.movePlayerToRoom = movePlayerPath;
+                hasData = true;
+            }
+
+            if (currentAction.addNPCs.Count + currentAction.moveNPCs.Count + currentAction.removeNPCs.Count + currentAction.addItems.Count + currentAction.moveItems.Count + currentAction.removeItems.Count > 0)
+                hasData = true;
+
+            return hasData;
+        }
 
 
 

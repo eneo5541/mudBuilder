@@ -8,29 +8,29 @@ namespace WindowsFormsApplication1
 {
     class ActionItem
     {
-        string name;
-        List<String> keywords;
-        ParameterObject requiredObject;
-        ParameterObject excludedObject;
-        string outputText;
-        int experience;
-        Boolean reloadRoom;
-        Boolean lookAtRoom;
-        string movePlayerToRoom;
+        public string name;
+        public List<String> keywords;
+        public ParameterObject requiredObject;
+        public ParameterObject excludedObject;
+        public string outputText;
+        public int experience;
+        public Boolean reloadRoom;
+        public Boolean lookAtRoom;
+        public string movePlayerToRoom;
 
-        Dictionary<string, string> addNPCs;
-        Dictionary<string, string> moveNPCs;
-        Dictionary<string, string> removeNPCs;
-        Dictionary<string, string> addItems;
-        Dictionary<string, string> moveItems;
-        Dictionary<string, string> removeItems;
+        public Dictionary<string, string> addNPCs;
+        public Dictionary<string, string> moveNPCs;
+        public Dictionary<string, string> removeNPCs;
+        public Dictionary<string, string> addItems;
+        public Dictionary<string, string> moveItems;
+        public Dictionary<string, string> removeItems;
 
         public ActionItem()
         {
             name = "";
             keywords = new List<String>();
-            requiredObject = new ParameterObject();
-            excludedObject = new ParameterObject();
+            requiredObject = null;
+            excludedObject = null;
             outputText = "";
             experience = 0;
             reloadRoom = false;
@@ -52,10 +52,11 @@ namespace WindowsFormsApplication1
         string message;
         string objectPath;
 
-        public ParameterObject()
+        public ParameterObject(ObjectType objectType, string message, string objectPath)
         {
-            message = "";
-            objectPath = "";
+            this.objectType = objectType;
+            this.message = message;
+            this.objectPath = objectPath;
         }
     }
 
