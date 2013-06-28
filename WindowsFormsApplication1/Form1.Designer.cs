@@ -50,12 +50,12 @@
             this.exitsLabel = new System.Windows.Forms.Label();
             this.directionLabel = new System.Windows.Forms.Label();
             this.exitsPanel = new System.Windows.Forms.Panel();
+            this.removeExitsButton = new System.Windows.Forms.Button();
             this.exitLocationLabel = new System.Windows.Forms.Label();
             this.addExitButton = new System.Windows.Forms.Button();
             this.findExitLocationButton = new System.Windows.Forms.Button();
             this.directionTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.removeExitsButton = new System.Windows.Forms.Button();
             this.itemPickupCheckBox = new System.Windows.Forms.CheckBox();
             this.addNPCsPanel = new System.Windows.Forms.Panel();
             this.removeCheckedNPCsButton = new System.Windows.Forms.Button();
@@ -68,15 +68,15 @@
             this.addedItemsCheckedList = new System.Windows.Forms.CheckedListBox();
             this.addItemLabel = new System.Windows.Forms.Label();
             this.descriptionPanel = new System.Windows.Forms.Panel();
-            this.descriptionLabel = new System.Windows.Forms.Label();
-            this.descriptionNameTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionNameLabel = new System.Windows.Forms.Label();
-            this.descriptionDescriptionLabel = new System.Windows.Forms.Label();
-            this.descriptionDescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.addDescriptionButton = new System.Windows.Forms.Button();
-            this.descriptionCheckedList = new System.Windows.Forms.CheckedListBox();
-            this.generatedLabel = new System.Windows.Forms.Label();
             this.removeCheckedDescriptionsButton = new System.Windows.Forms.Button();
+            this.descriptionCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.addDescriptionButton = new System.Windows.Forms.Button();
+            this.descriptionDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.descriptionDescriptionLabel = new System.Windows.Forms.Label();
+            this.descriptionNameLabel = new System.Windows.Forms.Label();
+            this.descriptionNameTextBox = new System.Windows.Forms.TextBox();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.generatedLabel = new System.Windows.Forms.Label();
             this.addDialoguePanel = new System.Windows.Forms.Panel();
             this.removeCheckedDialogueButton = new System.Windows.Forms.Button();
             this.dialogueCheckedList = new System.Windows.Forms.CheckedListBox();
@@ -92,6 +92,7 @@
             this.conversationTextBox = new System.Windows.Forms.TextBox();
             this.addConversationLabel = new System.Windows.Forms.Label();
             this.clearAllButton = new System.Windows.Forms.Button();
+            this.objectNameErrorLabel = new System.Windows.Forms.Label();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
@@ -200,7 +201,7 @@
             // 
             this.shortDescPanel.Controls.Add(this.shortDescLabel);
             this.shortDescPanel.Controls.Add(this.shortDescTextBox);
-            this.shortDescPanel.Location = new System.Drawing.Point(24, 81);
+            this.shortDescPanel.Location = new System.Drawing.Point(24, 89);
             this.shortDescPanel.Name = "shortDescPanel";
             this.shortDescPanel.Size = new System.Drawing.Size(336, 24);
             this.shortDescPanel.TabIndex = 5;
@@ -319,6 +320,16 @@
             this.exitsPanel.Size = new System.Drawing.Size(258, 297);
             this.exitsPanel.TabIndex = 11;
             // 
+            // removeExitsButton
+            // 
+            this.removeExitsButton.Location = new System.Drawing.Point(6, 266);
+            this.removeExitsButton.Name = "removeExitsButton";
+            this.removeExitsButton.Size = new System.Drawing.Size(162, 23);
+            this.removeExitsButton.TabIndex = 15;
+            this.removeExitsButton.Text = "Remove checked exits";
+            this.removeExitsButton.UseVisualStyleBackColor = true;
+            this.removeExitsButton.Click += new System.EventHandler(this.removeExitsButton_Click);
+            // 
             // exitLocationLabel
             // 
             this.exitLocationLabel.AutoEllipsis = true;
@@ -359,16 +370,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // removeExitsButton
-            // 
-            this.removeExitsButton.Location = new System.Drawing.Point(6, 266);
-            this.removeExitsButton.Name = "removeExitsButton";
-            this.removeExitsButton.Size = new System.Drawing.Size(162, 23);
-            this.removeExitsButton.TabIndex = 15;
-            this.removeExitsButton.Text = "Remove checked exits";
-            this.removeExitsButton.UseVisualStyleBackColor = true;
-            this.removeExitsButton.Click += new System.EventHandler(this.removeExitsButton_Click);
             // 
             // itemPickupCheckBox
             // 
@@ -495,47 +496,24 @@
             this.descriptionPanel.Size = new System.Drawing.Size(280, 367);
             this.descriptionPanel.TabIndex = 15;
             // 
-            // descriptionLabel
+            // removeCheckedDescriptionsButton
             // 
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(3, 3);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(158, 13);
-            this.descriptionLabel.TabIndex = 0;
-            this.descriptionLabel.Text = "Add a description to a room item";
+            this.removeCheckedDescriptionsButton.Location = new System.Drawing.Point(6, 339);
+            this.removeCheckedDescriptionsButton.Name = "removeCheckedDescriptionsButton";
+            this.removeCheckedDescriptionsButton.Size = new System.Drawing.Size(215, 23);
+            this.removeCheckedDescriptionsButton.TabIndex = 17;
+            this.removeCheckedDescriptionsButton.Text = "Remove checked Descriptions";
+            this.removeCheckedDescriptionsButton.UseVisualStyleBackColor = true;
+            this.removeCheckedDescriptionsButton.Click += new System.EventHandler(this.removeCheckedDescriptionsButton_Click);
             // 
-            // descriptionNameTextBox
+            // descriptionCheckedList
             // 
-            this.descriptionNameTextBox.Location = new System.Drawing.Point(6, 42);
-            this.descriptionNameTextBox.Name = "descriptionNameTextBox";
-            this.descriptionNameTextBox.Size = new System.Drawing.Size(155, 20);
-            this.descriptionNameTextBox.TabIndex = 1;
-            // 
-            // descriptionNameLabel
-            // 
-            this.descriptionNameLabel.AutoSize = true;
-            this.descriptionNameLabel.Location = new System.Drawing.Point(3, 24);
-            this.descriptionNameLabel.Name = "descriptionNameLabel";
-            this.descriptionNameLabel.Size = new System.Drawing.Size(56, 13);
-            this.descriptionNameLabel.TabIndex = 2;
-            this.descriptionNameLabel.Text = "Item name";
-            // 
-            // descriptionDescriptionLabel
-            // 
-            this.descriptionDescriptionLabel.AutoSize = true;
-            this.descriptionDescriptionLabel.Location = new System.Drawing.Point(3, 67);
-            this.descriptionDescriptionLabel.Name = "descriptionDescriptionLabel";
-            this.descriptionDescriptionLabel.Size = new System.Drawing.Size(81, 13);
-            this.descriptionDescriptionLabel.TabIndex = 3;
-            this.descriptionDescriptionLabel.Text = "Item description";
-            // 
-            // descriptionDescriptionTextBox
-            // 
-            this.descriptionDescriptionTextBox.Location = new System.Drawing.Point(6, 85);
-            this.descriptionDescriptionTextBox.Multiline = true;
-            this.descriptionDescriptionTextBox.Name = "descriptionDescriptionTextBox";
-            this.descriptionDescriptionTextBox.Size = new System.Drawing.Size(260, 72);
-            this.descriptionDescriptionTextBox.TabIndex = 4;
+            this.descriptionCheckedList.CheckOnClick = true;
+            this.descriptionCheckedList.FormattingEnabled = true;
+            this.descriptionCheckedList.Location = new System.Drawing.Point(6, 164);
+            this.descriptionCheckedList.Name = "descriptionCheckedList";
+            this.descriptionCheckedList.Size = new System.Drawing.Size(260, 169);
+            this.descriptionCheckedList.TabIndex = 6;
             // 
             // addDescriptionButton
             // 
@@ -547,14 +525,47 @@
             this.addDescriptionButton.UseVisualStyleBackColor = true;
             this.addDescriptionButton.Click += new System.EventHandler(this.addDescriptionButton_Click);
             // 
-            // descriptionCheckedList
+            // descriptionDescriptionTextBox
             // 
-            this.descriptionCheckedList.CheckOnClick = true;
-            this.descriptionCheckedList.FormattingEnabled = true;
-            this.descriptionCheckedList.Location = new System.Drawing.Point(6, 164);
-            this.descriptionCheckedList.Name = "descriptionCheckedList";
-            this.descriptionCheckedList.Size = new System.Drawing.Size(260, 169);
-            this.descriptionCheckedList.TabIndex = 6;
+            this.descriptionDescriptionTextBox.Location = new System.Drawing.Point(6, 85);
+            this.descriptionDescriptionTextBox.Multiline = true;
+            this.descriptionDescriptionTextBox.Name = "descriptionDescriptionTextBox";
+            this.descriptionDescriptionTextBox.Size = new System.Drawing.Size(260, 72);
+            this.descriptionDescriptionTextBox.TabIndex = 4;
+            // 
+            // descriptionDescriptionLabel
+            // 
+            this.descriptionDescriptionLabel.AutoSize = true;
+            this.descriptionDescriptionLabel.Location = new System.Drawing.Point(3, 67);
+            this.descriptionDescriptionLabel.Name = "descriptionDescriptionLabel";
+            this.descriptionDescriptionLabel.Size = new System.Drawing.Size(81, 13);
+            this.descriptionDescriptionLabel.TabIndex = 3;
+            this.descriptionDescriptionLabel.Text = "Item description";
+            // 
+            // descriptionNameLabel
+            // 
+            this.descriptionNameLabel.AutoSize = true;
+            this.descriptionNameLabel.Location = new System.Drawing.Point(3, 24);
+            this.descriptionNameLabel.Name = "descriptionNameLabel";
+            this.descriptionNameLabel.Size = new System.Drawing.Size(56, 13);
+            this.descriptionNameLabel.TabIndex = 2;
+            this.descriptionNameLabel.Text = "Item name";
+            // 
+            // descriptionNameTextBox
+            // 
+            this.descriptionNameTextBox.Location = new System.Drawing.Point(6, 42);
+            this.descriptionNameTextBox.Name = "descriptionNameTextBox";
+            this.descriptionNameTextBox.Size = new System.Drawing.Size(155, 20);
+            this.descriptionNameTextBox.TabIndex = 1;
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Location = new System.Drawing.Point(3, 3);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(158, 13);
+            this.descriptionLabel.TabIndex = 0;
+            this.descriptionLabel.Text = "Add a description to a room item";
             // 
             // generatedLabel
             // 
@@ -562,16 +573,6 @@
             this.generatedLabel.Name = "generatedLabel";
             this.generatedLabel.Size = new System.Drawing.Size(294, 23);
             this.generatedLabel.TabIndex = 16;
-            // 
-            // removeCheckedDescriptionsButton
-            // 
-            this.removeCheckedDescriptionsButton.Location = new System.Drawing.Point(6, 339);
-            this.removeCheckedDescriptionsButton.Name = "removeCheckedDescriptionsButton";
-            this.removeCheckedDescriptionsButton.Size = new System.Drawing.Size(215, 23);
-            this.removeCheckedDescriptionsButton.TabIndex = 17;
-            this.removeCheckedDescriptionsButton.Text = "Remove checked Descriptions";
-            this.removeCheckedDescriptionsButton.UseVisualStyleBackColor = true;
-            this.removeCheckedDescriptionsButton.Click += new System.EventHandler(this.removeCheckedDescriptionsButton_Click);
             // 
             // addDialoguePanel
             // 
@@ -717,11 +718,21 @@
             this.clearAllButton.UseVisualStyleBackColor = true;
             this.clearAllButton.Click += new System.EventHandler(this.clearAllButton_Click);
             // 
+            // objectNameErrorLabel
+            // 
+            this.objectNameErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.objectNameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.objectNameErrorLabel.Location = new System.Drawing.Point(27, 53);
+            this.objectNameErrorLabel.Name = "objectNameErrorLabel";
+            this.objectNameErrorLabel.Size = new System.Drawing.Size(330, 34);
+            this.objectNameErrorLabel.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.objectNameErrorLabel);
             this.Controls.Add(this.clearAllButton);
             this.Controls.Add(this.generatedLabel);
             this.Controls.Add(this.descriptionPanel);
@@ -832,6 +843,7 @@
         private System.Windows.Forms.TextBox conversationTextBox;
         private System.Windows.Forms.Label addConversationLabel;
         private System.Windows.Forms.Button clearAllButton;
+        private System.Windows.Forms.Label objectNameErrorLabel;
     }
 }
 

@@ -70,7 +70,10 @@ namespace WindowsFormsApplication1
 
             string gettablesString = "";
             string npcString = "";
-            if(objectType == ObjectType.ROOM)
+            string dialogueString = "";
+            string conversationString = "";
+
+            if (objectType == ObjectType.ROOM)
             {
                 if (exits.Count > 0)
                     parseExits();
@@ -78,6 +81,13 @@ namespace WindowsFormsApplication1
                     gettablesString = parseGettables();
                 if (npcs.Count > 0)
                     npcString = parseNPCs();
+            }
+            else if (objectType == ObjectType.NPC)
+            {
+                if (dialogue.Count > 0)
+                    dialogueString = parseDialogue();
+                if (conversations.Count > 0)
+                    conversationString = parseConversations();
             }
             
             try
@@ -170,6 +180,29 @@ namespace WindowsFormsApplication1
                             {
                                 sw.WriteLine("            items['" + pair.Key.Trim().ToLower() + "'] = '" + pair.Value + "';");
                             }
+                            sw.WriteLine("        }");
+                            sw.WriteLine("        ");
+                        }
+                    }
+                    else if (objectType == ObjectType.NPC)
+                    {
+                        if (dialogueString.Length > 0)
+                        {
+                            sw.WriteLine("        override public function setDialogue():void");
+                            sw.WriteLine("        {");
+                            sw.WriteLine("			dialogue = [");
+                            sw.WriteLine(dialogueString);
+                            sw.WriteLine("			];");
+                            sw.WriteLine("        }");
+                            sw.WriteLine("        ");
+                        }
+                        if (conversationString.Length > 0)
+                        {
+                            sw.WriteLine("        override public function setConversations():void");
+                            sw.WriteLine("        {");
+                            sw.WriteLine("			conversations = [");
+                            sw.WriteLine(conversationString);
+                            sw.WriteLine("			];");
                             sw.WriteLine("        }");
                             sw.WriteLine("        ");
                         }
@@ -409,6 +442,22 @@ namespace WindowsFormsApplication1
             return false;
         }
 
+        private string parseDialogue()
+        {
+            string dialogueString = "";
+            foreach (string d in dialogue)
+            {
+                dialogueString += "				'" + d + "',\n";
+            }
+
+            if (dialogueString.Length > 0)
+            {
+                dialogueString = dialogueString.Substring(0, dialogueString.Length - 2);
+            }
+
+            return dialogueString;
+        }
+
 // Manipulate the conversations of an NPC
         public void addConversations(string conversationText)
         {
@@ -431,6 +480,22 @@ namespace WindowsFormsApplication1
             }
 
             return false;
+        }
+
+        private string parseConversations()
+        {
+            string conversationString = "";
+            foreach (string c in conversations)
+            {
+                conversationString += "				'" + c + "',\n";
+            }
+
+            if (conversationString.Length > 0)
+            {
+                conversationString = conversationString.Substring(0, conversationString.Length - 2);
+            }
+
+            return conversationString;
         }
 
 

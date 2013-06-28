@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -78,6 +79,12 @@ namespace WindowsFormsApplication1
                 asGenerator.generateAS();
                 resetAllFields();
             }
+        }
+
+        private Boolean validateObjectName(string objectName)
+        {
+            Regex re = new Regex("^[0-9a-zA-Z]+$");
+            return (re.IsMatch(objectNameTextBox.Text));
         }
 
         private void clearAllButton_Click(object sender, EventArgs e)
@@ -166,6 +173,17 @@ namespace WindowsFormsApplication1
 
         private void objectName_TextChanged(object sender, EventArgs e)
         {
+            if (validateObjectName(objectNameTextBox.Text))
+            {
+                generateButton.Enabled = true;
+                objectNameErrorLabel.Text = "";
+            }
+            else
+            {
+                generateButton.Enabled = false;
+                objectNameErrorLabel.Text = "Object name cannot contain spaces or symbols. You cannot generate this object until these are removed.";
+            }
+
             asGenerator.setObjectName(objectNameTextBox.Text);
         }
 
