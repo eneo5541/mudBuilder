@@ -100,6 +100,17 @@
             this.actionCheckedList = new System.Windows.Forms.CheckedListBox();
             this.addActionLabel = new System.Windows.Forms.Label();
             this.addActionButton = new System.Windows.Forms.Button();
+            this.actionViewPanel = new System.Windows.Forms.Panel();
+            this.actionCancelButton = new System.Windows.Forms.Button();
+            this.actionConfirmButton = new System.Windows.Forms.Button();
+            this.actionViewLabel = new System.Windows.Forms.Label();
+            this.actionKeywordPanel = new System.Windows.Forms.Panel();
+            this.actionRemoveCheckedKeywordButton = new System.Windows.Forms.Button();
+            this.actionKeywordCheckedList = new System.Windows.Forms.CheckedListBox();
+            this.actionKeywordButton = new System.Windows.Forms.Button();
+            this.actionKeywordsLabel = new System.Windows.Forms.Label();
+            this.actionKeywordTextBox = new System.Windows.Forms.TextBox();
+            this.addActionKeywordLabel = new System.Windows.Forms.Label();
             this.objectTypePanel.SuspendLayout();
             this.objectNamePanel.SuspendLayout();
             this.shortDescPanel.SuspendLayout();
@@ -113,6 +124,8 @@
             this.addConversationPanel.SuspendLayout();
             this.mainViewPanel.SuspendLayout();
             this.addActionPanel.SuspendLayout();
+            this.actionViewPanel.SuspendLayout();
+            this.actionKeywordPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generateButton
@@ -819,6 +832,113 @@
             this.addActionButton.UseVisualStyleBackColor = true;
             this.addActionButton.Click += new System.EventHandler(this.addActionButton_Click);
             // 
+            // actionViewPanel
+            // 
+            this.actionViewPanel.Controls.Add(this.actionKeywordPanel);
+            this.actionViewPanel.Controls.Add(this.actionViewLabel);
+            this.actionViewPanel.Controls.Add(this.actionConfirmButton);
+            this.actionViewPanel.Controls.Add(this.actionCancelButton);
+            this.actionViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.actionViewPanel.Location = new System.Drawing.Point(0, 0);
+            this.actionViewPanel.Name = "actionViewPanel";
+            this.actionViewPanel.Size = new System.Drawing.Size(1008, 730);
+            this.actionViewPanel.TabIndex = 23;
+            // 
+            // actionCancelButton
+            // 
+            this.actionCancelButton.Location = new System.Drawing.Point(12, 695);
+            this.actionCancelButton.Name = "actionCancelButton";
+            this.actionCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.actionCancelButton.TabIndex = 0;
+            this.actionCancelButton.Text = "Cancel";
+            this.actionCancelButton.UseVisualStyleBackColor = true;
+            this.actionCancelButton.Click += new System.EventHandler(this.actionCancelButton_Click);
+            // 
+            // actionConfirmButton
+            // 
+            this.actionConfirmButton.Location = new System.Drawing.Point(921, 695);
+            this.actionConfirmButton.Name = "actionConfirmButton";
+            this.actionConfirmButton.Size = new System.Drawing.Size(75, 23);
+            this.actionConfirmButton.TabIndex = 1;
+            this.actionConfirmButton.Text = "Confirm";
+            this.actionConfirmButton.UseVisualStyleBackColor = true;
+            this.actionConfirmButton.Click += new System.EventHandler(this.actionConfirmButton_Click);
+            // 
+            // actionViewLabel
+            // 
+            this.actionViewLabel.Location = new System.Drawing.Point(12, 9);
+            this.actionViewLabel.Name = "actionViewLabel";
+            this.actionViewLabel.Size = new System.Drawing.Size(443, 23);
+            this.actionViewLabel.TabIndex = 2;
+            // 
+            // actionKeywordPanel
+            // 
+            this.actionKeywordPanel.Controls.Add(this.actionRemoveCheckedKeywordButton);
+            this.actionKeywordPanel.Controls.Add(this.actionKeywordCheckedList);
+            this.actionKeywordPanel.Controls.Add(this.actionKeywordButton);
+            this.actionKeywordPanel.Controls.Add(this.actionKeywordsLabel);
+            this.actionKeywordPanel.Controls.Add(this.actionKeywordTextBox);
+            this.actionKeywordPanel.Controls.Add(this.addActionKeywordLabel);
+            this.actionKeywordPanel.Location = new System.Drawing.Point(12, 34);
+            this.actionKeywordPanel.Name = "actionKeywordPanel";
+            this.actionKeywordPanel.Size = new System.Drawing.Size(280, 336);
+            this.actionKeywordPanel.TabIndex = 16;
+            // 
+            // actionRemoveCheckedKeywordButton
+            // 
+            this.actionRemoveCheckedKeywordButton.Location = new System.Drawing.Point(6, 301);
+            this.actionRemoveCheckedKeywordButton.Name = "actionRemoveCheckedKeywordButton";
+            this.actionRemoveCheckedKeywordButton.Size = new System.Drawing.Size(215, 23);
+            this.actionRemoveCheckedKeywordButton.TabIndex = 17;
+            this.actionRemoveCheckedKeywordButton.Text = "Remove checked keyword lists";
+            this.actionRemoveCheckedKeywordButton.UseVisualStyleBackColor = true;
+            this.actionRemoveCheckedKeywordButton.Click += new System.EventHandler(this.actionRemoveCheckedKeywordButton_Click);
+            // 
+            // actionKeywordCheckedList
+            // 
+            this.actionKeywordCheckedList.CheckOnClick = true;
+            this.actionKeywordCheckedList.FormattingEnabled = true;
+            this.actionKeywordCheckedList.Location = new System.Drawing.Point(6, 125);
+            this.actionKeywordCheckedList.Name = "actionKeywordCheckedList";
+            this.actionKeywordCheckedList.Size = new System.Drawing.Size(260, 169);
+            this.actionKeywordCheckedList.TabIndex = 6;
+            // 
+            // actionKeywordButton
+            // 
+            this.actionKeywordButton.Location = new System.Drawing.Point(167, 14);
+            this.actionKeywordButton.Name = "actionKeywordButton";
+            this.actionKeywordButton.Size = new System.Drawing.Size(99, 23);
+            this.actionKeywordButton.TabIndex = 5;
+            this.actionKeywordButton.Text = "Add keyword list";
+            this.actionKeywordButton.UseVisualStyleBackColor = true;
+            this.actionKeywordButton.Click += new System.EventHandler(this.actionKeywordButton_Click);
+            // 
+            // actionKeywordsLabel
+            // 
+            this.actionKeywordsLabel.AutoSize = true;
+            this.actionKeywordsLabel.Location = new System.Drawing.Point(3, 24);
+            this.actionKeywordsLabel.Name = "actionKeywordsLabel";
+            this.actionKeywordsLabel.Size = new System.Drawing.Size(63, 13);
+            this.actionKeywordsLabel.TabIndex = 2;
+            this.actionKeywordsLabel.Text = "Keyword list";
+            // 
+            // actionKeywordTextBox
+            // 
+            this.actionKeywordTextBox.Location = new System.Drawing.Point(6, 42);
+            this.actionKeywordTextBox.Multiline = true;
+            this.actionKeywordTextBox.Name = "actionKeywordTextBox";
+            this.actionKeywordTextBox.Size = new System.Drawing.Size(260, 75);
+            this.actionKeywordTextBox.TabIndex = 1;
+            // 
+            // addActionKeywordLabel
+            // 
+            this.addActionKeywordLabel.AutoSize = true;
+            this.addActionKeywordLabel.Location = new System.Drawing.Point(3, 3);
+            this.addActionKeywordLabel.Name = "addActionKeywordLabel";
+            this.addActionKeywordLabel.Size = new System.Drawing.Size(106, 13);
+            this.addActionKeywordLabel.TabIndex = 0;
+            this.addActionKeywordLabel.Text = "Add action keywords";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -826,6 +946,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this.generatedLabel);
             this.Controls.Add(this.mainViewPanel);
+            this.Controls.Add(this.actionViewPanel);
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "World Generator";
@@ -854,6 +975,9 @@
             this.mainViewPanel.ResumeLayout(false);
             this.addActionPanel.ResumeLayout(false);
             this.addActionPanel.PerformLayout();
+            this.actionViewPanel.ResumeLayout(false);
+            this.actionKeywordPanel.ResumeLayout(false);
+            this.actionKeywordPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -932,6 +1056,17 @@
         private System.Windows.Forms.CheckedListBox actionCheckedList;
         private System.Windows.Forms.Label addActionLabel;
         private System.Windows.Forms.Button addActionButton;
+        private System.Windows.Forms.Panel actionViewPanel;
+        private System.Windows.Forms.Label actionViewLabel;
+        private System.Windows.Forms.Button actionConfirmButton;
+        private System.Windows.Forms.Button actionCancelButton;
+        private System.Windows.Forms.Panel actionKeywordPanel;
+        private System.Windows.Forms.Button actionRemoveCheckedKeywordButton;
+        private System.Windows.Forms.CheckedListBox actionKeywordCheckedList;
+        private System.Windows.Forms.Button actionKeywordButton;
+        private System.Windows.Forms.Label actionKeywordsLabel;
+        private System.Windows.Forms.TextBox actionKeywordTextBox;
+        private System.Windows.Forms.Label addActionKeywordLabel;
     }
 }
 

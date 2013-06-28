@@ -27,7 +27,8 @@ namespace WindowsFormsApplication1
             asGenerator = new ASGenerator();
             fileName = "";
             setLayout(ObjectType.ROOM);
-            
+            mainViewPanel.Visible = true;
+            actionViewPanel.Visible = false;
         }
 
         private void resetAllFields()
@@ -499,6 +500,8 @@ namespace WindowsFormsApplication1
         private void addActionButton_Click(object sender, EventArgs e)
         {
             mainViewPanel.Visible = false;
+            actionViewPanel.Visible = true;
+            actionViewLabel.Text = "Adding an action to a " + layoutState.ToString().ToLower() + ".";
         }
 
         private void removeCheckedAction_Click(object sender, EventArgs e)
@@ -506,6 +509,37 @@ namespace WindowsFormsApplication1
             while (actionCheckedList.CheckedItems.Count > 0)
             {
                 actionCheckedList.Items.Remove(actionCheckedList.CheckedItems[0]);
+            }
+        }
+
+// Close the actions panel
+        private void actionCancelButton_Click(object sender, EventArgs e)
+        {
+            mainViewPanel.Visible = true;
+            actionViewPanel.Visible = false;
+        }
+
+        private void actionConfirmButton_Click(object sender, EventArgs e)
+        {
+            mainViewPanel.Visible = true;
+            actionViewPanel.Visible = false;
+        }
+
+// Manipulate the lists of keywords for each action
+        private void actionKeywordButton_Click(object sender, EventArgs e)
+        {
+            string parseNewLinesForAS = "'" + actionKeywordTextBox.Text.Replace(Environment.NewLine, "','") + "'";
+
+            actionKeywordCheckedList.Items.Add(parseNewLinesForAS, false);
+
+            actionKeywordTextBox.Text = "";
+        }
+
+        private void actionRemoveCheckedKeywordButton_Click(object sender, EventArgs e)
+        {
+            while (actionKeywordCheckedList.CheckedItems.Count > 0)
+            {
+                actionKeywordCheckedList.Items.Remove(actionKeywordCheckedList.CheckedItems[0]);
             }
         }
 
