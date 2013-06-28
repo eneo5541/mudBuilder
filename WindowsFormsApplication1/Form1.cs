@@ -711,6 +711,64 @@ namespace WindowsFormsApplication1
             }
         }
 
+// Manipulating NPCs in the request
+        Dictionary<string, string> addNpcs = new Dictionary<string, string>();
+        private void rAddNpcRemoveButton_Click(object sender, EventArgs e)
+        {
+            while (rAddNpcCheckList.CheckedItems.Count > 0)
+            {
+                rAddNpcCheckList.Items.Remove(rAddNpcCheckList.CheckedItems[0]);
+            }
+        }
+
+        Dictionary<string, string> moveNpcs = new Dictionary<string, string>();
+        private void rMoveNpcRemoveButton_Click(object sender, EventArgs e)
+        {
+            while (rMoveNpcCheckList.CheckedItems.Count > 0)
+            {
+                rMoveNpcCheckList.Items.Remove(rMoveNpcCheckList.CheckedItems[0]);
+            }
+        }
+
+        Dictionary<string, string> removeNpcs = new Dictionary<string, string>();
+        private void rRemoveNpcRemoveButton_Click(object sender, EventArgs e)
+        {
+            while (rRemoveNpcCheckList.CheckedItems.Count > 0)
+            {
+                rRemoveNpcCheckList.Items.Remove(rRemoveNpcCheckList.CheckedItems[0]);
+            }
+        }
+
+
+// Manipulating items in the request
+        Dictionary<string, string> addItem = new Dictionary<string, string>();
+        private void rAddItemRemoveButton_Click(object sender, EventArgs e)
+        {
+            while (rAddItemCheckList.CheckedItems.Count > 0)
+            {
+                rAddItemCheckList.Items.Remove(rAddItemCheckList.CheckedItems[0]);
+            }
+
+        }
+
+        Dictionary<string, string> moveItem = new Dictionary<string, string>();
+        private void rMoveItemRemoveButton_Click(object sender, EventArgs e)
+        {
+            while (rMoveItemCheckList.CheckedItems.Count > 0)
+            {
+                rMoveItemCheckList.Items.Remove(rMoveItemCheckList.CheckedItems[0]);
+            }
+        }
+
+        Dictionary<string, string> removeItem = new Dictionary<string, string>();
+        private void rRemoveItemRemoveButton_Click(object sender, EventArgs e)
+        {
+            while (rRemoveItemCheckList.CheckedItems.Count > 0)
+            {
+                rRemoveItemCheckList.Items.Remove(rRemoveItemCheckList.CheckedItems[0]);
+            }
+        }
+
 
 
     }
