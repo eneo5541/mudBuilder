@@ -31,6 +31,8 @@ namespace WindowsFormsApplication1
         Dictionary<string, string> npcs;
         Dictionary<string, string> gettables;
         Dictionary<string, string> descriptions;
+        List<String> dialogue;
+        List<String> conversations;
 
         public ASGenerator()
         {
@@ -40,7 +42,7 @@ namespace WindowsFormsApplication1
 
         public string getObjectName()
         {
-            return "objects." + package[0] + "\\" + package[1] + "\\" + objectName + ".as";
+            return "objects\\" + package[0] + "\\" + package[1] + "\\" + objectName + ".as";
         }
 
         private void resetAllFields()
@@ -57,6 +59,8 @@ namespace WindowsFormsApplication1
             npcs = new Dictionary<string, string>();
             gettables = new Dictionary<string, string>();
             descriptions = new Dictionary<string, string>();
+            dialogue = new List<String>();
+            conversations = new List<String>();
         }
 
         public void generateAS()
@@ -64,13 +68,12 @@ namespace WindowsFormsApplication1
             string pathString = @"C:\inetpub\wwwroot\asTest\src\objects\" + package[0] + @"\" + package[1] + @"\";
             string fileName = pathString + objectName + ".as";
 
-            string exitsString = "";
             string gettablesString = "";
             string npcString = "";
             if(objectType == ObjectType.ROOM)
             {
                 if (exits.Count > 0)
-                    exitsString = parseExits();
+                    parseExits();
                 if (gettables.Count > 0)
                     gettablesString = parseGettables();
                 if (npcs.Count > 0)
@@ -130,11 +133,16 @@ namespace WindowsFormsApplication1
                     sw.WriteLine("        ");
                     if (objectType == ObjectType.ROOM)
                     {
-                        if (exitsString.Length > 0)
+                        if (exits.Count > 0)
                         {
                             sw.WriteLine("        override public function setExits():void");
                             sw.WriteLine("        {");
-                            sw.WriteLine("            exits = { " + exitsString + " };");
+                            foreach (KeyValuePair<string, string> pair in exits)
+                            {
+                                string[] path = pair.Value.Split('\\');
+                                string exitName = path[path.Length - 1];
+                                sw.WriteLine("            exits['" + pair.Key.Trim().ToLower() + "'] = " + exitName.Substring(0, exitName.Length - 3) + ";");
+                            }
                             sw.WriteLine("        }");
                             sw.WriteLine("        ");
                         }
@@ -151,6 +159,17 @@ namespace WindowsFormsApplication1
                             sw.WriteLine("        override public function setGettables():void");
                             sw.WriteLine("        {");
                             sw.WriteLine("            gettables = [ " + gettablesString + " ];");
+                            sw.WriteLine("        }");
+                            sw.WriteLine("        ");
+                        } 
+                        if (descriptions.Count > 0)
+                        {
+                            sw.WriteLine("        override public function setItems():void");
+                            sw.WriteLine("        {");
+                            foreach (KeyValuePair<string, string> pair in descriptions)
+                            {
+                                sw.WriteLine("            items['" + pair.Key.Trim().ToLower() + "'] = '" + pair.Value + "';");
+                            }
                             sw.WriteLine("        }");
                             sw.WriteLine("        ");
                         }
@@ -240,6 +259,12 @@ namespace WindowsFormsApplication1
             this.longDesc = longDesc;
         }
 
+        public void setItemGettable(Boolean isGettable)
+        {
+            this.isGettable = isGettable;
+        }
+
+// Manipulate the exits of a room here
         public void addExit(string direction, string location)
         {
             exits.Add(direction, location);
@@ -261,31 +286,17 @@ namespace WindowsFormsApplication1
             return false;
         }
 
-        private string parseExits()
+        private void parseExits()
         {
-            string exitsString = "";
             foreach (KeyValuePair<string, string> pair in exits)
             {
                 string[] path = pair.Value.Split('\\');
                 string fileName = path[path.Length - 1];
-
-                exitsString += pair.Key.ToLower() + ":" + fileName.Substring(0, fileName.Length - 3) + ",\n					";
                 imports.Add("import objects.rooms." + package[1] + "." + fileName.Substring(0, fileName.Length - 3) + ";");
             }
-
-            if (exitsString.Length > 0)
-            {
-                exitsString = exitsString.Substring(0, exitsString.Length - 7);
-            }
-
-            return exitsString;
         }
 
-        public void setItemGettable(Boolean isGettable)
-        {
-            this.isGettable = isGettable;
-        }
-
+// Manipulate the NPCs of a room here
         public void addNPC(string npcName, string npcLocation)
         {
             npcs.Add(npcName, npcLocation);
@@ -321,8 +332,7 @@ namespace WindowsFormsApplication1
             return npcsString;
         }
 
-
-
+// Manipulate the gettables of a room here
         public void addGettable(string itemName, string itemLocation)
         {
             gettables.Add(itemName, itemLocation);
@@ -358,6 +368,70 @@ namespace WindowsFormsApplication1
             return gettableString;
         }
 
+
+// Manipulate the item descriptions of a room here
+        public void addDescription(string descName, string desc)
+        {
+            descriptions.Add(descName, desc);
+        }
+
+        public void removeDescription(string descName)
+        {
+            descriptions.Remove(descName);
+        }
+
+        public Boolean doesDescriptionExist(string descName)
+        {
+            return descriptions.ContainsValue(descName);
+        }
+
+// Manipulate the dialogue of an NPC
+        public void addDialogue(string dialogueText)
+        {
+            dialogue.Add(dialogueText);
+        }
+
+        public void removeDialogue(string dialogueText)
+        {
+            dialogue.Remove(dialogueText);
+        }
+
+        public Boolean doesDialogueExist(string dialogueText)
+        {
+            foreach (string d in dialogue)
+            {
+                if (dialogueText == d)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+// Manipulate the conversations of an NPC
+        public void addConversations(string conversationText)
+        {
+            conversations.Add(conversationText);
+        }
+
+        public void removeConversations(string conversationText)
+        {
+            conversations.Remove(conversationText);
+        }
+
+        public Boolean doesConversationExist(string conversationText)
+        {
+            foreach (string c in conversations)
+            {
+                if (conversationText == c) 
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
 
 

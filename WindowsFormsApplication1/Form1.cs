@@ -39,6 +39,11 @@ namespace WindowsFormsApplication1
             itemPickupCheckBox.Checked = true;
             directionTextBox.Text = "";
             exitLocationLabel.Text = "";
+            descriptionNameTextBox.Text = "";
+            descriptionDescriptionTextBox.Text = "";
+            dialogueTextBox.Text = "";
+            conversationTextBox.Text = "";
+
             while (exitsCheckedList.Items.Count > 0)
             {
                 exitsCheckedList.Items.Remove(exitsCheckedList.Items[0]);
@@ -51,16 +56,33 @@ namespace WindowsFormsApplication1
             {
                 addedItemsCheckedList.Items.Remove(addedItemsCheckedList.Items[0]);
             }
+            while (descriptionCheckedList.Items.Count > 0)
+            {
+                descriptionCheckedList.Items.Remove(descriptionCheckedList.Items[0]);
+            }
+            while (dialogueCheckedList.Items.Count > 0)
+            {
+                dialogueCheckedList.Items.Remove(dialogueCheckedList.Items[0]);
+            }
+            while (conversationCheckedList.Items.Count > 0)
+            {
+                conversationCheckedList.Items.Remove(conversationCheckedList.Items[0]);
+            }
         }
 
         private void generateButton_Click(object sender, EventArgs e)
         {
             if (checkTextIsValid(objectNameTextBox.Text, "Object Name") && checkDescriptionTextIsValid())
             {
+                generatedLabel.Text = "Created the file: ...\\" + asGenerator.getObjectName();
                 asGenerator.generateAS();
                 resetAllFields();
-                generatedLabel.Text = @"Create the file: ...\" + asGenerator.getObjectName();
             }
+        }
+
+        private void clearAllButton_Click(object sender, EventArgs e)
+        {
+            resetAllFields();
         }
 
         private Boolean checkTextIsValid(string targetText, string objectName)
@@ -114,6 +136,8 @@ namespace WindowsFormsApplication1
                     aliasPanel.Visible = true;
                     exitsPanel.Visible = false;
                     descriptionPanel.Visible = false;
+                    addDialoguePanel.Visible = false;
+                    addConversationPanel.Visible = false;
                     break;
                 case ObjectType.NPC:
                     itemPickupCheckBox.Visible = false;
@@ -122,6 +146,8 @@ namespace WindowsFormsApplication1
                     aliasPanel.Visible = true;
                     exitsPanel.Visible = false;
                     descriptionPanel.Visible = false;
+                    addDialoguePanel.Visible = true;
+                    addConversationPanel.Visible = true;
                     break;
                 case ObjectType.ROOM:
                     itemPickupCheckBox.Visible = false;
@@ -130,6 +156,8 @@ namespace WindowsFormsApplication1
                     aliasPanel.Visible = false;
                     exitsPanel.Visible = true;
                     descriptionPanel.Visible = true;
+                    addDialoguePanel.Visible = false;
+                    addConversationPanel.Visible = false;
                     break;
                 default:
                     return;
@@ -180,7 +208,14 @@ namespace WindowsFormsApplication1
                 e.Handled = true;
             }
         }
+
+        private void itemPickupCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            asGenerator.setItemGettable(itemPickupCheckBox.Checked);
+        }
+
         
+// Add exits
         private void findExitLocationButton_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog();
@@ -246,11 +281,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void itemPickupCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            asGenerator.setItemGettable(itemPickupCheckBox.Checked);
-        }
-
+// Add NPCs
         private void addNPCsButton_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog();
@@ -295,7 +326,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-
+// Add gettable items
         private void addItemButton_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog();
@@ -339,6 +370,115 @@ namespace WindowsFormsApplication1
                 addedItemsCheckedList.Items.Remove(addedItemsCheckedList.CheckedItems[0]);
             }
         }
+
+// Add descriptions to a room
+        private void addDescriptionButton_Click(object sender, EventArgs e)
+        {
+            string descriptionName = descriptionNameTextBox.Text;
+            string descriptionDescription = descriptionDescriptionTextBox.Text;
+
+            if (!checkTextIsValid(descriptionName, "Item name"))
+                return;
+
+            if (descriptionDescription == "" || descriptionDescription == " ")
+            {
+                System.Windows.Forms.MessageBox.Show("The item description cannot be left blank.");
+                return;
+            }
+
+            if (asGenerator.doesDescriptionExist(descriptionName))
+            {
+                System.Windows.Forms.MessageBox.Show("This item already has a description.");
+                return;
+            }
+
+            descriptionCheckedList.Items.Add(descriptionName + " - " + descriptionDescription, false);
+
+            asGenerator.addDescription(descriptionName, descriptionDescription);
+
+            descriptionNameTextBox.Text = descriptionDescriptionTextBox.Text = "";
+        }
+
+        private void removeCheckedDescriptionsButton_Click(object sender, EventArgs e)
+        {
+            while (descriptionCheckedList.CheckedItems.Count > 0)
+            {
+                string[] path = descriptionCheckedList.CheckedItems[0].ToString().Split('.');
+                asGenerator.removeDescription(path[0].Trim());
+
+                descriptionCheckedList.Items.Remove(descriptionCheckedList.CheckedItems[0]);
+            }
+        }
+
+// Add dialogue to an NPC
+        private void addDialogueButton_Click(object sender, EventArgs e)
+        {
+            string dialogueText = dialogueTextBox.Text;
+
+            if (dialogueText == "" || dialogueText == " ")
+            {
+                System.Windows.Forms.MessageBox.Show("The NPC's dialogue cannot be left blank.");
+                return;
+            }
+
+            if (asGenerator.doesDialogueExist(dialogueText))
+            {
+                System.Windows.Forms.MessageBox.Show("This dialogue has already been added.");
+                return;
+            }
+
+            dialogueCheckedList.Items.Add(dialogueText, false);
+
+            asGenerator.addDialogue(dialogueText);
+
+            dialogueTextBox.Text = "";
+        }
+
+        private void removeCheckedDialogueButton_Click(object sender, EventArgs e)
+        {
+            while (dialogueCheckedList.CheckedItems.Count > 0)
+            {
+                asGenerator.removeDescription(dialogueCheckedList.CheckedItems[0].ToString());
+
+                dialogueCheckedList.Items.Remove(dialogueCheckedList.CheckedItems[0]);
+            }
+        }
+
+// Add a conversation to an NPC
+        private void addConversationButton_Click(object sender, EventArgs e)
+        {
+            string conversationText = conversationTextBox.Text;
+
+            if (conversationText == "" || conversationText == " ")
+            {
+                System.Windows.Forms.MessageBox.Show("The NPC's conversation cannot be left blank.");
+                return;
+            }
+
+            if (asGenerator.doesDialogueExist(conversationText))
+            {
+                System.Windows.Forms.MessageBox.Show("This conversation has already been added.");
+                return;
+            }
+
+            conversationCheckedList.Items.Add(conversationText, false);
+
+            asGenerator.addConversations(conversationText);
+
+            conversationTextBox.Text = "";
+        }
+
+        private void removeCheckedConversationsButton_Click(object sender, EventArgs e)
+        {
+            while (conversationCheckedList.CheckedItems.Count > 0)
+            {
+                asGenerator.removeConversations(conversationCheckedList.CheckedItems[0].ToString());
+
+                conversationCheckedList.Items.Remove(conversationCheckedList.CheckedItems[0]);
+            }
+        }
+
+
 
     }
     
