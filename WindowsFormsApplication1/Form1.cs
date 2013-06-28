@@ -231,8 +231,7 @@ namespace WindowsFormsApplication1
         {
             asGenerator.setItemGettable(itemPickupCheckBox.Checked);
         }
-
-        
+ 
 // Add exits
         private void findExitLocationButton_Click(object sender, EventArgs e)
         {
@@ -495,6 +494,21 @@ namespace WindowsFormsApplication1
                 conversationCheckedList.Items.Remove(conversationCheckedList.CheckedItems[0]);
             }
         }
+
+// Manipulate the actions for objects
+        private void addActionButton_Click(object sender, EventArgs e)
+        {
+            mainViewPanel.Visible = false;
+        }
+
+        private void removeCheckedAction_Click(object sender, EventArgs e)
+        {
+            while (actionCheckedList.CheckedItems.Count > 0)
+            {
+                actionCheckedList.Items.Remove(actionCheckedList.CheckedItems[0]);
+            }
+        }
+
 
 
 
