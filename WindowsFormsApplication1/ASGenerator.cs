@@ -77,6 +77,7 @@ namespace WindowsFormsApplication1
             string npcString = "";
             string dialogueString = "";
             string conversationString = "";
+            string actionsString = "";
 
             if (objectType == ObjectType.ROOM)
             {
@@ -86,6 +87,8 @@ namespace WindowsFormsApplication1
                     gettablesString = parseGettables();
                 if (npcs.Count > 0)
                     npcString = parseNPCs();
+                if (actions.Count > 0)
+                    actionsString = parseActions();
             }
             else if (objectType == ObjectType.NPC)
             {
@@ -95,8 +98,7 @@ namespace WindowsFormsApplication1
                     conversationString = parseConversations();
             }
 
-            System.Windows.Forms.MessageBox.Show(""+actions.Count);
-                    
+            return;        
             try
             {
                 if (!Directory.Exists(pathString))
@@ -213,6 +215,16 @@ namespace WindowsFormsApplication1
                             sw.WriteLine("        }");
                             sw.WriteLine("        ");
                         }
+                    }
+                    if (actions.Count > 0)
+                    {
+                        sw.WriteLine("        override public function setAction():void");
+                        sw.WriteLine("        {");
+                        sw.WriteLine("			actions = [");
+                        sw.WriteLine(actionsString);   // Also need to handle the imports for actions
+                        sw.WriteLine("			];");
+                        sw.WriteLine("        }");
+                        sw.WriteLine("        ");
                     }
                     sw.WriteLine("    }");
                     sw.WriteLine("    ");
@@ -514,6 +526,37 @@ namespace WindowsFormsApplication1
         public void removeAction(string actionName)
         {
             actions.Remove(actionName);
+        }
+
+        private string parseActions()
+        {
+            string actionsString = "";
+            foreach (KeyValuePair<string, ActionItem> pair in actions)
+            {
+                ActionItem action = pair.Value;
+
+                actionsString += "{\n" + action.compileKeywords();
+
+                if (action.requiredObject != null)
+                {
+                    actionsString = "\nrequired: " + action.requiredObject.compileParameter();
+                }
+
+                if (action.excludedObject != null)
+                {
+                    actionsString = "\nexcluded: " + action.excludedObject.compileParameter();
+                }
+
+                actionsString += action.compileResponse();
+                System.Windows.Forms.MessageBox.Show("" + actionsString);
+            }
+
+            if (actions.Count > 0)
+            {
+                actionsString = actionsString.Substring(0, actionsString.Length - 1);
+            }
+
+            return actionsString;
         }
 
     }

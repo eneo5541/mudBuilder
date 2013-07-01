@@ -74,16 +74,20 @@ namespace WindowsFormsApplication1
             {
                 conversationCheckedList.Items.Remove(conversationCheckedList.Items[0]);
             }
+            while (actionCheckedList.Items.Count > 0)
+            {
+                actionCheckedList.Items.Remove(actionCheckedList.Items[0]);
+            }
         }
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            if (checkTextIsValid(objectNameTextBox.Text, "Object Name") && checkDescriptionTextIsValid())
-            {
-                generatedLabel.Text = "Created the file: ...\\" + asGenerator.getObjectName();
+            //if (checkTextIsValid(objectNameTextBox.Text, "Object Name") && checkDescriptionTextIsValid())
+            //{
+           //     generatedLabel.Text = "Created the file: ...\\" + asGenerator.getObjectName();
                 asGenerator.generateAS();
-                resetAllFields();
-            }
+            //    resetAllFields();
+           // }
         }
 
         private Boolean validateObjectName(string objectName)
